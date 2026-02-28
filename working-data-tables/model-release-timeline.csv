@@ -1,0 +1,35 @@
+Release Date,Model,Organization,Series,Type
+2024-02-15,Gemini 1.5 Pro,Google,Gemini 1.5,Multimodal
+2024-03-04,Claude 3 Opus,Anthropic,Claude 3,Text/Reasoning
+2024-03-04,Claude 3 Sonnet,Anthropic,Claude 3,Text/Reasoning
+2024-03-04,Claude 3 Haiku,Anthropic,Claude 3,Text/Reasoning
+2024-04-09,Phi-3 Mini,Microsoft,Phi-3,Small/Efficient
+2024-04-18,Llama 3 8B/70B,Meta,Llama 3,Open Source
+2024-05-13,GPT-4o,OpenAI,GPT-4,Multimodal
+2024-06-20,Claude 3.5 Sonnet,Anthropic,Claude 3.5,Text/Reasoning
+2024-07-23,Llama 3.1 405B,Meta,Llama 3.1,Open Source
+2024-09-12,o1-preview,OpenAI,o1,Reasoning
+2024-10-22,Claude 3.5 Sonnet v2,Anthropic,Claude 3.5,Text/Reasoning
+2024-12-05,Gemini 2.0 Flash,Google,Gemini 2.0,Multimodal
+2024-12-20,o3 (preview),OpenAI,o3,Reasoning
+2025-01-20,DeepSeek R1,DeepSeek,R1,Reasoning/Open Source
+2025-02-18,Claude 3.7 Sonnet,Anthropic,Claude 3.7,Hybrid Reasoning
+2025-02-19,Grok 3,xAI,Grok 3,Text/Reasoning
+2025-02-27,GPT-4.5,OpenAI,GPT-4.5,Multimodal
+2025-04-05,Llama 4 Scout/Maverick,Meta,Llama 4,Open Source
+2025-04-05,Gemini 2.5 Pro,Google,Gemini 2.5,Reasoning/Multimodal
+2025-04-16,o3 / o4-mini,OpenAI,o3/o4,Reasoning
+2025-05-22,Claude Opus 4 / Sonnet 4,Anthropic,Claude 4,Hybrid Reasoning
+2025-06-17,Gemini 2.5 Flash,Google,Gemini 2.5,Small/Efficient
+2025-07-09,Grok 4,xAI,Grok 4,Reasoning
+2025-08-05,Claude Opus 4.1,Anthropic,Claude 4,Hybrid Reasoning
+2025-08-07,GPT-5,OpenAI,GPT-5,Multimodal
+2025-09-26,Grok 4 Fast,xAI,Grok 4,Reasoning/Efficient
+2025-09-29,Claude Sonnet 4.5,Anthropic,Claude 4.5,Hybrid Reasoning
+2025-11-18,Gemini 3.0 Pro,Google,Gemini 3.0,Reasoning/Multimodal
+2025-11-24,Claude Opus 4.5,Anthropic,Claude 4.5,Hybrid Reasoning
+2025-12-11,GPT-5.2,OpenAI,GPT-5.2,Multimodal/Reasoning
+2026-01-14,GPT-5.3-Codex,OpenAI,GPT-5.3,Agentic/Coding
+2026-02-05,Claude Opus 4.6,Anthropic,Claude 4.6,Hybrid Reasoning
+2026-02-17,Claude Sonnet 4.6,Anthropic,Claude 4.6,Hybrid Reasoning
+2026-02-19,Gemini 3.1 Pro,Google,Gemini 3.1,Reasoning/Multimodal

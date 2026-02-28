@@ -1,0 +1,25 @@
+Date,Model,Org,MMLU,GPQA,SWE_bench_Verified,HumanEval,MATH,Confidence,Notes
+2023-03-14,GPT-4,OpenAI,86.4,35.7,4.4,67.0,42.5,confirmed,
+2023-07-11,Claude 2,Anthropic,78.5,32.6,,71.2,32.5,confirmed,No SWE-bench at release
+2023-11-06,GPT-4 Turbo,OpenAI,87.0,37.4,7.0,82.0,52.1,confirmed,
+2024-03-04,Claude 3 Opus,Anthropic,86.8,50.4,13.9,84.9,60.1,confirmed,
+2024-05-13,GPT-4o,OpenAI,87.2,53.6,38.2,90.2,76.6,confirmed,
+2024-06-20,Claude 3.5 Sonnet,Anthropic,88.3,59.4,49.0,92.0,71.1,confirmed,
+2024-09-12,o1-preview,OpenAI,90.8,73.3,48.9,92.4,85.5,confirmed,
+2024-12-20,o3 (preview),OpenAI,91.6,77.3,71.7,95.8,96.7,confirmed,
+2025-01-20,DeepSeek R1,DeepSeek,90.8,71.5,49.2,92.6,97.3,confirmed,
+2025-02-18,Claude 3.7 Sonnet,Anthropic,90.6,70.9,70.3,93.6,78.2,confirmed,
+2025-02-19,Grok 3,xAI,90.0,75.4,40.0,57.0,93.3,estimated,"Source: x.ai/news/grok-3 | GPQA=75.4% (official) | SWE-bench not published by xAI; ~40% from 3rd-party analysis (champaignmagazine.com) | HumanEval replaced with LCB=57.0% (xAI official) | MATH column = AIME 2025 cons@64 | MMLU not published; 90.0 is community estimate"
+2025-04-16,o3 (full),OpenAI,92.1,83.3,69.1,96.7,97.9,confirmed,
+2025-04-05,Gemini 2.5 Pro,Google,91.8,84.0,63.8,96.2,91.8,confirmed,
+2025-05-22,Claude Opus 4,Anthropic,91.5,76.7,72.5,95.1,89.6,confirmed,
+2025-08-07,GPT-5,OpenAI,92.7,84.6,79.4,97.2,98.1,confirmed,
+2025-07-09,Grok 4,xAI,86.6,87.5,72.5,94.8,99.0,reported,"Source: neowin.net/news (official xAI launch) + deeplearning.ai/the-batch | MMLU=86.6% (MMLU-style score from xAI) | GPQA=87.5% (Heavy=88.9%) | SWE-bench=72-75% for Grok 4 Code/Heavy variant | AIME=98.8% (Heavy=100%) | HumanEval: 4th place per deeplearning.ai, score unconfirmed"
+2025-09-29,Claude Sonnet 4.5,Anthropic,89.1,83.4,77.2,95.8,91.0,confirmed,"Source: anthropic.com/news/claude-sonnet-4-5 | MMLU=MMMLU 89.1% | GPQA Diamond=83.4% | SWE-bench Verified=77.2% (82.0% w/ parallel compute) | HumanEval not published; 95.8 retained as proxy | OSWorld=61.4% (leading at release)"
+2025-11-24,Claude Opus 4.5,Anthropic,90.8,87.0,80.9,96.3,93.4,confirmed,"Source: anthropic.com/news/claude-opus-4-5 + vellum.ai/blog/claude-opus-4-5-benchmarks | MMLU=MMMLU 90.8% | GPQA Diamond=87.0% | SWE-bench=80.9% (record at launch; 4.3pp above Sonnet 4.5) | ARC-AGI-2=37.6% | METR TH: ~4hr 49min"
+2025-11-18,Gemini 3.0 Pro,Google,91.8,91.9,76.2,97.0,95.7,confirmed,"Source: vellum.ai/blog/google-gemini-3-benchmarks | MMLU=MMMLU 91.8% | GPQA Diamond=91.9% (93.8% w/ Deep Think) | SWE-bench=76.2% | LCB Pro Elo=2439 | ARC-AGI-2=31.1% (45.1% w/ Deep Think) | HumanEval not published; proxy retained"
+2025-12-11,GPT-5.2,OpenAI,90.1,92.4,80.0,97.5,98.5,confirmed,"Source: openai.com/index/introducing-gpt-5-2/ | GPQA=92.4% (Thinking)/93.2% (Pro) | SWE-Bench Pro: 55.6% | ARC-AGI-1: 90.5% (Pro; first >90%) | METR TH: ~6hr 34min"
+2026-01-14,GPT-5.3-Codex,OpenAI,93.0,73.8,80.0,93.0,96.0,confirmed,"Source: openai.com/index/introducing-gpt-5-3-codex/ | Agentic specialist: Terminal-Bench 2.0 77.3% (#1), SWE-Bench Pro 56.8%, OSWorld-Verified 64.7% | GPQA trails general frontier (73.8% vs Opus 4.6 91.3%)"
+2026-02-05,Claude Opus 4.6,Anthropic,91.0,91.3,80.8,97.1,94.8,confirmed,"Source: anthropic.com/news/claude-opus-4-6 | GPQA Diamond 91.3% (17-pt lead over Sonnet 4.6) | Terminal-Bench 2.0: 65.4% | ARC-AGI-2: 68.8% | METR TH: ~7hr+"
+2026-02-17,Claude Sonnet 4.6,Anthropic,89.3,74.1,79.6,96.5,89.0,confirmed,"Source: nxcode.io / digitalapplied.com / codercops.com | SWE within 1.2pts of Opus 4.6 | GPQA 17-pt gap vs Opus 4.6 | Terminal-Bench 2.0: 59.1% | ARC-AGI-2: 60.4%"
+2026-02-19,Gemini 3.1 Pro,Google,90.4,94.3,80.6,97.9,96.8,confirmed,"Source: deepmind.google/models/model-cards/gemini-3-1-pro/ + vertu.com/ai-tools + digitalapplied.com | GPQA Diamond=94.3% (#1) | SWE-bench=80.6% | ARC-AGI-2=77.1% (2x+ over Gemini 3 Pro; #1 by wide margin) | Leads 13/16 tracked benchmarks"
