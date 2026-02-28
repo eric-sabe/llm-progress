@@ -117,7 +117,7 @@ th_df, bm_df, tl_df = load_data()
 
 # ── Header ────────────────────────────────────────────────────────────────────
 st.markdown("# The Pace of Change in Agentic Coding")
-st.markdown('<p class="subtitle">A graduate lecture on exponential AI progress &nbsp;·&nbsp; 2023 – 2026</p>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle">Prepared for NCSU CSC510</p>', unsafe_allow_html=True)
 st.divider()
 
 # ── Tabs ──────────────────────────────────────────────────────────────────────
