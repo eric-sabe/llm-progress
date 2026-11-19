@@ -1,0 +1,36 @@
+Date,Model,Org,ARC_AGI_1,ARC_AGI_2,ARC_AGI_3_Standard,ARC_AGI_3_Adapter
+2025-11-18,Gemini 3 Pro,Google,75.0,31.1,,
+2025-11-24,Claude Opus 4.5,Anthropic,80.0,37.6,,
+2025-12-11,GPT-5.2,OpenAI,86.2,52.9,,
+2025-12-11,GPT-5.2 Pro,OpenAI,90.5,54.2,,
+2026-02-05,Claude Opus 4.6,Anthropic,94.0,69.2,0.5,
+2026-02-12,Gemini 3 Deep Think,Google,96.0,84.6,,
+2026-02-17,Claude Sonnet 4.6,Anthropic,86.5,60.4,,
+2026-02-19,Gemini 3.1 Pro Preview,Google,98.0,77.1,0.4,
+2026-03-04,GPT-5.4,OpenAI,93.7,74.0,0.2,
+2026-03-04,GPT-5.4 Pro,OpenAI,94.5,83.3,,
+2026-03-09,Grok 4.20,xAI,89.5,65.1,0.1,
+2026-04-16,Claude Opus 4.7,Anthropic,93.5,75.8,0.2,
+2026-04-22,GPT-5.5,OpenAI,95.0,85.0,0.4,
+2026-04-23,GPT-5.5 Pro,OpenAI,96.5,84.6,,
+2026-06-01,Claude Opus 4.8,Anthropic,92.5,72.1,1.5,
+2026-06-09,Claude Fable 5,Anthropic,98.5,89.2,,
+2026-07-09,GPT-5.6 Sol,OpenAI,97.5,92.5,7.8,
+2026-07-16,Kimi K3,Moonshot,94.5,60.4,,
+2026-07-16,Grok 4.5,xAI,87.2,52.6,0.3,
+2026-07-24,Claude Opus 5,Anthropic,97.5,90.4,30.2,
+2026-08-13,DeepSeek V4 Pro,DeepSeek,90.5,61.3,,
+2026-09-01,Claude Fable 5.1,Anthropic,97.5,90.0,,
+2026-09-02,GPT-6 Astra,OpenAI,98.5,95.0,62.7,99.9
+2026-09-21,Grok 4.7,xAI,90.2,61.4,1.8,10.0
+2026-09-22,Claude Opus 5.5,Anthropic,98.5,93.3,,
+2026-09-22,GPT-6 Sol,OpenAI,95.5,89.6,4.6,23.0
+2026-09-28,Claude Sonnet 5.5,Anthropic,96.5,83.9,24.3,72.4
+2026-09-29,GPT-6.1 Sol,OpenAI,98.5,94.2,52.7,96.4
+2026-10-07,Claude Haiku 5.5,Anthropic,89.0,61.3,0.5,2.8
+2026-10-13,Gemini 4 Argon,Google,98.5,91.2,49.8,97.5
+2026-10-17,DeepSeek V4.1 Flash,DeepSeek,94.5,78.1,0.2,5.8
+2026-11-09,Claude Fable 5.2,Anthropic,98.5,93.8,81.2,97.7
+2026-11-10,Gemini 4 Carbon,Google,98.5,94.2,65.1,99.1
+2026-11-17,GPT-6.2 Sol,OpenAI,97.5,85.8,54.9,98.2
+2026-11-17,GPT-6.2 Astra,OpenAI,98.5,95.8,70.3,100.0

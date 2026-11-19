@@ -1,40 +1,100 @@
-Release Date,Model,Organization,Series,Type
-2024-02-15,Gemini 1.5 Pro,Google,Gemini 1.5,Multimodal
-2024-03-04,Claude 3 Opus,Anthropic,Claude 3,Text/Reasoning
-2024-03-04,Claude 3 Sonnet,Anthropic,Claude 3,Text/Reasoning
-2024-03-04,Claude 3 Haiku,Anthropic,Claude 3,Text/Reasoning
-2024-04-09,Phi-3 Mini,Microsoft,Phi-3,Small/Efficient
-2024-04-18,Llama 3 8B/70B,Meta,Llama 3,Open Source
-2024-05-13,GPT-4o,OpenAI,GPT-4,Multimodal
-2024-06-20,Claude 3.5 Sonnet,Anthropic,Claude 3.5,Text/Reasoning
-2024-07-23,Llama 3.1 405B,Meta,Llama 3.1,Open Source
-2024-09-12,o1-preview,OpenAI,o1,Reasoning
-2024-10-22,Claude 3.5 Sonnet v2,Anthropic,Claude 3.5,Text/Reasoning
-2024-12-05,Gemini 2.0 Flash,Google,Gemini 2.0,Multimodal
-2024-12-20,o3 (preview),OpenAI,o3,Reasoning
-2025-01-20,DeepSeek R1,DeepSeek,R1,Reasoning/Open Source
-2025-02-18,Claude 3.7 Sonnet,Anthropic,Claude 3.7,Hybrid Reasoning
-2025-02-19,Grok 3,xAI,Grok 3,Text/Reasoning
-2025-02-27,GPT-4.5,OpenAI,GPT-4.5,Multimodal
-2025-04-05,Llama 4 Scout/Maverick,Meta,Llama 4,Open Source
-2025-04-05,Gemini 2.5 Pro,Google,Gemini 2.5,Reasoning/Multimodal
-2025-04-16,o3 / o4-mini,OpenAI,o3/o4,Reasoning
-2025-05-22,Claude Opus 4 / Sonnet 4,Anthropic,Claude 4,Hybrid Reasoning
-2025-06-17,Gemini 2.5 Flash,Google,Gemini 2.5,Small/Efficient
-2025-07-09,Grok 4,xAI,Grok 4,Reasoning
-2025-08-05,Claude Opus 4.1,Anthropic,Claude 4,Hybrid Reasoning
-2025-08-07,GPT-5,OpenAI,GPT-5,Multimodal
-2025-09-26,Grok 4 Fast,xAI,Grok 4,Reasoning/Efficient
-2025-09-29,Claude Sonnet 4.5,Anthropic,Claude 4.5,Hybrid Reasoning
-2025-11-18,Gemini 3.0 Pro,Google,Gemini 3.0,Reasoning/Multimodal
-2025-11-24,Claude Opus 4.5,Anthropic,Claude 4.5,Hybrid Reasoning
-2025-12-11,GPT-5.2,OpenAI,GPT-5.2,Multimodal/Reasoning
-2026-01-14,GPT-5.3-Codex,OpenAI,GPT-5.3,Agentic/Coding
-2026-02-05,Claude Opus 4.6,Anthropic,Claude 4.6,Hybrid Reasoning
-2026-02-17,Claude Sonnet 4.6,Anthropic,Claude 4.6,Hybrid Reasoning
-2026-02-19,Gemini 3.1 Pro,Google,Gemini 3.1,Reasoning/Multimodal
-2026-03-05,GPT-5.4,OpenAI,GPT-5.4,Multimodal/Reasoning
-2026-03-22,Grok 4.20,xAI,Grok 4,Reasoning/Realtime
-2026-04-08,Muse Spark,Meta,Muse,Multimodal
-2026-04-16,Claude Opus 4.7,Anthropic,Claude 4.7,Hybrid Reasoning
-2026-04-23,GPT-5.5,OpenAI,GPT-5.5,Agentic/Reasoning
+Release Date,Model,Organization,Series,Type,Access,Tier,Source_Quality
+2024-02-15,Gemini 1.5 Pro,Google,Gemini 1.5,Multimodal,GA,Flagship,legacy
+2024-03-04,Claude 3 Opus,Anthropic,Claude 3,Text/Reasoning,GA,Flagship,primary
+2024-03-04,Claude 3 Sonnet,Anthropic,Claude 3,Text/Reasoning,GA,Other,legacy
+2024-03-04,Claude 3 Haiku,Anthropic,Claude 3,Text/Reasoning,GA,Other,legacy
+2024-04-09,Phi-3 Mini,Microsoft,Phi-3,Small/Efficient,GA,Other,legacy
+2024-04-18,Llama 3 8B/70B,Meta,Llama 3,Open Source,Open weights,Flagship,legacy
+2024-05-13,GPT-4o,OpenAI,GPT-4,Multimodal,GA,Flagship,primary
+2024-06-20,Claude 3.5 Sonnet,Anthropic,Claude 3.5,Text/Reasoning,GA,Flagship,primary
+2024-07-23,Llama 3.1 405B,Meta,Llama 3.1,Open Source,Open weights,Flagship,legacy
+2024-09-12,o1-preview,OpenAI,o1,Reasoning,GA,Flagship,primary
+2024-10-22,Claude 3.5 Sonnet v2,Anthropic,Claude 3.5,Text/Reasoning,GA,Flagship,primary
+2024-12-05,Gemini 2.0 Flash,Google,Gemini 2.0,Multimodal,GA,Other,legacy
+2024-12-20,o3 (preview),OpenAI,o3,Reasoning,Preview,Flagship,legacy
+2025-01-20,DeepSeek R1,DeepSeek,R1,Reasoning/Open Source,Open weights,Flagship,primary
+2025-02-19,Grok 3,xAI,Grok 3,Text/Reasoning,GA,Flagship,legacy
+2025-02-24,Claude 3.7 Sonnet,Anthropic,Claude 3.7,Hybrid Reasoning,GA,Flagship,primary
+2025-02-27,GPT-4.5,OpenAI,GPT-4.5,Multimodal,GA,Other,legacy
+2025-04-05,Llama 4 Scout/Maverick,Meta,Llama 4,Open Source,Open weights,Flagship,legacy
+2025-04-05,Gemini 2.5 Pro,Google,Gemini 2.5,Reasoning/Multimodal,GA,Flagship,legacy
+2025-04-16,o3 / o4-mini,OpenAI,o3/o4,Reasoning,GA,Flagship,primary
+2025-05-22,Claude Opus 4 / Sonnet 4,Anthropic,Claude 4,Hybrid Reasoning,GA,Flagship,primary
+2025-06-17,Gemini 2.5 Flash,Google,Gemini 2.5,Small/Efficient,GA,Other,legacy
+2025-07-09,Grok 4,xAI,Grok 4,Reasoning,GA,Flagship,primary
+2025-07-11,Kimi K2,Moonshot,Kimi K2,Agentic/Open Source,Open weights,Flagship,secondary
+2025-07-22,Qwen3-Coder,Alibaba,Qwen3,Agentic/Open Source,Open weights,Flagship,secondary
+2025-07-28,GLM-4.5,Z.ai,GLM-4,Agentic/Open Source,Open weights,Flagship,secondary
+2025-08-05,Claude Opus 4.1,Anthropic,Claude 4,Hybrid Reasoning,GA,Other,primary
+2025-08-05,gpt-oss-120b,OpenAI,gpt-oss,Open Source,Open weights,Other,primary
+2025-08-07,GPT-5,OpenAI,GPT-5,Multimodal,GA,Flagship,primary
+2025-09-26,Grok 4 Fast,xAI,Grok 4,Reasoning/Efficient,GA,Other,legacy
+2025-09-29,Claude Sonnet 4.5,Anthropic,Claude 4.5,Hybrid Reasoning,GA,Flagship,primary
+2025-11-06,Kimi K2 Thinking,Moonshot,Kimi K2,Reasoning/Open Source,Open weights,Other,primary
+2025-11-18,Gemini 3.0 Pro,Google,Gemini 3.0,Reasoning/Multimodal,GA,Flagship,primary
+2025-11-19,GPT-5.1-Codex-Max,OpenAI,GPT-5.1,Agentic/Coding,GA,Other,primary
+2025-11-24,Claude Opus 4.5,Anthropic,Claude 4.5,Hybrid Reasoning,GA,Flagship,primary
+2025-12-01,DeepSeek V3.2,DeepSeek,V3,Open Source,Open weights,Other,secondary
+2025-12-11,GPT-5.2,OpenAI,GPT-5.2,Multimodal/Reasoning,GA,Flagship,primary
+2026-01-14,GPT-5.2-Codex,OpenAI,GPT-5.2,Agentic/Coding,GA,Other,primary
+2026-01-27,Kimi K2.5,Moonshot,Kimi K2,Agentic/Open Source,Open weights,Flagship,secondary
+2026-02-05,GPT-5.3-Codex,OpenAI,GPT-5.3,Agentic/Coding,GA,Flagship,primary
+2026-02-05,Claude Opus 4.6,Anthropic,Claude 4.6,Hybrid Reasoning,GA,Flagship,primary
+2026-02-12,GLM-5,Z.ai,GLM-5,Agentic/Open Source,Open weights,Flagship,primary
+2026-02-17,Claude Sonnet 4.6,Anthropic,Claude 4.6,Hybrid Reasoning,GA,Other,primary
+2026-02-19,Gemini 3.1 Pro Preview,Google,Gemini 3.1,Reasoning/Multimodal,Preview,Flagship,primary
+2026-03-05,GPT-5.4,OpenAI,GPT-5.4,Multimodal/Reasoning,GA,Flagship,primary
+2026-03-10,Grok 4.20,xAI,Grok 4,Reasoning/Realtime,GA,Flagship,primary
+2026-04-02,Gemma 4,Google,Gemma,Open Source,Open weights,Other,primary
+2026-04-07,Claude Mythos Preview,Anthropic,Mythos,Agentic/Cyber,Gated,Flagship,primary
+2026-04-07,GLM-5.1,Z.ai,GLM-5,Agentic/Open Source,Open weights,Other,secondary
+2026-04-08,Muse Spark,Meta,Muse,Multimodal,GA,Flagship,secondary
+2026-04-16,Claude Opus 4.7,Anthropic,Claude 4.7,Hybrid Reasoning,GA,Flagship,primary
+2026-04-16,Qwen3.6-35B-A3B,Alibaba,Qwen3.6,Agentic/Open Source,Open weights,Flagship,secondary
+2026-04-20,Kimi K2.6,Moonshot,Kimi K2,Agentic/Open Source,Open weights,Other,secondary
+2026-04-22,DeepSeek V4-Pro / V4-Flash,DeepSeek,V4,Agentic/Open Source,Open weights,Flagship,primary
+2026-04-23,GPT-5.5,OpenAI,GPT-5.5,Agentic/Reasoning,GA,Flagship,primary
+2026-05-19,Gemini 3.5 Flash,Google,Gemini 3.5,Small/Efficient,GA,Other,primary
+2026-05-28,Claude Opus 4.8,Anthropic,Claude 4.8,Hybrid Reasoning,GA,Other,primary
+2026-06-02,MAI-Thinking-1 / MAI-Code-1-Flash,Microsoft,MAI,Reasoning/Coding,Preview,Flagship,primary
+2026-06-09,Claude Fable 5,Anthropic,Fable 5,New top tier,GA,Flagship,primary
+2026-06-09,Claude Mythos 5,Anthropic,Mythos 5,New top tier,Gated,Other,primary
+2026-06-16,GLM-5.2,Z.ai,GLM-5,Agentic/Open Source,Open weights,Flagship,primary
+2026-06-30,Claude Sonnet 5,Anthropic,Claude 5,Hybrid Reasoning,GA,Other,primary
+2026-07-08,Grok 4.5,xAI,Grok 4,Reasoning,GA,Flagship,primary
+2026-07-09,GPT-5.6 Sol / Terra / Luna,OpenAI,GPT-5.6,Agentic/Reasoning,Gated first,Flagship,primary
+2026-07-16,Kimi K3,Moonshot,Kimi K3,Agentic/Open Source,Open weights,Flagship,secondary
+2026-07-21,Gemini 3.6 Flash,Google,Gemini 3.6,Small/Efficient,GA,Other,primary
+2026-07-24,Claude Opus 5,Anthropic,Claude 5,Hybrid Reasoning,GA,Flagship,primary
+2026-08-03,Qwen3.8-Max,Alibaba,Qwen3.8,Agentic,Weights promised,Flagship,secondary
+2026-08-07,GPT-5.6 Cyber,OpenAI,GPT-5.6,Cyber,Gated,Other,primary
+2026-08-10,Muse Glimmer,Meta,Muse,Open Source,Open weights,Other,secondary
+2026-08-12,Grok 4.6,xAI,Grok 4,Reasoning,GA,Other,primary
+2026-08-13,Gemini 3.7 Flash,Google,Gemini 3.7,Small/Efficient,GA,Other,primary
+2026-08-18,GLM-5.3,Z.ai,GLM-5,Agentic/Open Source,Open weights,Flagship,primary
+2026-09-01,Claude Fable 5.1,Anthropic,Fable 5,Top tier,GA,Other,primary
+2026-09-02,Gemini 3.8 Flash,Google,Gemini 3.8,Small/Efficient,GA,Other,primary
+2026-09-03,GPT-6 Astra,OpenAI,GPT-6,New top tier,GA,Flagship,primary
+2026-09-10,DeepSeek V4.1 Flash,DeepSeek,V4,Agentic/Open Source,Open weights,Flagship,primary
+2026-09-21,Grok 4.7,xAI,Grok 4,Reasoning,GA,Flagship,primary
+2026-09-22,Claude Opus 5.5,Anthropic,Claude 5.5,Hybrid Reasoning,GA,Flagship,primary
+2026-09-22,GPT-6 Sol / Luna,OpenAI,GPT-6,Agentic/Reasoning,GA,Other,primary
+2026-09-28,Claude Sonnet 5.5,Anthropic,Claude 5.5,Hybrid Reasoning,GA,Other,primary
+2026-09-29,GPT-6.1 Sol,OpenAI,GPT-6.1,Agentic/Reasoning,GA,Other,primary
+2026-10-07,Claude Haiku 5.5,Anthropic,Claude 5.5,Small/Efficient,GA,Other,primary
+2026-10-12,Muse Wonder / Wonder Full,Meta,Muse,Multimodal,GA,Flagship,primary
+2026-10-13,Gemini 4 Argon,Google,Gemini 4,Reasoning/Multimodal,GA,Flagship,primary
+2026-10-15,Muse Spark Open,Meta,Muse,Open Source,Open weights,Other,primary
+2026-10-23,Kimi K3.1 Pro,Moonshot,Kimi K3,Agentic/Open Source,Open weights,Flagship,secondary
+2026-10-26,GPT-6.1 Terra,OpenAI,GPT-6.1,Agentic/Reasoning,GA,Other,primary
+2026-10-30,GPT-6 Rosalind,OpenAI,GPT-6,Bio,Gated,Other,primary
+2026-11-05,GPT-6 Cyber,OpenAI,GPT-6,Cyber,Gated,Other,primary
+2026-11-09,Claude Fable 5.2,Anthropic,Fable 5,Top tier,GA,Flagship,primary
+2026-11-09,Claude Mythos 5.2,Anthropic,Mythos 5,Top tier,Gated,Other,primary
+2026-11-09,Muse Ember,Meta,Muse,Small/Efficient,GA,Other,secondary
+2026-11-10,Gemini 4 Carbon,Google,Gemini 4,Reasoning/Multimodal,Gated first,Flagship,primary
+2026-11-12,Gemini 4 Hydrogen,Google,Gemini 4,Reasoning/Multimodal,GA,Other,primary
+2026-11-16,Qwen4-Max,Alibaba,Qwen4,Agentic,GA,Flagship,primary
+2026-11-17,GPT-6.2 Astra / Sol,OpenAI,GPT-6.2,Agentic/Reasoning,GA,Flagship,primary
+2026-11-17,MAI Code 2 / Code 2 Flash,Microsoft,MAI,Agentic/Coding,GA,Flagship,secondary
+2026-11-18,Gemini 4 Neon,Google,Gemini 4,Reasoning/Multimodal,GA,Other,primary

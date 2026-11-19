@@ -1,0 +1,10 @@
+Study,Metric,Change_pct,Kind,Note,Source
+Harvard / Jellyfish (655 firms),Lines of code added,44.0,Activity,"Effect of adopting agents, on top of AI assistants; paper version of 14 Nov 2026",https://fion.ac/jellyfish.pdf
+Harvard / Jellyfish (655 firms),Commits,36.0,Activity,,https://fion.ac/jellyfish.pdf
+Harvard / Jellyfish (655 firms),Pull requests opened,35.7,Activity,,https://fion.ac/jellyfish.pdf
+Harvard / Jellyfish (655 firms),Issues resolved,13.7,Delivered work,Borderline significant; assistants alone showed about zero (-1.5%),https://fion.ac/jellyfish.pdf
+Harvard / Jellyfish (655 firms),Time from review request to approval,56.1,Friction,Review became the bottleneck,https://fion.ac/jellyfish.pdf
+Microsoft CLI-agent rollout,Merged pull requests,24.0,Activity,Adopters vs counterfactual; abstract only,https://arxiv.org/abs/2607.01418
+Faros (vendor telemetry),Tasks completed per developer,33.7,Activity,High vs low AI adoption teams,https://www.faros.ai/research/ai-acceleration-whiplash
+Faros (vendor telemetry),Bugs per pull request,28.7,Friction,,https://www.faros.ai/research/ai-acceleration-whiplash
+Faros (vendor telemetry),Deployments per week,-11.7,Delivered work,,https://www.faros.ai/research/ai-acceleration-whiplash

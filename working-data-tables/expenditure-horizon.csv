@@ -1,0 +1,7 @@
+Model,Org,Human_cost_per_1pct_usd,Assumption,Expenditure_horizon_usd,Source
+Claude Opus 4.8,Anthropic,1000,Low: $1K per 1%,120,https://metr.org/blog/2026-07-21-expenditure-horizon/
+GPT-5.5,OpenAI,1000,Low: $1K per 1%,160,https://metr.org/blog/2026-07-21-expenditure-horizon/
+Claude Opus 4.8,Anthropic,2500,METR estimate: $2.5K per 1%,3300,https://metr.org/blog/2026-07-21-expenditure-horizon/
+GPT-5.5,OpenAI,2500,METR estimate: $2.5K per 1%,2300,https://metr.org/blog/2026-07-21-expenditure-horizon/
+Claude Opus 4.8,Anthropic,10000,High: $10K per 1%,14400,https://metr.org/blog/2026-07-21-expenditure-horizon/
+GPT-5.5,OpenAI,10000,High: $10K per 1%,9400,https://metr.org/blog/2026-07-21-expenditure-horizon/
