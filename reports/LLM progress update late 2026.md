@@ -367,6 +367,49 @@ The main threat to scores in 2026 moved from passive contamination to model beha
 
 A benchmark score without a stated cheating policy is hard to interpret. Section 3.3 shows the size of the effect.
 
+### 2.9 After SWE-bench: a portfolio, not a successor
+
+No benchmark has been accepted as the replacement for SWE-bench Verified. The official SWE-bench site now points to ProgramBench and CodeClash, while other groups have built tests of fresh issues, maintenance, long-running builds and project continuation. Each measures a different part of the job, so the scores are not rankings of one another. All rows below were read on the owner's page or paper on 19 November 2026 (details in `research_notes/LLM progress update late 2026/verification_survey.md`).
+
+| Benchmark | Run by, launched | What it tests | Top score, holder | Who ran it | Qualification | Source |
+|---|---|---|---|---|---|---|
+| ProgramBench | SWE-bench team, paper 5 May 2026 | Building a substantial program from nothing (200 tasks) | 19.0%, Claude Fable 5.2, mini-SWE-agent, 9 Nov 2026 | Vals (third party) | The owner's own board tops out at 18.5% (Opus 5.5, 22 Oct) | [Vals](https://www.vals.ai/benchmarks/programbench), primary, independent |
+| LoopsBench | Microsoft, Nanjing, UCL, Shanghai Jiao Tong, 31 Jul 2026 | Building dependent features without breaking earlier ones (112 tasks) | 25.0%, Claude Opus 4.7 with Claude Code | Benchmark team | Paper result only. No leaderboard found, so newer models are untested | [arXiv 2608.00267](https://arxiv.org/abs/2608.00267), primary |
+| SWE-Marathon v1.1 | Abundant AI, paper 5 Jun 2026 | 20 multi-hour builds, 8 trials each | 53.8% pass@1, Gemini 4 Carbon (high) with Antigravity CLI | Benchmark team (Z.ai ran its own GLM rows) | Under 30% at launch | [SWE-Marathon](https://www.swe-marathon.org/), primary |
+| SWE-rebench | Nebius, May 2025 | Newly filed GitHub issues on a rolling window | 64.5% ± 1.41%, Claude Fable 5 (high), window 15 May to 1 Jul 2026, 111 problems | Benchmark team | Stale. No newer window and no model released after July | [SWE-rebench](https://swe-rebench.com/), primary, independent |
+| ARE-bench | ARE-bench authors, 10 Nov 2026 | Resuming a real unfinished research project (75 tasks) | 66.22% ± 5.39 strict success, GPT-6.1 Sol with Codex | Benchmark team | The same runs score 92.72% on checklist partial credit | [arXiv 2611.14364](https://arxiv.org/abs/2611.14364), primary |
+| SWE-bench-Live (Lite split) | SWE-bench-Live maintainers, May 2025 | Automatically collected recent issues (300 instances) | 71.0%, TianxiCode with DeepSeek V4.1 Flash, 8 Oct 2026 | Self-submitted | Not tagged Verified by the maintainers | [SWE-bench-Live](https://swe-bench-live.github.io/), primary, vendor |
+| SWE Atlas v1.1 | Scale Labs, repository March 2026, v1.1 November 2026 | Codebase questions, test writing and refactoring (284 tasks) | 80.55 ± 4.80, Claude Fable 5.2 | Scale (third party) | Harness and effort not published. Not comparable with v1.0 | [SWE Atlas](https://github.com/scaleapi/swe-atlas), primary, independent |
+| MirrorCode | Epoch AI with METR, full release 26 Jun 2026 | Reimplementing a whole program against exact hidden tests (30 leaderboard tasks) | 97.8% ± 1.5%, Claude Sonnet 5.5 (max) | Benchmark team | Up to 7 days and 10 billion tokens per attempt | [Epoch](https://epoch.ai/benchmarks/mirrorcode), primary, independent |
+
+ReviewBench (GitHub, 5 October 2026) scores code-review tools, not models: the leader is OhMyBug at 83.0% grounded F1 (precision 92.0%, recall 75.6%), vendor-submitted ([ReviewBench](https://review-bench.ai/), primary, vendor). It is not charted.
+
+The spread is the finding. Agents rebuild a program to an exact specification almost perfectly, score 65% to 80% on fresh issues and maintenance, and complete about a fifth to a quarter of from-scratch builds and regression-aware development.
+
+### 2.10 Epoch's benchmark reviews
+
+Epoch runs a review programme for external benchmarks with three verdicts. Of 29 reviews to 19 November 2026, 15 are Flawed, 9 Not enough info and 5 Verified ([Epoch registry](https://epoch.ai/data/benchmark-reviews-documentation/included-benchmarks), primary). "Flawed" is a verdict on scoring, setup or consistency. It is not a retirement.
+
+| Benchmark | Verdict | Date |
+|---|---|---|
+| ARC-AGI-3 | Flawed | 30 Oct 2026 |
+| Vending-Bench 2 | Flawed | 21 Oct 2026 |
+| Agents' Last Exam v1.1 | Flawed | 18 Oct 2026 |
+| OSWorld 2.1 | Flawed | 28 Sep 2026 |
+| DeepSWE v1.1 | Flawed | 7 Sep 2026 |
+| Terminal-Bench 4.0.0 | Flawed | 4 Sep 2026 |
+| SWE-bench Verified | Flawed | 3 Sep 2026 |
+| SWE-bench Pro | Flawed | 1 Sep 2026 |
+| Humanity's Last Exam | Flawed | 11 Aug 2026 |
+| Remote Labor Index | Not enough info | 12 Oct 2026 |
+| FrontierCode 2.0 | Not enough info | 11 Nov 2026 |
+| PostTrainBench v1.1, ExploitBench v0.1, WeirdML v2, GraphWalks, SimpleQA Verified | Verified | Aug to Sep 2026 |
+| FrontierMath | Not reviewed | Epoch does not review its own benchmarks |
+
+Epoch gives four reasons for the ARC-AGI-3 verdict ([Epoch review](https://epoch.ai/benchmarks/arc-agi-3/review), primary). The score is action efficiency against a human baseline and "is not a percentage, even though it is reported as one". The Standard harness under-elicits models because it discards reasoning after every action. The harness and prompt are not versioned, and the prompt changed on 20 May 2026 without older results being re-run. And 19 verified entries exceeded the stated $10,000 cost cap. Three of the five benchmarks the lifespans chart shows as still active are rated Flawed: ARC-AGI-3, Humanity's Last Exam and Terminal-Bench 4.0.
+
+Two further points from the same check belong with section 2.3. On ExploitGym, GPT-5.5 captured 210 flags but 120 by exploiting the intended vulnerability, and Claude Mythos Preview 226 against 157 ([ExploitGym](https://www.cybergym.io/exploitgym/), primary; the project page gives 869 vulnerabilities and the paper 898, so quote counts). And on 16 November 2026 OpenAI announced embedded assessments by Apollo, METR, Transluce and Goodfire: Apollo and Goodfire are paid by OpenAI, METR and Transluce take no fee but may accept compute, and OpenAI keeps redaction rights ([OpenAI, archived](https://web.archive.org/web/2026/https://openai.com/index/our-first-phase-of-embedded-assessments/), primary). OpenAI's post of 18 November reports the share of internal tasks its agents finished with no human intervention between 1 August and 18 October 2026: 79% for monitoring training runs, 35% for launching them and 25% for inference and serving code, vendor figures.
+
 ## 3. METR time horizons
 
 ### 3.1 The series
@@ -461,10 +504,11 @@ The Time Horizons tab has an "After METR" panel, fed by `after-metr-instruments.
 | Instrument | Run by | Measures | Latest reading | Continues the curve | Source and quality |
 |---|---|---|---|---|---|
 | Expenditure horizon | METR | The dollar budget at which an agent's improvement on a goal equals a human's with the same budget | About $3,300 for Opus 4.8 and $2,300 for GPT-5.5, on one task | No. One task and no time series yet | [METR, 21 July 2026](https://metr.org/blog/2026-07-21-expenditure-horizon/), primary |
-| AI R&D acceleration reviews | METR | How much AI speeds up research inside a lab, by reviewing the lab's own risk report | Plausibly 2x at Anthropic by mid-July 2026, leading-indicator range 1.3 to 2.8 | No. Overall judgment and one lab | [METR, 5 November 2026](https://metr.org/blog/2026-11-05-rd-section-anthropic-risk-report-august-2026-review/), primary |
+| AI R&D acceleration reviews | METR | How much AI speeds up research inside a lab, from an assessment with deep access to the lab | Progress on Anthropic's internal index at about 1.9x its earlier rate (95% CI 1.5 to 2.8); METR's overall judgment is "around twice", with 1.3x to 3x plausible. A separate METR review of Anthropic's risk report says a 2x threshold was plausibly crossed by 15 July, with a leading-indicator range of 1.3 to 2.8 | No. Overall judgment and one lab | [METR assessment](https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/), [METR review](https://metr.org/blog/2026-11-05-rd-section-anthropic-risk-report-august-2026-review/), primary |
 | Epoch Capabilities Index | Epoch AI | One score linked across many benchmarks | About 174 in November 2026 | Partly. Continuous since 2023 but not in units of human time | [Epoch](https://epoch.ai/data-insights/eci-frontier-trend), primary |
-| MirrorCode | Epoch AI with METR | Reimplementing whole programs from an exact checkable specification | Opus 4.6 rebuilt a 16,900-line tool | No. Preliminary, and only for fully specified work | [Epoch](https://epoch.ai/publications/mirrorcode-preliminary-results/), primary |
-| Remote Labor Index | Scale AI and CAIS | Paid freelance projects completed end to end | 2.5% at launch, 41.3% in November 2026 | Partly. Same test over 13 months, latest figure vendor-reported | [pebblous](https://blog.pebblous.ai/report/remote-labor-index-denominator-2026-11/en/), secondary |
+| MirrorCode | Epoch AI with METR | Reimplementing whole programs against exact hidden tests | Full release 26 June 2026: 25 target programs, 30 leaderboard tasks, up to 7 days and 10 billion tokens per attempt. Top score Claude Sonnet 5.5 (max) at 97.8% ± 1.5% | No. Only for fully specified work, and already near its ceiling | [Epoch](https://epoch.ai/benchmarks/mirrorcode), primary, independent |
+| Remote Labor Index | Scale AI and CAIS | Paid freelance projects completed end to end | 2.5% at launch (Manus, paper of 30 October 2025), 41.25% on Scale's board in November 2026 (Fable 5.2) | Partly. Same test over 13 months. Harness, effort, date and operator of the latest row are not published | [Scale](https://labs.scale.com/leaderboard), primary |
+| SWE-Marathon v1.1 | Abundant AI | 20 multi-hour builds, 8 trials each | Under 30% in the 5 June 2026 paper, 53.8% in November 2026 (Gemini 4 Carbon with Antigravity CLI) | No. Five months old, and it measures completion, not task length | [SWE-Marathon](https://www.swe-marathon.org/), primary |
 | FrontierSWE v2 | Proximal | 34 software tasks with a 20-hour budget each | About 70% for Claude Fable 5.2 | No. New in 2026 and vendor-reported | [LLM Stats](https://llm-stats.com/blog/research/claude-fable-5-2-launch), secondary |
 
 METR published the expenditure horizon on 21 July 2026 and does not call it a replacement for time horizons. It was measured on one task, the NanoGPT speedrun. The result depends heavily on the assumed cost of human labor per 1% improvement (`expenditure-horizon.csv`, [METR](https://metr.org/blog/2026-07-21-expenditure-horizon/), primary):
@@ -708,7 +752,6 @@ Every claim below is secondary-only, single-source or unverifiable after the ver
 | OSWorld-Verified public board | Not read directly. Epoch's copy tops out at Sonnet 4.6, 72.1%. An aggregator figure of 90.19% was found nowhere primary | No | os-world.github.io |
 | OSWorld 2.0 and 2.1 details beyond release date and scores | Single secondary source | No | osworld-v2.xlang.ai |
 | FrontierSWE v2 at about 70% for Fable 5.2 | Secondary ([LLM Stats](https://llm-stats.com/blog/research/claude-fable-5-2-launch)) | Yes | Fable 5.2 system card or Proximal's board |
-| Remote Labor Index launch maximum of 2.5% | Secondary | Yes | The RLI paper or board |
 | Opus 4.6 first announced at about 14.5 hours | Secondary ([officechai](https://officechai.com/ai/exponential-progress-claude-opus-4-6-has-50-time-horizon-of-14-5-hours-on-metr-time-horizons-benchmark)). Not on any METR page read | No | An archived copy of METR's February page |
 | Viral "240 hour" horizon for an Anthropic internal model | Unverified. Reportedly a conversion from another index ([FourWeekMBA](https://fourweekmba.com/ai-metr-tested-ai-at-17-hours-viral-240-hour-mark-is-estimated/)) | No | Nothing. It is not a METR measurement |
 | UK AISI cheating rates of 7.8% to 14.1% | Secondary | No | The AISI report |
@@ -733,6 +776,10 @@ Every claim below is secondary-only, single-source or unverifiable after the ver
 | State of AI Report 2026 and International AI Safety Report 2026 | Not read. Do not quote | No | Read them |
 | Nvidia H200 exports to China halted, 18 November 2026 | Secondary, one trade-press article ([GSMArena](https://m.gsmarena.com/nvidia_halts_its_h200_chip_sales_to_china_-amp-75528.php)). Reports describe a production halt by Nvidia, not a government export pause | No | An Nvidia or US Commerce statement |
 | Vendor SWE-bench Pro figures for Opus 4.5, Sonnet 4.5, Haiku 4.5 | None found | No | Their system cards |
+| LoopsBench scores above 25.0% | Unverifiable. No leaderboard found | Yes | A leaderboard or follow-up paper |
+| Harness and effort for Fable 5.2 on SWE Atlas, ProgramBench (Vals) and the Remote Labor Index | Not published | Yes | The owners' run cards |
+| Whether the ExploitGym runs covered every instance | Unverifiable | No (counts quoted in text only) | The ExploitGym paper's appendix |
+| OpenAI's rule for a "zero-intervention success" | In a methods panel the archive snapshot did not capture | Yes (metric cards) | The live post |
 
 Not researched at all: xAI and Meta vendor benchmark tables, an independent GPQA board, 2025 release counts for OpenAI, Google and xAI, OpenRouter usage share for Chinese models, and BLS monthly employment counts for developers.
 
@@ -767,13 +814,14 @@ Not researched at all: xAI and Meta vendor benchmark tables, an independent GPQA
 | CSV | Tab | Pull from | Notes |
 |---|---|---|---|
 | `model-release-timeline.csv` | Release Cadence | Anthropic: https://platform.claude.com/docs/en/release-notes/overview . OpenAI: https://developers.openai.com/api/docs/changelog . Google: https://ai.google.dev/gemini-api/docs/changelog and https://ai.google.dev/gemini-api/docs/models . xAI: https://docs.x.ai/docs/release-notes . Z.ai: https://docs.z.ai/release-notes/new-released . Alibaba: https://www.alibabacloud.com/help/en/model-studio/newly-released-models . Mistral: https://docs.mistral.ai/getting-started/changelog . Meta: https://about.fb.com/news/ and https://research.meta.ai/blog/ . Microsoft: https://microsoft.ai/news/ . Weights: https://huggingface.co/deepseek-ai , https://huggingface.co/api/models?author=deepseek-ai&search=V4 (change author and search for other labs), https://huggingface.co/moonshotai , https://huggingface.co/zai-org | Epoch's `model_metadata.csv` inside https://epoch.ai/data/benchmark_data.zip is a good cross-check for dates and weight status. DeepSeek's own changelog refused connections |
-| `benchmark-lifespans.csv` | Benchmark Lifespans | Introductions: arXiv first-submission dates and `benchmark_metadata.csv` in https://epoch.ai/data/benchmark_data.zip . Endings: https://www.tbench.ai/news , https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-2 and later changelogs, https://epoch.ai/benchmarks/swe-bench-pro/review and sibling review pages, Anthropic system cards, archived OpenAI posts | Per-benchmark score histories for threshold rules are in the Epoch zip (`mmlu_external.csv`, `math_level_5.csv`, `frontiermath_tier_4_v2.csv`, `osworld_2_external.csv`) |
+| `benchmark-lifespans.csv` | Benchmark Lifespans | Introductions: arXiv first-submission dates and `benchmark_metadata.csv` in https://epoch.ai/data/benchmark_data.zip . Endings: https://www.tbench.ai/news , https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-2 and later changelogs, https://epoch.ai/benchmarks/swe-bench-pro/review and sibling review pages, Anthropic system cards, archived OpenAI posts | Per-benchmark score histories for threshold rules are in the Epoch zip (`mmlu_external.csv`, `math_level_5.csv`, `frontiermath_tier_4_v2.csv`, `osworld_2_external.csv`)  The `Epoch_Review` column holds Epoch's verdict and date from https://epoch.ai/data/benchmark-reviews-documentation/included-benchmarks ; refresh every row from that registry |
 | `eci-scores.csv` | Progress Measures | https://epoch.ai/data/eci_scores.csv (take the running maximum by release date). Slopes: https://epoch.ai/data-insights/eci-frontier-trend and https://epoch.ai/publications/eci-bayesian-methodology . Open-weight gap: https://epoch.ai/data-insights/open-closed-eci-gap | Replace all frontier rows at once. Rebuild the open-weight rows from the same download so the file holds one vintage |
 | `arc-agi-scores.csv` | Progress Measures | https://arcprize.org/media/data/evaluations.json and https://arcprize.org/media/data/models.json | The leaderboard page renders client-side, so fetch the JSON. Use the Verified board only (semi-private sets). Keep the best configuration per model, and Standard and Provider Adapter in separate columns |
 | `model-benchmark-scores.csv` | Progress Measures (retired series) | Anthropic system cards index: https://www.anthropic.com/system-cards (download the PDFs and search the text). OpenAI launch posts through the Internet Archive. Google model cards: https://deepmind.google/models/model-cards/ . Independent SWE-bench Verified: `swe_bench_verified.csv` in the Epoch zip | The legacy columns are closed. Add a row only if a new launch reports one of them. Anthropic launch-post tables are images, so use the system card |
 | `vendor-vs-independent.csv` | Who Measured It? | Scale: https://labs.scale.com/leaderboard/swe_bench_pro_public . ARC Prize JSON. Lab system cards and model cards for each side of a lab-against-lab pair. Vals for Terminal-Bench-Science | Add a pair only when both values are for the same model and benchmark version. Note Scale's capped-cost rows |
 | `model-task-time-horizons.csv` | Task Time Horizons | https://metr.org/assets/benchmark_results_1_1.yaml and https://metr.org/assets/benchmark_results_1_0.yaml . Update log: https://metr.org/time-horizons/ | Frozen since 8 September 2026. Check the update log first. If nothing changed, do not touch the file |
-| `after-metr-instruments.csv` | Task Time Horizons, "After METR" panel | https://metr.org/blog/ and https://metr.org/notes/ for new METR instruments. https://epoch.ai/data/eci_scores.csv . https://epoch.ai/publications/mirrorcode-preliminary-results/ . The RLI board and FrontierSWE board for primary readings | Two rows rest on secondary sources. Replace them with primary readings |
+| `after-metr-instruments.csv` | Task Time Horizons, "After METR" panel | https://metr.org/blog/ and https://metr.org/notes/ for new METR instruments. https://epoch.ai/data/eci_scores.csv . https://epoch.ai/benchmarks/mirrorcode . Scale's board at https://labs.scale.com/leaderboard for the Remote Labor Index. https://www.swe-marathon.org/ | The FrontierSWE row still rests on a secondary source |
+| `successor-benchmarks.csv` | Progress Measures, "After SWE-bench" view | https://swe-rebench.com/ , https://swe-bench-live.github.io/ , https://www.vals.ai/benchmarks/programbench and https://programbench.com/ , https://github.com/scaleapi/swe-atlas and https://labs.scale.com/leaderboard , https://www.swe-marathon.org/ , https://arxiv.org/abs/2608.00267 (LoopsBench), https://arxiv.org/abs/2611.14364 (ARE-bench), https://epoch.ai/benchmarks/mirrorcode | One bar per benchmark: the best score on the owner's page, with who ran it in `Executed_by` and the main qualification in `Caveat`. Do not compare bars as model rankings. Check whether SWE-rebench has added a window and whether LoopsBench has a leaderboard |
 | `expenditure-horizon.csv` | Task Time Horizons, "After METR" panel | https://metr.org/blog/2026-07-21-expenditure-horizon/ and https://metr.org/notes/2026-07-24-metrics-of-model-ability/ | One task, two models. Add rows only if METR publishes more models or tasks |
 | `adoption-series.csv` | Benchmarks vs Reality | Octoverse: https://github.blog/news-insights/octoverse/ (annual, late October). Google: earnings remarks and keynote posts on https://blog.google/ . Stack Overflow survey: https://stackoverflow.blog/ (annual, October) | GitHub publishes only selected months. Do not interpolate into new rows |
 | `productivity-studies.csv` | Benchmarks vs Reality | https://fion.ac/jellyfish.pdf (check the version date on page 1). https://arxiv.org/abs/2607.01418 . https://www.faros.ai/research/ai-acceleration-whiplash | Update the firm count in the `Study` label when the paper changes |
@@ -824,6 +872,9 @@ Do not use these as sources for values. They are fine as pointers to a primary p
 ### 8.7 Dated events to look for
 
 - ARC Prize 2026 competition results, due 4 December 2026 ([ARC Prize](https://arcprize.org/leaderboard)). This affects the community and competition story, not the Verified board rows.
+- New Epoch benchmark-review verdicts, and any response from ARC Prize to the ARC-AGI-3 "Flawed" rating ([Epoch registry](https://epoch.ai/data/benchmark-reviews-documentation/included-benchmarks)).
+- Results from OpenAI's embedded assessments by Apollo, METR, Transluce and Goodfire, announced 16 November 2026. No publication dates were given.
+- A SWE-rebench window after July 2026, a LoopsBench leaderboard, and ProgramBench or SWE-Marathon results for newer models.
 - Any METR successor to time horizons: a new suite, more expenditure-horizon tasks or models, or a change to the "no longer actively updated" notice ([METR time horizons](https://metr.org/time-horizons/)).
 - New Terminal-Bench versions after 4.1 ([tbench.ai news](https://www.tbench.ai/news)) and new OSWorld versions after 2.1.
 - Scale running any Anthropic, OpenAI or Google model released after April 2026 on SWE-bench Pro, which would give the two series their first overlap ([Scale](https://labs.scale.com/leaderboard/swe_bench_pro_public)).

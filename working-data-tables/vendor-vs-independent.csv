@@ -11,7 +11,8 @@ Lab vs lab,Terminal-Bench 4.0,Claude Opus 5.5,Anthropic's table,66.4,Google's ta
 Lab vs lab,Terminal-Bench-Science,Claude Fable 5.1,Anthropic's table,52.6,Google's table,43.3,
 Lab vs lab,Terminal-Bench-Science,GPT-6 Astra,Anthropic's table,68.1,Google's table,63.3,
 Lab vs lab,Terminal-Bench 4.0,Claude Fable 5.1,Anthropic's table,55.8,Google's table,52.0,
-Same model different setup,ARC-AGI-3,GPT-6 Astra,Provider-adapter harness,99.9,Standard harness,62.7,Harness choice alone
+Same model different setup,ARC-AGI-3,GPT-6 Astra,Provider-adapter harness,98.6,Standard harness,62.7,"Harness choice alone, both at max effort"
 Same model different setup,ARC-AGI-3,Claude Sonnet 5.5,Provider-adapter harness,72.4,Standard harness,24.3,Harness choice alone
 Same model different setup,ARC-AGI-3,Claude Fable 5.2,High effort,79.3,Max effort,65.7,More effort scored lower
 Same model different setup,OSWorld 2.1,Claude Fable 5.2,Partial credit,89.3,Strict pass,54.6,Scoring rule alone
+Same model different setup,ARE-bench,GPT-6.1 Sol with Codex,Checklist partial credit,92.7,Strict full delivery,66.2,Scoring rule alone: mostly right versus all of it
