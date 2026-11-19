@@ -1718,8 +1718,9 @@ table.guide td span.unc { color:#a07c3a; font-style:italic; }
     )
     st.caption(
         "Compiled on 19 November 2026 from Epoch's benchmark metadata, the benchmarks' own "
-        "pages and papers, and this project's research notes. About a quarter of the rows "
-        "rest on a single survey and are marked as not independently checked. Descriptions are one-line "
+        "pages and papers, and this project's research notes. Each description was read from "
+        "the benchmark's own page, its paper or Epoch's page for it; any row that could not be "
+        "checked that way is marked. Descriptions are one-line "
         "summaries, not specifications; status is a judgment call outside the benchmarks this "
         "project charts. The list is broad but not exhaustive, and scores are deliberately "
         "left out because they date within weeks. Follow each link for current results."
