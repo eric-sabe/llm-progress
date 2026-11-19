@@ -805,6 +805,7 @@ Not researched at all: xAI and Meta vendor benchmark tables, an independent GPQA
 ### 8.1 Before starting
 
 - The app caches CSV loads with `st.cache_data`. Restart `streamlit run app.py` after editing a CSV, or the charts will show the old data.
+- The public site at https://eric-sabe.github.io/llm-progress/ is rebuilt from `app.py` and the CSVs by GitHub Actions on every push to `main`. Run `python build_site.py` locally first to catch errors; the same build runs as a check on pull requests.
 - Some figures are hard-coded in `app.py` and do not come from a CSV: the three GPT-5.6 Sol readings and the doubling-time text on the Time Horizons tab, and the four metric cards on the Jobs & Education tab (CS salary, new majors, BLS projection, senior share). Update them by hand.
 - The Benchmark Lifespans cohort averages and the ECI trend lines are computed in `app.py` from the CSVs, so they change when rows change. Check the README's "46, 22, 12 months" sentence afterwards.
 - Raw notes from November 2026 are in `research_notes/LLM progress update late 2026/`. They contain superseded figures. This report is the authority.
