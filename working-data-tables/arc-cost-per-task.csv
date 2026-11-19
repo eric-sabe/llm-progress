@@ -1,0 +1,283 @@
+Date,Config,Model_Group,Org,ARC_AGI_2,Cost_per_task_usd,Retrieved,Source
+2024-07-18,GPT-4o-mini,GPT-4o-mini,OpenAI,0.0,0.01,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2024-09-12,o1-mini,o1-mini,OpenAI,0.8,0.1907,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2024-11-20,GPT-4o,GPT-4o,OpenAI,0.0,0.08,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-01-22,Deepseek R1,Deepseek R1,DeepSeek,1.3,0.08,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-01-31,o3-mini (Low),o3-mini,OpenAI,0.0,0.0623,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-01-31,o3-mini (Medium),o3-mini,OpenAI,2.1,0.2843,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-01-31,o3-mini (High),o3-mini,OpenAI,3.0,0.5472,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-02-02,Gemini 2.0 Flash,Gemini 2.0 Flash,Google,1.3,0.004,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-02-15,Gemini 1.5 Pro,Gemini 1.5 Pro,Google,0.8,0.04,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-02-19,Grok 3 Mini (Low),Grok 3 Mini (Low),xAI,0.4,0.0131,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-02-19,Grok 3,Grok 3,xAI,0.0,0.1421,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-02-24,Claude 3.7,Claude 3.7,Anthropic,0.0,0.12,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-02-24,Claude 3.7 (1K),Claude_3_7_thinking,Anthropic,0.4,0.14,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-02-24,Claude 3.7 (8K),Claude_3_7_thinking,Anthropic,0.9,0.36,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-02-24,Claude 3.7 (16K),Claude_3_7_thinking,Anthropic,0.7,0.51,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-02-27,GPT-4.5,GPT-4.5,OpenAI,0.8,2.1,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-04-05,Llama 4 Scout,Llama 4,Meta,0.0,0.0062,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-04-05,Llama 4 Maverick,Llama 4,Meta,0.0,0.0121,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-04-14,GPT-4.1-Nano,gpt-4.1,OpenAI,0.0,0.0036,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-04-14,GPT-4.1-Mini,gpt-4.1,OpenAI,0.0,0.0139,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-04-14,GPT-4.1,gpt-4.1,OpenAI,0.4,0.0691,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-04-16,o4-mini (Low),o4-mini,OpenAI,1.7,0.05,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-04-16,o4-mini (Medium),o4-mini,OpenAI,2.4,0.2311,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-04-16,o3 (Low),o3,OpenAI,2.0,0.2343,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-04-16,o3 (Medium),o3,OpenAI,3.0,0.4787,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-04-16,o3 (High),o3,OpenAI,6.5,0.8339,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-04-16,o4-mini (High),o4-mini,OpenAI,6.1,0.856,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-14,Claude Sonnet 4,Claude Sonnet 4,Anthropic,1.3,0.1272,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-14,Claude Sonnet 4 (Thinking 1K),claude-sonnet-4-20250514-thinking,Anthropic,0.9,0.1425,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-14,Claude Sonnet 4 (Thinking 8K),claude-sonnet-4-20250514-thinking,Anthropic,2.1,0.2654,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-14,Claude Sonnet 4 (Thinking 16K),claude-sonnet-4-20250514-thinking,Anthropic,5.9,0.4857,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-14,Claude Opus 4,Claude Opus 4,Anthropic,1.3,0.6388,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-14,Claude Opus 4 (Thinking 1K),claude-opus-4-20250514-thinking,Anthropic,0.0,0.7503,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-14,Claude Opus 4 (Thinking 8K),claude-opus-4-20250514-thinking,Anthropic,4.5,1.1569,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-14,Claude Opus 4 (Thinking 16K),claude-opus-4-20250514-thinking,Anthropic,8.6,1.9284,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-20,Gemini 2.5 Flash (Preview) (Thinking 1K),gemini-2-5-flash-preview-05-20-thinking,Google,2.2,0.0302,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-20,Gemini 2.5 Flash (Preview),Gemini 2.5 Flash (Preview),Google,1.7,0.057,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-20,Gemini 2.5 Flash (Preview) (Thinking 8K),gemini-2-5-flash-preview-05-20-thinking,Google,2.1,0.1994,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-20,Gemini 2.5 Flash (Preview) (Thinking 16K),gemini-2-5-flash-preview-05-20-thinking,Google,2.0,0.3173,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-20,Gemini 2.5 Flash (Preview) (Thinking 24K),gemini-2-5-flash-preview-05-20-thinking,Google,2.5,0.3191,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-23,Codex Mini (Latest),Codex Mini (Latest),OpenAI,1.3,0.23,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-05-28,Deepseek R1 (05/28),Deepseek R1 (05/28),DeepSeek,1.1,0.0527,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-06-10,o3-Pro (Low),o3-pro,OpenAI,2.1,2.2293,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-06-10,o3-Pro (Medium),o3-pro,OpenAI,1.9,4.7441,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-06-10,o3-Pro (High),o3-pro,OpenAI,4.9,7.5516,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-06-17,Gemini 2.5 Pro (Thinking 1K),gemini-2-5-pro-2025-06-17-thinking,Google,0.0,0.0885,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-06-17,Gemini 2.5 Pro (Thinking 8K),gemini-2-5-pro-2025-06-17-thinking,Google,2.9,0.4439,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-06-17,Gemini 2.5 Pro (Thinking 16K),gemini-2-5-pro-2025-06-17-thinking,Google,4.0,0.7145,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-06-17,Gemini 2.5 Pro (Thinking 32K),gemini-2-5-pro-2025-06-17-thinking,Google,4.9,0.757,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-07-09,Grok 4 (Thinking),Grok 4 (Thinking),xAI,16.0,2.1659,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-07-25,Qwen3-235b-a22b Instruct (25/07),Qwen3-235b-a22b Instruct (25/07),Alibaba,1.2,0.0044,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 Nano (Minimal),GPT-5 Nano (Minimal),OpenAI,0.0,0.0025,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 Nano (Low),gpt-5-nano-reasoning,OpenAI,0.0,0.0033,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 Mini (Minimal),GPT-5 Mini (Minimal),OpenAI,1.7,0.0094,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 Nano (Medium),gpt-5-nano-reasoning,OpenAI,0.9,0.0137,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 Mini (Low),gpt-5-mini-reasoning,OpenAI,0.8,0.0189,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 Nano (High),gpt-5-nano-reasoning,OpenAI,2.6,0.0295,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 (Minimal),GPT-5 (Minimal),OpenAI,0.0,0.0562,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 Mini (Medium),gpt-5-mini-reasoning,OpenAI,4.0,0.0629,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 (Low),gpt-5-reasoning,OpenAI,1.9,0.1896,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 Mini (High),gpt-5-mini-reasoning,OpenAI,4.4,0.1977,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 (Medium),gpt-5-reasoning,OpenAI,7.5,0.4486,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-08-07,GPT-5 (High),gpt-5-reasoning,OpenAI,9.9,0.7302,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-09-29,Claude Sonnet 4.5,claude-sonnet-4-5-20250929,Anthropic,3.8,0.1295,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-09-29,Claude Sonnet 4.5 (Thinking 1K),claude-sonnet-4-5-20250929,Anthropic,5.8,0.1424,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-09-29,Claude Sonnet 4.5 (Thinking 8K),claude-sonnet-4-5-20250929,Anthropic,6.9,0.2349,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-09-29,Claude Sonnet 4.5 (Thinking 16K),claude-sonnet-4-5-20250929,Anthropic,6.9,0.3499,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-09-29,Claude Sonnet 4.5 (Thinking 32K),claude-sonnet-4-5-20250929,Anthropic,13.6,0.7589,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-10-01,Claude Haiku 4.5,claude-haiku-4-5-20251001,Anthropic,1.2,0.0426,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-10-01,Claude Haiku 4.5 (Thinking 1K),claude-haiku-4-5-20251001,Anthropic,1.2,0.0471,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-10-01,Claude Haiku 4.5 (Thinking 8K),claude-haiku-4-5-20251001,Anthropic,1.7,0.0909,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-10-01,Claude Haiku 4.5 (Thinking 16K),claude-haiku-4-5-20251001,Anthropic,2.8,0.1392,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-10-01,Claude Haiku 4.5 (Thinking 32K),claude-haiku-4-5-20251001,Anthropic,4.0,0.3766,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-10-06,GPT-5 Pro,GPT-5 Pro,OpenAI,18.3,7.1432,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-10-21,Grok 4 (Fast Reasoning),grok-4-0709,xAI,5.3,0.061,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-11-13,"GPT-5.1 (Thinking, None)",gpt-5-1-reasoning,OpenAI,0.4,0.0581,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-11-13,"GPT-5.1 (Thinking, Low)",gpt-5-1-reasoning,OpenAI,1.9,0.129,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-11-13,"GPT-5.1 (Thinking, Medium)",gpt-5-1-reasoning,OpenAI,6.5,0.4206,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-11-13,"GPT-5.1 (Thinking, High)",gpt-5-1-reasoning,OpenAI,17.6,1.1704,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-11-18,Gemini 3 Pro,gemini-3-pro,Google,31.1,0.8109,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-11-24,"Opus 4.5 (Thinking, None)",opus-4-5-thinking,Anthropic,7.8,0.22,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-11-24,"Opus 4.5 (Thinking, 8K)",opus-4-5-thinking,Anthropic,13.9,0.48,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-11-24,"Opus 4.5 (Thinking, 16K)",opus-4-5-thinking,Anthropic,22.8,0.79,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-11-24,"Opus 4.5 (Thinking, 64K)",opus-4-5-thinking,Anthropic,37.6,2.4,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-01,Deepseek V3.2,Deepseek V3.2,DeepSeek,4.0,0.12,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-11,GPT-5.2,GPT-5.2,OpenAI,0.8,0.0818,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-11,GPT-5.2 (Low),gpt-5-2-2025-12-11-thinking,OpenAI,9.7,0.2642,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-11,GPT-5.2 (Medium),gpt-5-2-2025-12-11-thinking,OpenAI,26.7,0.7594,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-11,GPT-5.2 (High),gpt-5-2-2025-12-11-thinking,OpenAI,43.3,1.393,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-11,GPT-5.2 (XHigh),gpt-5-2-2025-12-11-thinking,OpenAI,52.9,1.8982,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-11,GPT-5.2 Pro (Medium),gpt-5-2-pro-2025-12-11-thinking,OpenAI,38.5,8.9928,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-11,GPT-5.2 Pro (High),gpt-5-2-pro-2025-12-11-thinking,OpenAI,54.2,15.721,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-17,Gemini 3 Flash Preview (Minimal),gemini-3-flash-preview-thinking,Google,3.3,0.0205,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-17,Gemini 3 Flash Preview (Low),gemini-3-flash-preview-thinking,Google,1.2,0.0249,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-17,Gemini 3 Flash Preview (Medium),gemini-3-flash-preview-thinking,Google,12.8,0.0824,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2025-12-17,Gemini 3 Flash Preview (High),gemini-3-flash-preview-thinking,Google,33.6,0.2314,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-01-27,Kimi K2.5,Kimi K2.5,Moonshot,11.8,0.28,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-02-05,"Claude Opus 4.6 (120K, Low)",claude-opus-4-6-thinking,Anthropic,64.6,2.2507,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-02-05,"Claude Opus 4.6 (120K, Medium)",claude-opus-4-6-thinking,Anthropic,66.2,2.7209,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-02-05,"Claude Opus 4.6 (120K, High)",claude-opus-4-6-thinking,Anthropic,69.2,3.4719,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-02-05,"Claude Opus 4.6 (120K, Max)",claude-opus-4-6-thinking,Anthropic,68.8,3.641,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-02-12,Gemini 3 Deep Think (2/26),Gemini 3 Deep Think (2/26),Google,84.6,13.6213,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-02-12,Gemini 3 Deep Think (Preview) ²,gemini-3-deep-think-preview,Google,45.1,77.1631,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-02-17,Claude Sonnet 4.6 (High),claude-sonnet-4-6,Anthropic,60.4,2.6966,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-02-17,Claude Sonnet 4.6 (Max),claude-sonnet-4-6,Anthropic,58.3,2.7179,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-02-19,Gemini 3.1 Pro (Preview),Gemini 3.1 Pro (Preview),Google,77.1,0.9622,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-02-20,GLM-5,GLM-5,Z.ai,4.9,0.27,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-04,GPT-5.4 (Low),gpt-5-4,OpenAI,29.2,0.27,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-04,GPT-5.4 (Medium),gpt-5-4,OpenAI,55.4,0.68,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-04,GPT-5.4 (High),gpt-5-4,OpenAI,67.5,1.02,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-04,GPT-5.4 (XHigh),gpt-5-4,OpenAI,74.0,1.52,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-04,GPT-5.4 Pro (XHigh),gpt-5-4-pro,OpenAI,83.3,16.41,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-09,Grok 4.20 (Reasoning),grok-4.20-beta-0309b-reasoning,xAI,65.1,0.92,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-17,GPT-5.4 Nano (Low),gpt-5-4-nano-reasoning,OpenAI,1.5,0.01,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-17,GPT-5.4 Mini (Low),gpt-5-4-mini-reasoning,OpenAI,1.1,0.06,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-17,GPT-5.4 Nano (Medium),gpt-5-4-nano-reasoning,OpenAI,1.9,0.06,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-17,GPT-5.4 Nano (High),gpt-5-4-nano-reasoning,OpenAI,3.6,0.13,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-17,GPT-5.4 Nano (XHigh),gpt-5-4-nano-reasoning,OpenAI,5.7,0.16,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-17,GPT-5.4 Mini (Medium),gpt-5-4-mini-reasoning,OpenAI,4.4,0.33,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-17,GPT-5.4 Mini (High),gpt-5-4-mini-reasoning,OpenAI,13.2,0.56,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-03-17,GPT-5.4 Mini (XHigh),gpt-5-4-mini-reasoning,OpenAI,18.9,0.75,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-04-16,Claude 4.7 (Low),claude-4-7,Anthropic,62.1,2.38,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-04-16,Claude 4.7 (Medium),claude-4-7,Anthropic,67.5,2.96,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-04-16,Claude 4.7 (High),claude-4-7,Anthropic,68.3,3.17,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-04-16,Claude 4.7 (Max),claude-4-7,Anthropic,75.8,7.43,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-04-22,GPT-5.5 (Low),gpt-5-5-2026-04-22-thinking,OpenAI,33.3,0.35,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-04-22,GPT-5.5 (Medium),gpt-5-5-2026-04-22-thinking,OpenAI,70.4,0.86,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-04-22,GPT-5.5 (High),gpt-5-5-2026-04-22-thinking,OpenAI,83.3,1.45,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-04-22,GPT-5.5 (XHigh),gpt-5-5-2026-04-22-thinking,OpenAI,85.0,1.87,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-04-23,GPT-5.5 Pro (High),gpt-5-5-pro-2026-04-23-thinking,OpenAI,84.6,10.51,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-04-23,GPT-5.5 Pro (XHigh),gpt-5-5-pro-2026-04-23-thinking,OpenAI,84.2,10.76,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-05-19,Gemini 3.5 Flash (Minimal),gemini-3-5-flash,Google,8.9,0.1074,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-05-19,Gemini 3.5 Flash (High),gemini-3-5-flash,Google,72.1,0.8503,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-06-01,Claude Opus 4.8 (Low),anthropic-opus-4-8,Anthropic,62.2,1.6818,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-06-01,Claude Opus 4.8 (Medium),anthropic-opus-4-8,Anthropic,71.7,2.3896,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-06-01,Claude Opus 4.8 (High),anthropic-opus-4-8,Anthropic,72.1,2.7425,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-06-09,Claude Fable 5 (Low),anthropic-claude-fable-5,Anthropic,76.8,1.4489,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-06-09,Claude Fable 5 (Medium),anthropic-claude-fable-5,Anthropic,82.5,1.927,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-06-09,Claude Fable 5 (High),anthropic-claude-fable-5,Anthropic,87.5,2.4359,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-06-09,Claude Fable 5 (XHigh),anthropic-claude-fable-5,Anthropic,88.3,3.0044,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-06-09,Claude Fable 5 (Max),anthropic-claude-fable-5,Anthropic,89.2,5.4491,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-06-13,GLM-5.2,GLM-5.2,Z.ai,22.8,0.2501,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Luna (Low),openai-gpt-5-6-luna,OpenAI,5.1,0.07,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Luna (Medium),openai-gpt-5-6-luna,OpenAI,7.4,0.11,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Terra (Low),openai-gpt-5-6-terra,OpenAI,18.8,0.17,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Terra (Medium),openai-gpt-5-6-terra,OpenAI,37.5,0.27,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Luna (High),openai-gpt-5-6-luna,OpenAI,29.3,0.29,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Sol (Low),openai-gpt-5-6-sol,OpenAI,42.5,0.32,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Sol (Medium),openai-gpt-5-6-sol,OpenAI,67.1,0.47,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Luna (XHigh),openai-gpt-5-6-luna,OpenAI,47.6,0.54,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Terra (High),openai-gpt-5-6-terra,OpenAI,67.1,0.55,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Luna (Max),openai-gpt-5-6-luna,OpenAI,59.5,0.67,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Terra (XHigh),openai-gpt-5-6-terra,OpenAI,74.2,0.69,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Sol (High),openai-gpt-5-6-sol,OpenAI,85.4,0.74,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Sol (XHigh),openai-gpt-5-6-sol,OpenAI,90.0,1.04,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Terra (Max),openai-gpt-5-6-terra,OpenAI,83.9,1.09,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-09,GPT-5.6 Sol (Max),openai-gpt-5-6-sol,OpenAI,92.5,1.44,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-16,Kimi K3 (Low),moonshot-kimi-k3,Moonshot,12.4,0.2541,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-16,Kimi K3 (High),moonshot-kimi-k3,Moonshot,55.0,0.9472,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-16,Kimi K3 (Max),moonshot-kimi-k3,Moonshot,60.4,1.5927,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-16,Grok 4.5 (Low),xai-grok-4-5,xAI,33.1,0.4,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-16,Grok 4.5 (Medium),xai-grok-4-5,xAI,52.6,0.75,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-16,Grok 4.5 (High),xai-grok-4-5,xAI,52.6,0.78,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-21,Gemini 3.5 Flash-Lite (Minimal),gemini-3-5-flash-lite,Google,0.8,0.0143,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-21,Gemini 3.5 Flash-Lite (Low),gemini-3-5-flash-lite,Google,1.5,0.0171,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-21,Gemini 3.5 Flash-Lite (Medium),gemini-3-5-flash-lite,Google,5.3,0.0437,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-21,Gemini 3.6 Flash (Minimal),gemini-3-6-flash,Google,2.6,0.0708,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-21,Gemini 3.5 Flash-Lite (High),gemini-3-5-flash-lite,Google,10.3,0.139,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-21,Gemini 3.6 Flash (Low),gemini-3-6-flash,Google,30.4,0.223,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-21,Gemini 3.6 Flash (Medium),gemini-3-6-flash,Google,50.4,0.4555,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-21,Gemini 3.6 Flash (High),gemini-3-6-flash,Google,60.4,0.6061,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-24,Claude Opus 5 (High),anthropic-claude-opus-5,Anthropic,88.3,1.45,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-24,Claude Opus 5 (Max),anthropic-claude-opus-5,Anthropic,90.4,2.06,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-30,GPT-5.6 Luna 2026-07-30 (None),openai-gpt-5-6-luna-2026-07-30,OpenAI,0.8,0.0082,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-30,GPT-5.6 Luna 2026-07-30 (Low),openai-gpt-5-6-luna-2026-07-30,OpenAI,3.6,0.0136,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-30,GPT-5.6 Luna 2026-07-30 (Medium),openai-gpt-5-6-luna-2026-07-30,OpenAI,7.4,0.0221,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-30,GPT-5.6 Luna 2026-07-30 (High),openai-gpt-5-6-luna-2026-07-30,OpenAI,33.3,0.0625,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-30,GPT-5.6 Luna 2026-07-30 (XHigh),openai-gpt-5-6-luna-2026-07-30,OpenAI,43.5,0.1305,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-30,GPT-5.6 Luna 2026-07-30 (Max),openai-gpt-5-6-luna-2026-07-30,OpenAI,59.6,0.1767,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-31,DeepSeek V4 Flash 0731 (None),deepseek-v4-flash-0731,DeepSeek,2.1,0.0038,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-31,DeepSeek V4 Flash 0731 (Low),deepseek-v4-flash-0731,DeepSeek,46.0,0.0206,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-31,DeepSeek V4 Flash 0731 (Max),deepseek-v4-flash-0731,DeepSeek,61.4,0.0416,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-07-31,DeepSeek V4 Flash 0731 (High),deepseek-v4-flash-0731,DeepSeek,56.0,0.0453,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-11,Grok 4.6 (Low),xai-grok-4-6,xAI,27.6,0.2124,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-11,Grok 4.6 (Medium),xai-grok-4-6,xAI,61.3,0.6587,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-11,Grok 4.6 (High),xai-grok-4-6,xAI,65.1,0.7339,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-11,Grok 4.6 (XHigh),xai-grok-4-6,xAI,67.1,0.7575,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-13,DeepSeek V4 Pro 0813 (None),deepseek-v4-pro-0813,DeepSeek,0.8,0.0403,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-13,DeepSeek V4 Pro 0813 (Low),deepseek-v4-pro-0813,DeepSeek,56.2,0.3703,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-13,DeepSeek V4 Pro 0813 (High),deepseek-v4-pro-0813,DeepSeek,59.7,0.5969,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-13,DeepSeek V4 Pro 0813 (Max),deepseek-v4-pro-0813,DeepSeek,61.3,0.5976,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-13,Gemini 3.7 Flash (Low),google-gemini-3-7-flash,Google,52.9,0.0794,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-13,Gemini 3.7 Flash (Medium),google-gemini-3-7-flash,Google,63.7,0.1158,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-13,Gemini 3.7 Flash (High),google-gemini-3-7-flash,Google,84.6,0.2494,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-14,Qwen3.8-27B (None),alibaba-qwen3-8-27b,Alibaba,1.5,0.0589,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-14,Qwen3.8-27B (Low),alibaba-qwen3-8-27b,Alibaba,22.8,0.238,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-14,Qwen3.8-27B (Medium),alibaba-qwen3-8-27b,Alibaba,13.2,0.2863,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-14,Qwen3.8-27B (XHigh),alibaba-qwen3-8-27b,Alibaba,42.4,0.4469,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-26,GLM-5.3-Flash (Low),zai-glm-5-3-flash,Z.ai,27.9,0.0582,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-26,GLM-5.3-Flash (High),zai-glm-5-3-flash,Z.ai,50.1,0.0773,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-08-26,GLM-5.3-Flash (Max),zai-glm-5-3-flash,Z.ai,65.8,0.0933,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-01,Claude Fable 5.1 (Low),anthropic-claude-fable-5-1,Anthropic,78.3,0.9523,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-01,Claude Fable 5.1 (Medium),anthropic-claude-fable-5-1,Anthropic,86.2,1.2239,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-01,Claude Fable 5.1 (High),anthropic-claude-fable-5-1,Anthropic,88.8,1.6673,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-01,Claude Fable 5.1 (XHigh),anthropic-claude-fable-5-1,Anthropic,90.0,3.1202,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-01,Claude Fable 5.1 (Max),anthropic-claude-fable-5-1,Anthropic,90.0,4.4923,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-02,Gemini 3.8 Flash (Low),google-gemini-3-8-flash,Google,77.5,0.1545,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-02,Gemini 3.8 Flash (Medium),google-gemini-3-8-flash,Google,82.9,0.2478,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-02,Gemini 3.8 Flash (High),google-gemini-3-8-flash,Google,89.2,0.3997,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-02,GPT-6 Astra (None),openai-gpt-6-astra,OpenAI,59.6,0.3697,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-02,GPT-6 Astra (Low),openai-gpt-6-astra,OpenAI,85.4,0.4162,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-02,GPT-6 Astra (Medium),openai-gpt-6-astra,OpenAI,92.1,0.4801,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-02,GPT-6 Astra (High),openai-gpt-6-astra,OpenAI,92.1,0.6681,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-02,GPT-6 Astra (XHigh),openai-gpt-6-astra,OpenAI,93.3,0.8287,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-02,GPT-6 Astra (Max),openai-gpt-6-astra,OpenAI,95.0,1.1195,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-10,DeepSeek V4.1 Flash (None),deepseek-v4-1-flash,DeepSeek,1.2,0.0102,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-10,DeepSeek V4.1 Flash (Low),deepseek-v4-1-flash,DeepSeek,60.6,0.119,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-10,DeepSeek V4.1 Flash (Max),deepseek-v4-1-flash,DeepSeek,72.9,0.1294,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-10,DeepSeek V4.1 Flash (High),deepseek-v4-1-flash,DeepSeek,67.5,0.1334,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-21,Grok 4.7 (Low),xai-grok-4-7,xAI,16.7,0.1737,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-21,Grok 4.7 (Medium),xai-grok-4-7,xAI,58.8,1.4759,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-21,Grok 4.7 (High),xai-grok-4-7,xAI,58.3,1.549,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-21,Grok 4.7 (XHigh),xai-grok-4-7,xAI,61.4,2.0149,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,Claude Opus 5.5 (Low),anthropic-claude-opus-5-5,Anthropic,70.1,0.2413,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,Claude Opus 5.5 (Medium),anthropic-claude-opus-5-5,Anthropic,87.5,0.3369,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,Claude Opus 5.5 (High),anthropic-claude-opus-5-5,Anthropic,93.3,0.4079,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,Claude Opus 5.5 (XHigh),anthropic-claude-opus-5-5,Anthropic,92.5,0.6709,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,Claude Opus 5.5 (Max),anthropic-claude-opus-5-5,Anthropic,91.7,1.8517,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Luna (None),openai-gpt-6-luna,OpenAI,0.0,0.0037,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Luna (Low),openai-gpt-6-luna,OpenAI,4.6,0.0053,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Luna (Medium),openai-gpt-6-luna,OpenAI,18.1,0.0122,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Luna (High),openai-gpt-6-luna,OpenAI,31.4,0.0234,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Luna (XHigh),openai-gpt-6-luna,OpenAI,41.9,0.0323,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Luna (Max),openai-gpt-6-luna,OpenAI,59.3,0.0618,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Sol (None),openai-gpt-6-sol,OpenAI,1.7,0.0741,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Sol (Low),openai-gpt-6-sol,OpenAI,31.5,0.1009,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Sol (Medium),openai-gpt-6-sol,OpenAI,57.8,0.1476,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Sol (High),openai-gpt-6-sol,OpenAI,68.9,0.2027,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Sol (XHigh),openai-gpt-6-sol,OpenAI,78.1,0.2772,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-22,GPT-6 Sol (Max),openai-gpt-6-sol,OpenAI,89.6,0.4389,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-28,Claude Sonnet 5.5 (Low),anthropic-claude-sonnet-5-5,Anthropic,24.0,0.1092,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-28,Claude Sonnet 5.5 (Medium),anthropic-claude-sonnet-5-5,Anthropic,32.8,0.1554,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-28,Claude Sonnet 5.5 (High),anthropic-claude-sonnet-5-5,Anthropic,67.4,0.2768,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-28,Claude Sonnet 5.5 (XHigh),anthropic-claude-sonnet-5-5,Anthropic,83.9,0.5462,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-29,GPT-6.1 Sol (Low),openai-gpt-6-1-sol,OpenAI,76.7,0.0855,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-29,GPT-6.1 Sol (Medium),openai-gpt-6-1-sol,OpenAI,86.7,0.1004,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-29,GPT-6.1 Sol (High),openai-gpt-6-1-sol,OpenAI,91.7,0.1347,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-29,GPT-6.1 Sol (XHigh),openai-gpt-6-1-sol,OpenAI,91.7,0.1781,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-09-29,GPT-6.1 Sol (Max),openai-gpt-6-1-sol,OpenAI,94.2,0.2537,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-07,Claude Haiku 5.5 (Low),anthropic-claude-haiku-5-5,Anthropic,2.8,0.008,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-07,Claude Haiku 5.5 (Medium),anthropic-claude-haiku-5-5,Anthropic,9.4,0.015,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-07,Claude Haiku 5.5 (High),anthropic-claude-haiku-5-5,Anthropic,30.7,0.0467,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-07,Claude Haiku 5.5 (XHigh),anthropic-claude-haiku-5-5,Anthropic,61.3,0.085,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-13,Gemini 4 Argon (Low),google-gemini-4-argon,Google,42.1,0.0738,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-13,Gemini 4 Argon (Medium),google-gemini-4-argon,Google,87.1,0.1373,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-13,Gemini 4 Argon (High),google-gemini-4-argon,Google,91.2,0.3249,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-15,Muse Spark Open (Low),meta-muse-spark-open,Meta,12.2,0.1065,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-15,Muse Spark Open (Medium),meta-muse-spark-open,Meta,27.5,0.2514,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-15,Muse Spark Open (High),meta-muse-spark-open,Meta,47.5,0.6245,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-15,Muse Spark Open (XHigh),meta-muse-spark-open,Meta,57.5,0.7285,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-17,DeepSeek V4.1 Flash 1017 (None),deepseek-v4-1-flash-1017,DeepSeek,2.1,0.0102,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-17,DeepSeek V4.1 Flash 1017 (Low),deepseek-v4-1-flash-1017,DeepSeek,73.6,0.1335,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-17,DeepSeek V4.1 Flash 1017 (High),deepseek-v4-1-flash-1017,DeepSeek,68.6,0.1469,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-10-17,DeepSeek V4.1 Flash 1017 (Max),deepseek-v4-1-flash-1017,DeepSeek,78.1,0.1631,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-09,Claude Fable 5.2 (Low),anthropic-claude-fable-5-2,Anthropic,86.7,0.5158,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-09,Claude Fable 5.2 (Medium),anthropic-claude-fable-5-2,Anthropic,89.6,0.6268,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-09,Claude Fable 5.2 (High),anthropic-claude-fable-5-2,Anthropic,90.4,0.9076,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-09,Claude Fable 5.2 (XHigh),anthropic-claude-fable-5-2,Anthropic,93.8,0.9832,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-09,Claude Fable 5.2 (Max),anthropic-claude-fable-5-2,Anthropic,92.5,2.8135,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-10,Gemini 4 Carbon (Low),google-gemini-4-carbon,Google,49.6,0.0985,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-10,Gemini 4 Carbon (Medium),google-gemini-4-carbon,Google,94.2,0.3752,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-10,Gemini 4 Carbon (High),google-gemini-4-carbon,Google,92.1,0.6839,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-17,GPT-6.2 Sol (Low),openai-gpt-6-2-sol,OpenAI,57.9,0.0758,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-17,GPT-6.2 Sol (Medium),openai-gpt-6-2-sol,OpenAI,82.9,0.1032,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-17,GPT-6.2 Sol (High),openai-gpt-6-2-sol,OpenAI,85.8,0.1326,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-17,GPT-6.2 Sol (XHigh),openai-gpt-6-2-sol,OpenAI,85.8,0.1742,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-17,GPT-6.2 Sol (Max),openai-gpt-6-2-sol,OpenAI,85.8,0.2611,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-17,GPT-6.2 Astra (Low),openai-gpt-6-2-astra,OpenAI,91.7,0.2749,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-17,GPT-6.2 Astra (Medium),openai-gpt-6-2-astra,OpenAI,93.3,0.3089,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-17,GPT-6.2 Astra (High),openai-gpt-6-2-astra,OpenAI,94.6,0.4083,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-17,GPT-6.2 Astra (XHigh),openai-gpt-6-2-astra,OpenAI,95.8,0.4996,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json
+2026-11-17,GPT-6.2 Astra (Max),openai-gpt-6-2-astra,OpenAI,95.8,0.9695,2026-11-19,https://arcprize.org/media/data/leaderboard/evaluations.json

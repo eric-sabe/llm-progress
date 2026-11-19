@@ -149,6 +149,9 @@ def load_data():
         after=read("after-metr-instruments.csv"),
         exph=read("expenditure-horizon.csv"),
         succ=read("successor-benchmarks.csv", ["Launched"]),
+        prices=read("model-prices.csv", ["Release_Date"]),
+        arccost=read("arc-cost-per-task.csv", ["Date"]),
+        aacost=read("aa-cost-to-run.csv"),
     )
     for col in ["MMLU", "GPQA", "SWE_bench_Verified", "HumanEval", "MATH"]:
         d["bm"][col] = pd.to_numeric(d["bm"][col], errors="coerce")
@@ -168,13 +171,14 @@ st.markdown(
 st.divider()
 
 # ── Tabs ──────────────────────────────────────────────────────────────────────
-(tab_rel, tab_life, tab_bench, tab_who, tab_th, tab_real, tab_jobs, tab_pred) = st.tabs(
+(tab_rel, tab_life, tab_bench, tab_who, tab_th, tab_cost, tab_real, tab_jobs, tab_pred) = st.tabs(
     [
         "📅  Release Cadence",
         "⏳  Benchmark Lifespans",
         "📊  Progress Measures",
         "🔍  Who Measured It?",
         "⏱  Task Time Horizons",
+        "💵  Cost & Value",
         "🏗  Benchmarks vs Reality",
         "🎓  Jobs & Education",
         "🎯  Prediction Scorecard",
@@ -1033,6 +1037,251 @@ table.after a { color:#4c8ef5; font-size:0.8rem; text-decoration:none; }
         "Expenditure-horizon figures are from METR's 21 July 2026 post; METR does not describe "
         "the metric as a replacement for time horizons. The Remote Labor Index and FrontierSWE "
         "readings are vendor-reported and reached us through secondary sources."
+    )
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# TAB — Cost & Value
+# ═════════════════════════════════════════════════════════════════════════════
+with tab_cost:
+    st.markdown("### What Does Capability Cost?")
+    st.markdown(
+        "List prices per million tokens, how they moved from one version to the next, and "
+        "what each dollar buys on Epoch's capability index and on a measured task."
+    )
+    pr = D["prices"].copy()
+    pr["Blended"] = (3 * pr["Input"] + pr["Output"]) / 4
+    LAB_SEQ = ["OpenAI", "Anthropic", "Google", "xAI", "Meta", "DeepSeek", "Moonshot", "Z.ai", "Alibaba"]
+
+    def _frontier(df, xcol, ycol):
+        """Rows where nothing cheaper scores as high (the efficient frontier)."""
+        best, keep = float("-inf"), []
+        for idx, r in df.sort_values([xcol, ycol], ascending=[True, False]).iterrows():
+            if r[ycol] > best:
+                keep.append(idx)
+                best = r[ycol]
+        return df.loc[keep]
+
+    # ── 1. Current list prices ─────────────────────────────────────────────
+    cur = pr[pr["Current"] == "yes"].copy()
+    cur["rank"] = cur["Org"].map({o: i for i, o in enumerate(LAB_SEQ)})
+    cur = cur.sort_values(["rank", "Output"], ascending=[True, False])
+    cur["Label"] = cur["Model"] + "  ·  " + cur["Org"]
+    figc = go.Figure()
+    for col, name, alpha in [("Input", "Input, per million tokens", 0.45), ("Output", "Output, per million tokens", 1.0)]:
+        figc.add_trace(go.Bar(
+            y=cur["Label"], x=cur[col], orientation="h", name=name,
+            marker_color=[hex_to_rgba(ORG_COLORS.get(o, "#888"), alpha) for o in cur["Org"]],
+            text=[f"${v:,.2f}" for v in cur[col]], textposition="outside", textfont=dict(size=10.5),
+            customdata=list(zip(cur["Verdict"], cur["Note"].fillna(""))),
+            hovertemplate="%{y}<br>" + name + ": $%{x:,.2f}<br>Source: %{customdata[0]}"
+                          "<br>%{customdata[1]}<extra></extra>"))
+    figc.update_layout(
+        **BASE_LAYOUT, barmode="group", height=130 + 44 * len(cur), margin=dict(l=20, r=60, t=55, b=50),
+        title=dict(text="List prices today: input (pale) and output (solid), US dollars per million tokens",
+                   font=dict(size=15), x=0.0),
+        xaxis=dict(type="log", gridcolor=GRID_COL, title="US dollars per million tokens (log scale)",
+                   tickvals=[0.1, 0.3, 1, 3, 10, 30, 100], ticktext=["$0.10", "$0.30", "$1", "$3", "$10", "$30", "$100"]),
+        yaxis=dict(autorange="reversed", categoryorder="array", categoryarray=list(cur["Label"]),
+                   tickfont=dict(size=12)),
+        showlegend=False,
+    )
+    st.plotly_chart(figc, width="stretch")
+
+    # ── 2. Price by generation, like for like ──────────────────────────────
+    left, right = st.columns(2)
+    with left:
+        lines = pr.dropna(subset=["Line"]).sort_values("Release_Date")
+        figg = go.Figure()
+        for line in lines["Line"].unique():
+            g = lines[lines["Line"] == line]
+            if len(g) < 2:
+                continue
+            colr = ORG_COLORS.get(g["Org"].iloc[0], "#888")
+            dash = "solid" if g["Line_Rank"].iloc[0] == 1 else "dot"
+            figg.add_trace(go.Scatter(
+                x=g["Release_Date"], y=g["Output"], mode="lines+markers", name=line,
+                line=dict(color=colr, width=2, dash=dash, shape="hv"),
+                marker=dict(size=7, color=colr),
+                customdata=list(zip(g["Model"], g["Input"])),
+                hovertemplate="<b>%{customdata[0]}</b><br>%{x|%b %Y}<br>Output $%{y:,.2f} · "
+                              "input $%{customdata[1]:,.2f} per million tokens<extra></extra>"))
+        figg.update_layout(
+            **BASE_LAYOUT, height=560, margin=dict(l=60, r=20, t=70, b=170),
+            title=dict(text="Same product line, version to version:<br>output price at launch",
+                       font=dict(size=14), x=0.0),
+            xaxis=dict(gridcolor=GRID_COL, range=["2023-01-01", "2026-12-20"]),
+            yaxis=dict(type="log", gridcolor=GRID_COL, title="Output, US dollars per million tokens",
+                       tickvals=[0.3, 1, 3, 10, 30, 100], ticktext=["$0.30", "$1", "$3", "$10", "$30", "$100"]),
+            legend=dict(**LEGEND_STYLE, orientation="h", y=-0.2, font_size=11), hovermode="closest",
+        )
+        st.plotly_chart(figg, width="stretch")
+    with right:
+        # cheapest way to buy a fixed level of capability, over time
+        ev = pr.dropna(subset=["ECI"]).sort_values("Release_Date")
+        figf = go.Figure()
+        levels = [(130, "GPT-4o level (ECI 128+)", 128, "#9aa0aa"), (150, "GPT-5 level (ECI 150+)", 150, "#e0a23c"),
+                  (160, "GPT-5.4 Pro level (ECI 160+)", 160, "#10a37f")]
+        fall = {}
+        for _, name, thr, colr in levels:
+            g = ev[ev["ECI"] >= thr]
+            if g.empty:
+                continue
+            g = g.assign(Cheapest=g["Blended"].cummin())
+            steps = g[g["Blended"] == g["Cheapest"]].drop_duplicates("Cheapest")
+            figf.add_trace(go.Scatter(
+                x=list(steps["Release_Date"]) + [AS_OF], y=list(steps["Cheapest"]) + [steps["Cheapest"].iloc[-1]],
+                mode="lines+markers", name=name, line=dict(color=colr, width=2.5, shape="hv"),
+                marker=dict(size=7), customdata=list(steps["Model"]) + [steps["Model"].iloc[-1]],
+                hovertemplate="<b>%{customdata}</b><br>%{x|%b %Y}<br>$%{y:,.2f} per million tokens (blended)<extra></extra>"))
+            fall[thr] = (steps["Cheapest"].iloc[0] / steps["Cheapest"].iloc[-1],
+                         (AS_OF - steps["Release_Date"].iloc[0]).days / 30.44, steps["Model"].iloc[-1])
+        figf.update_layout(
+            **BASE_LAYOUT, height=560, margin=dict(l=60, r=20, t=70, b=170),
+            title=dict(text="Cheapest way to buy a fixed capability level:<br>lowest blended price at or above each index score",
+                       font=dict(size=14), x=0.0),
+            xaxis=dict(gridcolor=GRID_COL, range=["2024-03-01", "2026-12-20"]),
+            yaxis=dict(type="log", gridcolor=GRID_COL, title="Blended US dollars per million tokens",
+                       tickvals=[0.1, 0.3, 1, 3, 10, 30], ticktext=["$0.10", "$0.30", "$1", "$3", "$10", "$30"]),
+            legend=dict(**LEGEND_STYLE, orientation="h", y=-0.2, font_size=11), hovermode="closest",
+        )
+        st.plotly_chart(figf, width="stretch")
+
+    # ── 3. Value: capability per dollar ────────────────────────────────────
+    basis = st.radio(
+        "Price basis for the value chart",
+        ["Blended (3 parts input to 1 part output)", "Output price only"],
+        horizontal=True, key="cost_basis",
+    )
+    xcol = "Blended" if basis.startswith("Blended") else "Output"
+    val = pr.dropna(subset=["ECI"]).copy()
+    val = val[val["Release_Date"] >= "2025-11-01"]
+    figv = go.Figure()
+    fr = _frontier(val, xcol, "ECI").sort_values(xcol)
+    figv.add_trace(go.Scatter(
+        x=fr[xcol], y=fr["ECI"], mode="lines", name="Best capability at each price",
+        line=dict(color="#ddd", width=1.5, dash="dot", shape="hv"), hoverinfo="skip"))
+    for org in LAB_SEQ:
+        g = val[val["Org"] == org]
+        if g.empty:
+            continue
+        colr = ORG_COLORS.get(org, "#888")
+        on = g.index.isin(fr.index)
+        figv.add_trace(go.Scatter(
+            x=g[xcol], y=g["ECI"], mode="markers+text", name=org,
+            marker=dict(size=[13 if o else 9 for o in on], color=colr,
+                        line=dict(color=["#fff" if o else PLOT_BG for o in on], width=1.5)),
+            text=[m.replace("Claude ", "").replace("DeepSeek ", "") if o else "" for m, o in zip(g["Model"], on)],
+            textposition="top center", textfont=dict(size=10, color="#bbb"),
+            customdata=list(zip(g["Model"], g["Input"], g["Output"], g["Release_Date"].dt.strftime("%b %Y"))),
+            hovertemplate="<b>%{customdata[0]}</b> (" + org + ", %{customdata[3]})<br>ECI %{y:.1f}"
+                          "<br>Input $%{customdata[1]:,.2f} · output $%{customdata[2]:,.2f}<extra></extra>"))
+    figv.update_layout(
+        **BASE_LAYOUT, height=560, margin=dict(l=70, r=40, t=55, b=60),
+        title=dict(text="Value: capability index against price, models released since November 2025",
+                   font=dict(size=15), x=0.0),
+        xaxis=dict(type="log", gridcolor=GRID_COL,
+                   title=("Blended" if xcol == "Blended" else "Output") + " US dollars per million tokens (log scale)",
+                   tickvals=[0.1, 0.3, 1, 3, 10, 30, 100], ticktext=["$0.10", "$0.30", "$1", "$3", "$10", "$30", "$100"]),
+        yaxis=dict(title="Epoch Capabilities Index", gridcolor=GRID_COL),
+        legend=dict(**LEGEND_STYLE, x=0.99, xanchor="right", y=0.02, yanchor="bottom"), hovermode="closest",
+    )
+    st.plotly_chart(figv, width="stretch")
+
+    # ── 4. Measured cost of a task ─────────────────────────────────────────
+    ac = D["arccost"]
+    ac = ac[ac["Date"] >= "2026-06-01"]
+    figa2 = go.Figure()
+    fa = _frontier(ac, "Cost_per_task_usd", "ARC_AGI_2").sort_values("Cost_per_task_usd")
+    figa2.add_trace(go.Scatter(
+        x=fa["Cost_per_task_usd"], y=fa["ARC_AGI_2"], mode="lines", name="Best score at each cost",
+        line=dict(color="#ddd", width=1.5, dash="dot", shape="hv"), hoverinfo="skip"))
+    for org in LAB_SEQ:
+        g = ac[ac["Org"] == org]
+        if g.empty:
+            continue
+        colr = ORG_COLORS.get(org, "#888")
+        on = g.index.isin(fa.index)
+        figa2.add_trace(go.Scatter(
+            x=g["Cost_per_task_usd"], y=g["ARC_AGI_2"], mode="markers+text", name=org,
+            marker=dict(size=[12 if o else 7 for o in on], color=hex_to_rgba(colr, 0.85),
+                        line=dict(color=["#fff" if o else PLOT_BG for o in on], width=1.2)),
+            text=[c.replace("Claude ", "").replace("DeepSeek ", "") if o else "" for c, o in zip(g["Config"], on)],
+            textposition="top left", textfont=dict(size=9.5, color="#bbb"),
+            customdata=g["Config"],
+            hovertemplate="<b>%{customdata}</b><br>ARC-AGI-2 %{y:.1f}%<br>$%{x:,.3f} per task<extra></extra>"))
+    figa2.update_layout(
+        **BASE_LAYOUT, height=540, margin=dict(l=70, r=40, t=55, b=60),
+        title=dict(text="Measured, not listed: what one ARC-AGI-2 task cost to run (models since June 2026, every effort setting)",
+                   font=dict(size=15), x=0.0),
+        xaxis=dict(type="log", gridcolor=GRID_COL, title="US dollars per task, as run by ARC Prize (log scale)",
+                   tickvals=[0.01, 0.03, 0.1, 0.3, 1, 3, 10], ticktext=["$0.01", "$0.03", "$0.10", "$0.30", "$1", "$3", "$10"]),
+        yaxis=dict(title="ARC-AGI-2 score (%)", gridcolor=GRID_COL, range=[0, 102]),
+        legend=dict(**LEGEND_STYLE, x=0.99, xanchor="right", y=0.02, yanchor="bottom"), hovermode="closest",
+    )
+    st.plotly_chart(figa2, width="stretch")
+
+    # ── 5. Same list price, different bill ─────────────────────────────────
+    aa = D["aacost"].sort_values("AA_Index", ascending=False)
+    aa["Label"] = aa["Model"] + "  ·  list $" + aa["Input"].map("{:g}".format) + " / $" + aa["Output"].map("{:g}".format)
+    figb = go.Figure(go.Bar(
+        y=aa["Label"], x=aa["Cost_to_run_usd"], orientation="h",
+        marker_color=[ORG_COLORS.get(o, "#888") for o in aa["Org"]],
+        text=[f"${v:,.0f}" for v in aa["Cost_to_run_usd"]], textposition="outside",
+        customdata=list(zip(aa["AA_Index"], aa["Effort"], aa["Cost_per_task_usd"])),
+        hovertemplate="%{y}<br>Total to run the index: $%{x:,.0f}<br>Index score %{customdata[0]} at "
+                      "%{customdata[1]} effort · $%{customdata[2]:.2f} per task<extra></extra>"))
+    figb.update_layout(
+        **BASE_LAYOUT, height=470, margin=dict(l=20, r=70, t=55, b=50),
+        title=dict(text="Same list price, different bill: total cost to run one evaluation suite (Artificial Analysis index, top ten models)",
+                   font=dict(size=15), x=0.0),
+        xaxis=dict(gridcolor=GRID_COL, title="US dollars to run the full index once", range=[0, 25500]),
+        yaxis=dict(autorange="reversed", categoryorder="array", categoryarray=list(aa["Label"]), tickfont=dict(size=12)),
+    )
+    st.plotly_chart(figb, width="stretch")
+
+    # ── Cards and reading notes ────────────────────────────────────────────
+    lead = val.loc[val["ECI"].idxmax()]
+    near = val[(val["ECI"] >= lead["ECI"] - 10) & (val["Blended"] < lead["Blended"])]
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Top of the index", f"${lead['Blended']:,.2f}", f"{lead['Model']}, blended per million tokens", delta_color="off")
+    if not near.empty:
+        cheap = near.loc[near["Blended"].idxmin()]
+        c2.metric("Cheapest within 10 index points", f"${cheap['Blended']:,.2f}",
+                  f"{cheap['Model']} · {lead['Blended'] / cheap['Blended']:.0f}× cheaper", delta_color="off")
+    if 150 in fall:
+        ratio, months, model = fall[150]
+        c3.metric("GPT-5-level capability", f"{ratio:.0f}× cheaper", f"in {months:.0f} months (now {model})", delta_color="off")
+    top_run = ac.loc[ac["ARC_AGI_2"].idxmax()]
+    eff = fa[fa["ARC_AGI_2"] >= 90]
+    if not eff.empty:
+        e = eff.iloc[0]
+        c4.metric("Cheapest run above 90% on ARC-AGI-2", f"${e['Cost_per_task_usd']:.2f} a task",
+                  f"{e['Config']} · top score costs ${top_run['Cost_per_task_usd']:.2f}", delta_color="off")
+
+    st.info(
+        "**The price of a fixed level of capability is collapsing; the price of the frontier is "
+        "not.** The top tier at OpenAI and Anthropic lists at $8 per million input tokens, a "
+        "little below the $10 to $15 that flagships cost in 2024. What changed is everything "
+        "below it: a model within a point of the March 2026 frontier on Epoch's index now "
+        "lists at 10 cents per million input tokens. Within a product line, prices mostly held "
+        "or fell from version to version; Anthropic's Opus line went from $75 to $20 per "
+        "million output tokens. **List price is a poor guide to the bill.** Two flagships at "
+        "the same $8 / $40 cost $4,530 and $22,191 to run the same evaluation suite, about "
+        "five times apart. For real work, compare cost per finished task."
+    )
+    st.caption(
+        "List prices are each provider's published standard rate at launch for the base context "
+        "window, with no batch, cache or volume discount; hover shows where each was read. "
+        "\"Blended\" weights input three to one over output, a common convention; agentic "
+        "coding often runs far more input-heavy, and cached input is much cheaper. A price per "
+        "token is not a cost per task: reasoning models can spend many times more tokens on the "
+        "same job, which is why the last chart uses ARC Prize's measured cost per task, taken "
+        "from its data file of 19 November 2026. Index scores are from Epoch's file of the same "
+        "date; models Epoch has not scored do not appear on the value chart. The cost-to-run "
+        "figures are Artificial Analysis's own, for its index version 5.0.1 at each model's "
+        "top effort setting; it prices Gemini 4 Carbon at the $4 / $20 rate that takes effect "
+        "on 1 December 2026, where the first chart shows the $2 / $10 introductory price."
     )
 
 

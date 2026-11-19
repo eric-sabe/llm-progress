@@ -19,6 +19,7 @@ Capability kept climbing through 2026, but the instruments used to show it broke
 | 📊 Progress Measures | Epoch Capabilities Index (each lab's best model over time for ten labs, open-weight models marked, with least-squares trend lines before and after reasoning models), the ARC-AGI-2 and ARC-AGI-3 climb, the portfolio of benchmarks proposed in place of SWE-bench, and the four retired series (GPQA Diamond, SWE-bench Verified, MATH/AIME, MMLU) with end markers. |
 | 🔍 Who Measured It? | Paired dots for the same model on the same benchmark: vendor vs independent, one lab's table vs another's, and one model under different harnesses or scoring rules. |
 | ⏱ Task Time Horizons | METR Time Horizon 1.1 at 50% or 80% success, with confidence intervals, the 16-hour reliability limit, the three readings of GPT-5.6 Sol, and the date the series was frozen. Below it, an "After METR" panel lists the instruments now used instead and charts METR's expenditure horizon. |
+| 💵 Cost & Value | List prices per million tokens for current models, price by version within each product line, the cheapest price for a fixed capability level over time, capability index against price, ARC Prize's measured cost per task, and the total cost to run one evaluation suite. |
 | 🏗 Benchmarks vs Reality | Share of code from AI (GitHub measurement and company statements), firm-level productivity studies split into activity, delivered work and friction, and METR's controlled trials. |
 | 🎓 Jobs & Education | Indeed software postings index, Stanford's entry-level employment gap, CS salary, enrollment and BLS projection figures. |
 | 🎯 Prediction Scorecard | Dated predictions from industry figures with a verdict and what happened. |
@@ -34,6 +35,7 @@ All chart data lives in `working-data-tables/`, one CSV per chart, each row with
 | `eci-scores.csv`, `arc-agi-scores.csv`, `successor-benchmarks.csv`, `model-benchmark-scores.csv` | Progress Measures |
 | `vendor-vs-independent.csv` | Who Measured It? |
 | `model-task-time-horizons.csv`, `after-metr-instruments.csv`, `expenditure-horizon.csv` | Task Time Horizons |
+| `model-prices.csv`, `arc-cost-per-task.csv`, `aa-cost-to-run.csv` | Cost & Value |
 | `adoption-series.csv`, `productivity-studies.csv`, `metr-uplift-studies.csv` | Benchmarks vs Reality |
 | `labor-series.csv` | Jobs & Education |
 | `prediction-scorecard.csv` | Prediction Scorecard |
@@ -48,6 +50,7 @@ The research behind the November 2026 revision, including a table of open confli
 - **Vendor figures** are the lab's own numbers and were mostly read through secondary sources. `Confidence` in the score table is `confirmed`, `reported` or `unverified`; unverified points are drawn hollow.
 - **Benchmark end dates** and the cohort averages are judgment calls computed from the lifespans table, not a published statistic.
 - **Company code-share figures** are executive statements with differing definitions.
+- **Prices** are each provider's standard list rate for the base context window, with no batch, cache or volume discount. "Blended" means three parts input to one part output.
 
 ### Corrections made in the November 2026 revision
 
@@ -55,12 +58,14 @@ The research behind the November 2026 revision, including a table of open confli
 - Scores: Claude Sonnet 4.6 GPQA corrected from 74.1 to 89.9 and GPT-5.3-Codex GPQA from 73.8 to 92.6, both against the labs' own tables; HumanEval and MATH cells from September 2025 onward, which had no traceable source, blanked.
 - Timeline: GPT-5.3-Codex moved from 2026-01-14 to 2026-02-05; Claude 3.7 Sonnet moved to 2025-02-24.
 
-### Rebuilding the index table
+### Generated tables
 
-`eci-scores.csv` is generated, not hand-edited. Download Epoch's file and run:
+Three tables are built by scripts from files you download; the rest are edited by hand.
 
 ```bash
-python scripts/build_eci_scores.py path/to/eci_scores.csv 2026-11-19
+python scripts/build_eci_scores.py path/to/eci_scores.csv 2026-11-19               # eci-scores.csv
+python scripts/update_price_eci.py path/to/eci_scores.csv                           # index scores in model-prices.csv
+python scripts/build_arc_cost.py evaluations.json models.json 2026-11-19            # arc-cost-per-task.csv
 ```
 
 ## Running Locally
@@ -81,6 +86,6 @@ python -m http.server -d site   # preview at http://localhost:8000
 
 Every push and pull request builds the site in GitHub Actions (`.github/workflows/pages.yml`), so a broken data file or chart fails the check. Pushes to `main` publish it.
 
-Each tab has its own address, for linking from slides: `index.html` (Release Cadence), `benchmark-lifespans.html`, `progress-measures.html`, `who-measured-it.html`, `task-time-horizons.html`, `benchmarks-vs-reality.html`, `jobs-education.html`, `prediction-scorecard.html`. The pages need no server once loaded, and the `site` folder works offline if you serve it locally.
+Each tab has its own address, for linking from slides: `index.html` (Release Cadence), `benchmark-lifespans.html`, `progress-measures.html`, `who-measured-it.html`, `task-time-horizons.html`, `benchmarks-vs-reality.html`, `cost-value.html`, `jobs-education.html`, `prediction-scorecard.html`. The pages need no server once loaded, and the `site` folder works offline if you serve it locally.
 
 If `app.py` starts using a Streamlit call the builder does not know, the build stops and names the call; add it to `Container` in `build_site.py`.
