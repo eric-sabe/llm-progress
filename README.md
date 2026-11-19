@@ -4,6 +4,8 @@ Interactive Streamlit visualizations exploring the pace of change in agentic cod
 
 Prepared for NCSU CSC510. Data revised 19 November 2026.
 
+**Live site:** https://eric-sabe.github.io/llm-progress/
+
 ## The story in one paragraph
 
 Capability kept climbing through 2026, but the instruments used to show it broke. Every benchmark the earlier version of this deck charted has been retired, METR's time-horizon series ended above its own reliability limit, and vendor and independent scores have drifted apart. Meanwhile real-world evidence arrived: agents now start more than 40% of GitHub pull requests, delivered work has moved much less than activity, and entry-level hiring in AI-exposed jobs has narrowed.
@@ -67,3 +69,18 @@ python scripts/build_eci_scores.py path/to/eci_scores.csv 2026-11-19
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+## Published site
+
+The site on GitHub Pages is a static copy of the same app. `build_site.py` runs `app.py` with a stand-in for Streamlit that records what the app would draw, once for every combination of the controls on each tab, and writes one HTML page per tab. `app.py` stays the single source: edit a chart or a sentence there and both versions change.
+
+```bash
+python build_site.py            # writes ./site
+python -m http.server -d site   # preview at http://localhost:8000
+```
+
+Every push and pull request builds the site in GitHub Actions (`.github/workflows/pages.yml`), so a broken data file or chart fails the check. Pushes to `main` publish it.
+
+Each tab has its own address, for linking from slides: `index.html` (Release Cadence), `benchmark-lifespans.html`, `progress-measures.html`, `who-measured-it.html`, `task-time-horizons.html`, `benchmarks-vs-reality.html`, `jobs-education.html`, `prediction-scorecard.html`. The pages need no server once loaded, and the `site` folder works offline if you serve it locally.
+
+If `app.py` starts using a Streamlit call the builder does not know, the build stops and names the call; add it to `Container` in `build_site.py`.
