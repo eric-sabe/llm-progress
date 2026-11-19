@@ -148,6 +148,7 @@ def load_data():
         pred=read("prediction-scorecard.csv").fillna("n/a"),
         after=read("after-metr-instruments.csv"),
         exph=read("expenditure-horizon.csv"),
+        succ=read("successor-benchmarks.csv", ["Launched"]),
     )
     for col in ["MMLU", "GPQA", "SWE_bench_Verified", "HumanEval", "MATH"]:
         d["bm"][col] = pd.to_numeric(d["bm"][col], errors="coerce")
@@ -372,19 +373,22 @@ with tab_life:
                     f"<b>{r['Benchmark']}</b><br>{r['Measures']}<br>"
                     f"Introduced {r['Introduced']:%b %Y}"
                     + ("" if active else f" · ended {r['Ended']:%b %Y}")
-                    + f"<br>{r['How_Ended']}<extra></extra>"
+                    + f"<br>{r['How_Ended']}"
+                    + (f"<br>Epoch review: {r['Epoch_Review']}" if isinstance(r["Epoch_Review"], str) else "")
+                    + "<extra></extra>"
                 ),
             )
         )
         figl.add_annotation(
             x=r["End_Plot"], y=r["Benchmark"], xanchor="left", xshift=8, showarrow=False,
-            text=(f"{int(r['Months'])} mo so far" if active else f"<b>{int(r['Months'])} mo</b>"),
+            text=(f"{int(r['Months'])} mo so far" if active else f"<b>{int(r['Months'])} mo</b>")
+            + (" · rated Flawed" if active and str(r["Epoch_Review"]).startswith("Flawed") else ""),
             font=dict(size=11.5, color=colr),
         )
     figl.update_layout(
         **BASE_LAYOUT, height=600, margin=dict(l=160, r=90, t=55, b=40),
         title=dict(text="Benchmark lifespans, by introduction date", font=dict(size=15), x=0.0),
-        xaxis=dict(type="date", gridcolor=GRID_COL, range=["2019-06-01", "2027-06-01"]),
+        xaxis=dict(type="date", gridcolor=GRID_COL, range=["2019-06-01", "2027-11-01"]),
         yaxis=dict(type="category", categoryorder="array", categoryarray=list(life["Benchmark"]),
                    gridcolor=GRID_COL, autorange="reversed", tickfont=dict(size=12.5)),
         legend=dict(**LEGEND_STYLE, orientation="h", y=-0.08),
@@ -398,7 +402,8 @@ with tab_life:
         s = ended[(ended["Introduced"] >= a) & (ended["Introduced"] < b)]["Months"]
         return f"{s.mean():.0f} months", f"{len(s)} benchmarks"
 
-    c1, c2, c3 = st.columns(3)
+    c1, c2, c3, c4 = st.columns(4)
+    c4.metric("Epoch's reviews of 29 benchmarks", "15 Flawed", "5 Verified · 9 not enough info", delta_color="off")
     v, n = _avg("2019-01-01", "2022-01-01")
     c1.metric("Introduced 2019 to 2021", v, n, delta_color="off")
     v, n = _avg("2023-01-01", "2025-01-01")
@@ -411,14 +416,19 @@ with tab_life:
         "The average useful life fell by roughly half with each cohort. Two of the 2026 "
         "endings were not ceilings but **validity failures**: OpenAI stopped reporting "
         "SWE-bench Verified in February (flawed tests, memorised fixes), endorsed SWE-bench Pro, "
-        "then withdrew that endorsement in July after finding about 30% of its tasks broken."
+        "then withdrew that endorsement in July after finding about 30% of its tasks broken. "
+        "Being current is not the same as being sound: Epoch's review programme rates three of "
+        "the five benchmarks still in use here as **Flawed** (ARC-AGI-3, Humanity's Last Exam, "
+        "Terminal-Bench 4.0)."
     )
     st.caption(
         "End dates are judgment calls: the month a benchmark stopped discriminating among "
         "frontier models or was disowned by a major evaluator. Cohort averages are computed "
         "from this table, not a published statistic. Pre-2023 dates are from background "
         "knowledge and the Stanford AI Index; 2025 to 2026 dates are from Epoch, ARC Prize, "
-        "Artificial Analysis and tbench.ai."
+        "Artificial Analysis and tbench.ai. \"Flawed\" is Epoch's review verdict on a "
+        "benchmark's scoring, setup or consistency, not a retirement; Epoch does not review "
+        "its own benchmarks, FrontierMath among them."
     )
 
 
@@ -428,9 +438,26 @@ with tab_life:
 with tab_bench:
     st.markdown("### Measuring Progress When Benchmarks Keep Dying")
 
+    SUCC_INFO = (
+        "**No single benchmark replaced SWE-bench; a portfolio did.** Each successor tests a "
+        "different part of the job, and the scores spread accordingly. Agents rebuild a whole "
+        "program to an exact, checkable specification almost perfectly (98%), and score 65% to "
+        "80% on fresh issues and maintenance tasks. They complete only **19%** of from-scratch "
+        "builds and **25%** of tasks that require keeping earlier work intact while adding to "
+        "it. On ARE-bench the same runs earn 93% of the checklist and 66% on delivering "
+        "everything: mostly right is not the same as done."
+    )
+    SUCC_CAPTION = (
+        "Each bar is the best score found on the benchmark owner's page or paper as of 19 "
+        "November 2026, with its own harness and budget; bars are not comparable to one another "
+        "as model rankings. Hover for who ran each result and its caveat. SWE-rebench's board "
+        "has not added a model since July, LoopsBench has only its July paper result, and the "
+        "SWE-bench-Live entry is self-submitted."
+    )
     VIEWS = [
         "Composite index (Epoch ECI)",
         "ARC-AGI-2 and ARC-AGI-3",
+        "After SWE-bench: the successor portfolio",
         "Retired: GPQA Diamond",
         "Retired: SWE-bench Verified",
         "Retired: MATH / AIME",
@@ -550,21 +577,65 @@ with tab_bench:
             "**The fastest saturation on record.** ARC-AGI-2 went from **54% to 96% in eleven "
             "months**. ARC-AGI-3, built to resist exactly that, launched in March 2026 with every "
             "frontier model **under 1%** and stands at **81%** eight months later. The hollow "
-            "points show the same models on a harness the provider supplies: GPT-6 Astra scores "
-            "63% on the standard harness and 99.9% on its own."
+            "points show the same models on a harness the provider supplies: at the same effort "
+            "setting, GPT-6 Astra scores 63% on the standard harness and 98.6% on its own."
         )
         st.caption(
             "Scores are from ARC Prize's Verified Leaderboard, which ARC Prize runs itself on a "
             "semi-private task set. Entry dates can trail model launch by a few days. The separate "
-            "ARC Prize 2026 competition reports results on 4 December 2026."
+            "ARC Prize 2026 competition reports results on 4 December 2026. Epoch rated ARC-AGI-3 "
+            "Flawed on 30 October 2026: the headline number is action efficiency against a human "
+            "baseline, not a percentage solved, and the standard harness discards the model's "
+            "reasoning after every action."
         )
+
+    elif view == VIEWS[2]:
+        sc = D["succ"].sort_values("Top_score").reset_index(drop=True)
+        CAT_COL = {
+            "Build from scratch": "#e0524a", "Sustained work": "#e0a23c",
+            "Project continuation": "#a855f7", "Fresh issues": "#4c8ef5", "Maintenance": "#10a37f",
+            "Rebuild to exact spec": "#9aa0aa",
+        }
+        fig2 = go.Figure()
+        fig2.add_trace(go.Bar(
+            y=sc["Benchmark"], x=[100] * len(sc), orientation="h", showlegend=False,
+            marker_color="rgba(255,255,255,0.05)", hoverinfo="skip"))
+        for cat, colr in CAT_COL.items():
+            g = sc[sc["Category"] == cat]
+            if g.empty:
+                continue
+            fig2.add_trace(go.Bar(
+                y=g["Benchmark"], x=g["Top_score"], orientation="h", name=cat, marker_color=colr,
+                customdata=list(zip(g["Measures"], g["Holder"], g["Executed_by"], g["Run_by"],
+                                    g["Launched"].dt.strftime("%b %Y"), g["Caveat"])),
+                hovertemplate="<b>%{y}</b> (%{customdata[3]}, %{customdata[4]})<br>%{customdata[0]}"
+                              "<br>Top score %{x:.1f}%: %{customdata[1]}"
+                              "<br>Run by: %{customdata[2]}<br>%{customdata[5]}<extra></extra>"))
+        for _, r in sc.iterrows():
+            fig2.add_annotation(
+                x=r["Top_score"] if r["Top_score"] < 75 else 2, y=r["Benchmark"], xanchor="left",
+                xshift=8, showarrow=False,
+                text=f"<b>{r['Top_score']:.0f}%</b>  {r['Holder']}",
+                font=dict(size=11.5, color="#ddd" if r["Top_score"] < 75 else "#0e1117"))
+        fig2.update_layout(
+            **BASE_LAYOUT, barmode="overlay", height=520, margin=dict(l=20, r=40, t=55, b=50),
+            title=dict(text="Benchmarks proposed in place of SWE-bench: best score to date",
+                       font=dict(size=15), x=0.0),
+            xaxis=dict(title="Top score (%)  ·  the dim bar is the room left", gridcolor=GRID_COL, range=[0, 100]),
+            yaxis=dict(categoryorder="array", categoryarray=list(sc["Benchmark"]), tickfont=dict(size=13)),
+            legend=dict(**LEGEND_STYLE, orientation="h", y=-0.2, title="What it tests"),
+            hovermode="closest",
+        )
+        st.plotly_chart(fig2, width="stretch")
+        st.info(SUCC_INFO)
+        st.caption(SUCC_CAPTION)
 
     else:
         LEGACY = {
-            VIEWS[2]: ("GPQA", "GPQA Diamond score (%)"),
-            VIEWS[3]: ("SWE_bench_Verified", "SWE-bench Verified score (%)"),
-            VIEWS[4]: ("MATH", "MATH / AIME score (%)"),
-            VIEWS[5]: ("MMLU", "MMLU score (%)"),
+            VIEWS[3]: ("GPQA", "GPQA Diamond score (%)"),
+            VIEWS[4]: ("SWE_bench_Verified", "SWE-bench Verified score (%)"),
+            VIEWS[5]: ("MATH", "MATH / AIME score (%)"),
+            VIEWS[6]: ("MMLU", "MMLU score (%)"),
         }
         col_key, y_label = LEGACY[view]
         plot_df = bm_df.dropna(subset=[col_key]).copy()
@@ -695,8 +766,12 @@ with tab_who:
         "and independent SWE-bench Pro figures ranged from agreement within a point or two to "
         "gaps of 8 and 15 points. Since then the two series have separated entirely: vendor "
         "claims reach 93% while the independent board's best is 61.5%, on different models, "
-        "because no independent run exists for any Anthropic or OpenAI model released after April. Questions to ask of any score: who ran it, on which version, "
-        "with what harness, and does anyone independent agree?"
+        "because no independent run exists for any Anthropic or OpenAI model released after April. The definition of success matters as much: on the ExploitGym security "
+        "benchmark, GPT-5.5 captured 210 flags but only 120 by exploiting the intended bug. "
+        "\"Independent\" now needs qualifying too: in November OpenAI announced assessments by "
+        "four outside groups working inside the company, two of them paid by OpenAI, with "
+        "OpenAI keeping redaction rights. Questions to ask of any score: who ran it, who paid, "
+        "on which version, with what harness, and what counted as success?"
     )
     st.caption(
         "Vendor figures for the SWE-bench Pro pairs are from the labs' system cards and launch "
@@ -1006,6 +1081,13 @@ with tab_real:
     c3.metric("Review comments written by AI", "23%", "Harvard panel of 655 firms", delta_color="off")
     c4.metric("Incoming open-source PRs judged AI slop", "25%", "Linux Foundation, Oct 2026", delta_color="off")
 
+    st.markdown("##### Inside a frontier lab: tasks agents finished with no human intervention (OpenAI, Aug to Oct 2026)")
+    d1, d2, d3, d4 = st.columns(4)
+    d1.metric("Monitoring training runs", "79%", "OpenAI's own telemetry", delta_color="off")
+    d2.metric("Launching training runs", "35%", "OpenAI's own telemetry", delta_color="off")
+    d3.metric("Inference and serving code", "25%", "OpenAI's own telemetry", delta_color="off")
+    d4.metric("AI progress at Anthropic", "about 1.9×", "its earlier rate (METR, CI 1.5 to 2.8)", delta_color="off")
+
     st.info(
         "**Activity is up sharply; delivered work is up a little; review is the new bottleneck.** "
         "Agents went from starting 17% of GitHub pull requests in March 2026 to more than 40% in "
@@ -1020,7 +1102,9 @@ with tab_real:
         "between them is drawn, not measured; it counts pull requests with a detectable agent, so "
         "it is a floor. Faros is vendor telemetry. METR considers its 2026 follow-up unreliable "
         "because many developers declined to do tasks without AI, and has dropped the design; "
-        "the 2025 result describes experienced maintainers on their own repositories in early 2025."
+        "the 2025 result describes experienced maintainers on their own repositories in early 2025. "
+        "The OpenAI figures are the company's own measurements of its internal agents, from a "
+        "post of 18 November 2026, reported as midpoints of a range."
     )
 
 

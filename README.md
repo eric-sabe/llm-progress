@@ -13,8 +13,8 @@ Capability kept climbing through 2026, but the instruments used to show it broke
 | Tab | What it shows |
 |---|---|
 | 📅 Release Cadence | Swim-lane timeline of model releases, Feb 2024 to Nov 2026, across ten labs (US labs plus DeepSeek, Moonshot, Z.ai, Alibaba). Diamonds mark access-gated releases. A stacked bar counts releases per quarter. |
-| ⏳ Benchmark Lifespans | One bar per benchmark from introduction to saturation, discrediting or replacement. Average life fell from about 46 months (2019 to 2021 cohort) to 22 (2023 to 2024) to 12 (2025). |
-| 📊 Progress Measures | Epoch Capabilities Index (each new frontier model and the best open-weight models, with least-squares trend lines before and after reasoning models), the ARC-AGI-2 and ARC-AGI-3 climb, and the four retired series (GPQA Diamond, SWE-bench Verified, MATH/AIME, MMLU) with end markers. |
+| ⏳ Benchmark Lifespans | One bar per benchmark from introduction to saturation, discrediting or replacement. Average life fell from about 46 months (2019 to 2021 cohort) to 22 (2023 to 2024) to 12 (2025). Benchmarks still in use carry Epoch's review verdict. |
+| 📊 Progress Measures | Epoch Capabilities Index (each new frontier model and the best open-weight models, with least-squares trend lines before and after reasoning models), the ARC-AGI-2 and ARC-AGI-3 climb, the portfolio of benchmarks proposed in place of SWE-bench, and the four retired series (GPQA Diamond, SWE-bench Verified, MATH/AIME, MMLU) with end markers. |
 | 🔍 Who Measured It? | Paired dots for the same model on the same benchmark: vendor vs independent, one lab's table vs another's, and one model under different harnesses or scoring rules. |
 | ⏱ Task Time Horizons | METR Time Horizon 1.1 at 50% or 80% success, with confidence intervals, the 16-hour reliability limit, the three readings of GPT-5.6 Sol, and the date the series was frozen. Below it, an "After METR" panel lists the instruments now used instead and charts METR's expenditure horizon. |
 | 🏗 Benchmarks vs Reality | Share of code from AI (GitHub measurement and company statements), firm-level productivity studies split into activity, delivered work and friction, and METR's controlled trials. |
@@ -29,7 +29,7 @@ All chart data lives in `working-data-tables/`, one CSV per chart, each row with
 |---|---|
 | `model-release-timeline.csv` | Release Cadence |
 | `benchmark-lifespans.csv` | Benchmark Lifespans |
-| `eci-scores.csv`, `arc-agi-scores.csv`, `model-benchmark-scores.csv` | Progress Measures |
+| `eci-scores.csv`, `arc-agi-scores.csv`, `successor-benchmarks.csv`, `model-benchmark-scores.csv` | Progress Measures |
 | `vendor-vs-independent.csv` | Who Measured It? |
 | `model-task-time-horizons.csv`, `after-metr-instruments.csv`, `expenditure-horizon.csv` | Task Time Horizons |
 | `adoption-series.csv`, `productivity-studies.csv`, `metr-uplift-studies.csv` | Benchmarks vs Reality |

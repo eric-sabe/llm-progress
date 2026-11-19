@@ -9,3 +9,5 @@ These are the raw working notes from the November 2026 research, kept for proven
 - `metr_time_horizons.md`: METR time-horizon data and caveats.
 - `real_world_impact.md`: adoption, productivity, labor market and education.
 - `verification.md`: the later check against primary sources. It overrides the other notes where they differ.
+- `perplexity_survey.md`: a Perplexity deep-research survey of 19 November 2026, unverified, used as a source of leads.
+- `verification_survey.md`: the check of that survey's figures against primary sources.
