@@ -152,6 +152,8 @@ def load_data():
         prices=read("model-prices.csv", ["Release_Date"]),
         arccost=read("arc-cost-per-task.csv", ["Date"]),
         aacost=read("aa-cost-to-run.csv"),
+        cyber=read("cyber-capability.csv", ["Date"]),
+        catalog=read("benchmark-catalog.csv").fillna(""),
     )
     for col in ["MMLU", "GPQA", "SWE_bench_Verified", "HumanEval", "MATH"]:
         d["bm"][col] = pd.to_numeric(d["bm"][col], errors="coerce")
@@ -171,7 +173,7 @@ st.markdown(
 st.divider()
 
 # ── Tabs ──────────────────────────────────────────────────────────────────────
-(tab_rel, tab_life, tab_bench, tab_who, tab_th, tab_cost, tab_real, tab_jobs, tab_pred) = st.tabs(
+(tab_rel, tab_life, tab_bench, tab_who, tab_th, tab_cost, tab_real, tab_jobs, tab_pred, tab_guide) = st.tabs(
     [
         "📅  Release Cadence",
         "⏳  Benchmark Lifespans",
@@ -182,6 +184,7 @@ st.divider()
         "🏗  Benchmarks vs Reality",
         "🎓  Jobs & Education",
         "🎯  Prediction Scorecard",
+        "📚  Benchmark Guide",
     ]
 )
 
@@ -341,6 +344,104 @@ with tab_rel:
         "Dates are first public availability, from lab changelogs where one exists. Hover shows "
         "the date source: some Microsoft, Meta and Chinese-lab rows rest on press coverage. The quarterly count covers the models tracked here, "
         "which is more complete for 2026 than for 2024."
+    )
+
+
+    # ── Why labs started gating: cyber capability ──────────────────────────
+    st.divider()
+    st.markdown("### Why the Gates Went Up: Cyber Capability")
+    st.markdown(
+        "Most of the gated releases above were restricted on cybersecurity grounds. Two "
+        "security benchmarks show what the labs were looking at."
+    )
+    cy = D["cyber"]
+    gated = tl_df[tl_df["Access"].str.startswith("Gated")].sort_values("Release Date")
+    first_gate = gated["Release Date"].min()
+    left, right = st.columns([3, 2])
+    with left:
+        cb = cy[cy["Benchmark"] == "CyBench"].sort_values("Date")
+        figcy = go.Figure()
+        best = cb[cb["Score"] == cb["Score"].cummax()]
+        figcy.add_trace(go.Scatter(
+            x=list(best["Date"]) + [AS_OF], y=list(best["Score"]) + [best["Score"].iloc[-1]], mode="lines",
+            line=dict(color="#ddd", width=1.5, dash="dot", shape="hv"), name="Best to date", hoverinfo="skip"))
+        for org in cb["Org"].unique():
+            g = cb[cb["Org"] == org]
+            colr = ORG_COLORS.get(org, "#888")
+            figcy.add_trace(go.Scatter(
+                x=g["Date"], y=g["Score"], mode="markers", name=org,
+                marker=dict(size=10, color=colr, line=dict(color=PLOT_BG, width=1.5)),
+                customdata=list(zip(g["Model"], g["Reported_in"])),
+                hovertemplate="<b>%{customdata[0]}</b><br>%{x|%b %Y}: %{y:.1f}% solved"
+                              "<br>Reported in: %{customdata[1]}<extra></extra>"))
+        for _, r in best.iloc[[0, -3, -2, -1]].iterrows():
+            figcy.add_annotation(x=r["Date"], y=r["Score"], text=r["Model"].replace("Claude ", ""),
+                                 showarrow=False, xanchor="right", xshift=-9, font=dict(size=10, color="#bbb"))
+        for _, r in gated.iterrows():
+            figcy.add_trace(go.Scatter(
+                x=[r["Release Date"]], y=[3], mode="markers", showlegend=False,
+                marker=dict(size=11, symbol="diamond", color=ORG_COLORS.get(r["Organization"], "#888"),
+                            line=dict(color="#fff", width=1)),
+                hovertemplate=f"<b>{r['Model']}</b><br>Gated release, {r['Release Date']:%b %d, %Y}<extra></extra>"))
+        add_vline(figcy, first_gate, "First gated release<br>(Mythos Preview)", color="#e0524a", y_text=0.3, anchor="left")
+        figcy.update_layout(
+            **BASE_LAYOUT, height=470, margin=dict(l=60, r=20, t=70, b=40),
+            title=dict(text="CyBench: professional capture-the-flag challenges solved unaided<br>"
+                            "(diamonds along the bottom mark gated releases)", font=dict(size=14), x=0.0),
+            xaxis=dict(gridcolor=GRID_COL, range=["2024-01-01", "2026-12-15"]),
+            yaxis=dict(title="Solved (%)", gridcolor=GRID_COL, range=[0, 102]),
+            legend=dict(**LEGEND_STYLE, x=0.01, y=0.99), hovermode="closest",
+        )
+        st.plotly_chart(figcy, width="stretch")
+    with right:
+        eb = cy[cy["Benchmark"] == "ExploitBench"].sort_values("Score", ascending=False)
+        gated_names = set(gated["Model"])
+        is_gated = eb["Model"].isin(gated_names)
+        figeb = go.Figure(go.Bar(
+            y=[m.replace("Claude ", "") + ("  ◆ gated" if g else "") for m, g in zip(eb["Model"], is_gated)],
+            x=eb["Score"], orientation="h",
+            marker_color=[ORG_COLORS.get(o, "#888") for o in eb["Org"]],
+            marker_line=dict(color=["#fff" if g else PLOT_BG for g in is_gated], width=1.5),
+            text=[f"{v:.0f}%" for v in eb["Score"]], textposition="outside",
+            customdata=eb["Date"].dt.strftime("%b %d, %Y"),
+            hovertemplate="%{y}<br>Released %{customdata}<br>Mean capability %{x:.1f}%<extra></extra>"))
+        figeb.update_layout(
+            **BASE_LAYOUT, height=470, margin=dict(l=20, r=40, t=70, b=40),
+            title=dict(text="ExploitBench: building working exploits<br>for 41 known browser-engine bugs",
+                       font=dict(size=14), x=0.0),
+            xaxis=dict(title="Mean capability (%)", gridcolor=GRID_COL, range=[0, 88]),
+            yaxis=dict(autorange="reversed", tickfont=dict(size=12)),
+        )
+        st.plotly_chart(figeb, width="stretch")
+
+    myth = cy[(cy["Benchmark"] == "ExploitBench") & (cy["Model"] == "Claude Mythos Preview")]["Score"].iloc[0]
+    nxt = cy[(cy["Benchmark"] == "ExploitBench") & (cy["Model"] != "Claude Mythos Preview")]["Score"].max()
+    cb0, cb1 = cb["Score"].iloc[0], cb["Score"].max()
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("CyBench, Feb 2024 to Feb 2026", f"{cb0:.0f}% → {cb1:.0f}%", "last entry in Epoch's file", delta_color="off")
+    c2.metric("ExploitBench: first gated model", f"{myth:.0f}%", f"best ungated model: {nxt:.0f}%", delta_color="off")
+    c3.metric("ExploitGym: exploits via the intended bug", "157 vs 120", "Mythos Preview vs GPT-5.5", delta_color="off")
+    c4.metric("Gated releases since April 2026", str(len(gated)), "cyber, bio and top-tier models", delta_color="off")
+
+    st.info(
+        "**Security tests form a ladder, and models climbed it in order.** Solving "
+        "capture-the-flag puzzles (CyBench) went from 8% to 93% in two years and stopped being "
+        "informative. Reproducing known vulnerabilities (CyberGym) reached 82% for GPT-5.5 by "
+        "OpenAI's own figure. "
+        "The step that changed release policy is building working exploits: the first model "
+        "Anthropic held back, Claude Mythos Preview, scored 74% on ExploitBench, against 27% "
+        "for Claude Opus 4.7, which shipped openly nine days later. OpenAI, Google and Microsoft "
+        "have each since sent at least one model to approved organizations first."
+    )
+    st.caption(
+        "CyBench and ExploitBench figures are from Epoch's benchmark data file of 19 November "
+        "2026, which records where each was reported: mostly the benchmark's leaderboard or "
+        "the lab's own system card. The chart shows each model's best listed run. ExploitBench "
+        "is one of five benchmarks Epoch's review programme rates Verified. ExploitGym counts "
+        "are from its project page; it is a different benchmark from ExploitBench. The reasons "
+        "labs gave for gating come from their own release notes and from press reports. Finding "
+        "new vulnerabilities and breaking into live networks are measured separately, mostly "
+        "by government institutes, and are not charted here."
     )
 
 
@@ -1515,6 +1616,113 @@ table.score a { color:#4c8ef5; font-size:0.82rem; text-decoration:none; }
     st.caption(
         "Original wording and dates for the Amodei and Zuckerberg predictions were taken from "
         "secondary scorecards and should be checked against the primary interviews before quoting."
+    )
+
+# ═════════════════════════════════════════════════════════════════════════════
+# TAB — Benchmark Guide
+# ═════════════════════════════════════════════════════════════════════════════
+with tab_guide:
+    st.markdown("### A Field Guide to AI Benchmarks")
+    st.markdown(
+        "Every benchmark this project has come across, with what it asks a model to do, who "
+        "runs it and whether it still tells frontier models apart."
+    )
+    cat = D["catalog"]
+    G_STATUS = {
+        "Active": "#10a37f", "Saturated": "#e0a23c", "Discredited": "#e0524a",
+        "Superseded": "#9aa0aa", "Historical": "#6b7280",
+    }
+    cats = sorted(cat["Category"].unique())
+
+    counts = cat.groupby(["Category", "Status"]).size().unstack(fill_value=0).reindex(cats)
+    order = counts.sum(axis=1).sort_values().index
+    figk = go.Figure()
+    for status, colr in G_STATUS.items():
+        if status in counts.columns:
+            figk.add_trace(go.Bar(
+                y=list(order), x=counts.loc[order, status], orientation="h", name=status,
+                marker_color=colr, hovertemplate="%{y}<br>" + status + ": %{x}<extra></extra>"))
+    figk.update_layout(
+        **BASE_LAYOUT, barmode="stack", height=90 + 30 * len(cats), margin=dict(l=20, r=30, t=55, b=40),
+        title=dict(text=f"{len(cat)} benchmarks by what they test and where they stand", font=dict(size=15), x=0.0),
+        xaxis=dict(gridcolor=GRID_COL, title="Benchmarks"), yaxis=dict(tickfont=dict(size=12.5)),
+        legend=dict(**LEGEND_STYLE, orientation="h", y=-0.14),
+    )
+    st.plotly_chart(figk, width="stretch")
+
+    c1, c2, c3, c4 = st.columns(4)
+    n_active = int((cat["Status"] == "Active").sum())
+    n_flawed = int(cat["Epoch_Review"].str.startswith("Flawed").sum())
+    n_recent = int((cat["Launched"].str[:4] >= "2025").sum())
+    n_vendor = int((cat["Scored_by"] == "Vendors self-report").sum())
+    c1.metric("Listed as active", str(n_active), f"of {len(cat)} benchmarks", delta_color="off")
+    c2.metric("Launched in 2025 or 2026", str(n_recent), "the field turns over fast", delta_color="off")
+    c3.metric("Rated Flawed by Epoch", str(n_flawed), "of 29 it has reviewed", delta_color="off")
+    c4.metric("Scores mostly self-reported", str(n_vendor), "by the labs being measured", delta_color="off")
+
+    pick_col, _ = st.columns([2, 3])
+    with pick_col:
+        pick = st.selectbox("Category", ["All categories"] + cats, key="guide_cat")
+    view = cat if pick == "All categories" else cat[cat["Category"] == pick]
+    view = view.sort_values(["Category", "Launched", "Benchmark"])
+
+    def _esc(t):
+        return str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+    rows, last_cat = [], None
+    for _, r in view.iterrows():
+        if pick == "All categories" and r["Category"] != last_cat:
+            rows.append(f"<tr class='grp'><td colspan='5'>{_esc(r['Category'])}</td></tr>")
+            last_cat = r["Category"]
+        colr = G_STATUS.get(r["Status"], "#777777")
+        name = _esc(r["Benchmark"])
+        if r["URL"]:
+            name = f"<a href='{_esc(r['URL'])}' target='_blank'>{name}</a>"
+        why = f"<br><span>{_esc(r['Why_it_matters'])}</span>" if r["Why_it_matters"] else ""
+        review = f"<br><span>Epoch review: {_esc(r['Epoch_Review'])}</span>" if r["Epoch_Review"] else ""
+        unchecked = "<br><span class='unc'>description not independently checked</span>" if r["Basis"] == "survey only" else ""
+        rows.append(
+            f"<tr><td class='who'><b>{name}</b><br><span>{_esc(r['Run_by'])}</span></td>"
+            f"<td class='yr'>{_esc(r['Launched'][:7])}</td>"
+            f"<td>{_esc(r['What_it_measures'])}{why}{unchecked}</td>"
+            f"<td><span class='chip' style='background:{hex_to_rgba(colr, 0.2)};color:{colr};"
+            f"border:1px solid {colr}'>{_esc(r['Status'])}</span>{review}</td>"
+            f"<td class='by'>{_esc(r['Scored_by'])}</td></tr>"
+        )
+    st.markdown(
+        """
+<style>
+table.guide { width:100%; border-collapse:collapse; font-size:0.9rem; }
+table.guide th { text-align:left; color:#888; font-weight:500; padding:8px 10px; border-bottom:1px solid #333; }
+table.guide td { padding:9px 10px; border-bottom:1px solid #23262f; vertical-align:top; color:#d0d0d0; }
+table.guide td span { color:#888; font-size:0.82rem; }
+table.guide td.who { min-width:190px; }
+table.guide td.yr, table.guide td.by { white-space:nowrap; color:#aaa; font-size:0.85rem; }
+table.guide tr.grp td { color:#e6e6e6; font-weight:600; font-size:0.95rem; padding-top:20px; border-bottom:1px solid #444; }
+table.guide .chip { padding:2px 9px; border-radius:12px; font-size:0.78rem !important; font-weight:600; white-space:nowrap; }
+table.guide a { color:#8fb8ff; text-decoration:none; }
+table.guide td span.unc { color:#a07c3a; font-style:italic; }
+</style>
+<table class="guide"><tr><th>Benchmark</th><th>Since</th><th>What a model has to do</th><th>Status</th><th>Who runs the scores</th></tr>
+"""
+        + "".join(rows)
+        + "</table>",
+        unsafe_allow_html=True,
+    )
+    st.info(
+        "**How to read a benchmark name in a headline.** Ask four things: what the model "
+        "had to do, who ran it, whether the test still has room at the top, and whether anyone "
+        "has checked the test itself. *Saturated* means frontier models score near the ceiling. "
+        "*Discredited* means a major evaluator disowned it on validity grounds. *Superseded* "
+        "means a newer version replaced it. *Historical* means frontier labs no longer report it."
+    )
+    st.caption(
+        "Compiled on 19 November 2026 from Epoch's benchmark metadata, the benchmarks' own "
+        "pages and papers, and this project's research notes. About a quarter of the rows "
+        "rest on a single survey and are marked as not independently checked. Descriptions are one-line "
+        "summaries, not specifications; status is a judgment call outside the benchmarks this "
+        "project charts. The list is broad but not exhaustive, and scores are deliberately "
+        "left out because they date within weeks. Follow each link for current results."
     )
 
 # ── Footer ────────────────────────────────────────────────────────────────────

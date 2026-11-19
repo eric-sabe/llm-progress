@@ -14,7 +14,7 @@ Capability kept climbing through 2026, but the instruments used to show it broke
 
 | Tab | What it shows |
 |---|---|
-| 📅 Release Cadence | Swim-lane timeline of model releases, Feb 2024 to Nov 2026, across ten labs (US labs plus DeepSeek, Moonshot, Z.ai, Alibaba). Diamonds mark access-gated releases. A stacked bar counts releases per quarter. |
+| 📅 Release Cadence | Swim-lane timeline of model releases, Feb 2024 to Nov 2026, across ten labs (US labs plus DeepSeek, Moonshot, Z.ai, Alibaba). Diamonds mark access-gated releases. A stacked bar counts releases per quarter. A cyber-capability panel (CyBench and ExploitBench) shows what lay behind the gating. |
 | ⏳ Benchmark Lifespans | One bar per benchmark from introduction to saturation, discrediting or replacement. Average life fell from about 46 months (2019 to 2021 cohort) to 22 (2023 to 2024) to 12 (2025). Benchmarks still in use carry Epoch's review verdict. |
 | 📊 Progress Measures | Epoch Capabilities Index (each lab's best model over time for ten labs, open-weight models marked, with least-squares trend lines before and after reasoning models), the ARC-AGI-2 and ARC-AGI-3 climb, the portfolio of benchmarks proposed in place of SWE-bench, and the four retired series (GPQA Diamond, SWE-bench Verified, MATH/AIME, MMLU) with end markers. |
 | 🔍 Who Measured It? | Paired dots for the same model on the same benchmark: vendor vs independent, one lab's table vs another's, and one model under different harnesses or scoring rules. |
@@ -23,6 +23,7 @@ Capability kept climbing through 2026, but the instruments used to show it broke
 | 🏗 Benchmarks vs Reality | Share of code from AI (GitHub measurement and company statements), firm-level productivity studies split into activity, delivered work and friction, and METR's controlled trials. |
 | 🎓 Jobs & Education | Indeed software postings index, Stanford's entry-level employment gap, CS salary, enrollment and BLS projection figures. |
 | 🎯 Prediction Scorecard | Dated predictions from industry figures with a verdict and what happened. |
+| 📚 Benchmark Guide | A reference list of 171 benchmarks in 14 categories: what each asks a model to do, who runs it, its status and Epoch's review verdict, with a category filter. |
 
 ## Data
 
@@ -30,7 +31,7 @@ All chart data lives in `working-data-tables/`, one CSV per chart, each row with
 
 | File | Used by |
 |---|---|
-| `model-release-timeline.csv` | Release Cadence |
+| `model-release-timeline.csv`, `cyber-capability.csv` | Release Cadence |
 | `benchmark-lifespans.csv` | Benchmark Lifespans |
 | `eci-scores.csv`, `arc-agi-scores.csv`, `successor-benchmarks.csv`, `model-benchmark-scores.csv` | Progress Measures |
 | `vendor-vs-independent.csv` | Who Measured It? |
@@ -39,6 +40,7 @@ All chart data lives in `working-data-tables/`, one CSV per chart, each row with
 | `adoption-series.csv`, `productivity-studies.csv`, `metr-uplift-studies.csv` | Benchmarks vs Reality |
 | `labor-series.csv` | Jobs & Education |
 | `prediction-scorecard.csv` | Prediction Scorecard |
+| `benchmark-catalog.csv` | Benchmark Guide |
 | `publications-agentic.csv` | Not charted; the earlier reading list |
 
 The research behind the November 2026 revision, including a table of open conflicts and figures that still need checking against primary sources, is in `reports/LLM progress update late 2026.md`. Working notes are in `research_notes/`; `verification.md` there records the later check of flagged figures against primary sources and supersedes the report where they differ.
@@ -86,6 +88,6 @@ python -m http.server -d site   # preview at http://localhost:8000
 
 Every push and pull request builds the site in GitHub Actions (`.github/workflows/pages.yml`), so a broken data file or chart fails the check. Pushes to `main` publish it.
 
-Each tab has its own address, for linking from slides: `index.html` (Release Cadence), `benchmark-lifespans.html`, `progress-measures.html`, `who-measured-it.html`, `task-time-horizons.html`, `benchmarks-vs-reality.html`, `cost-value.html`, `jobs-education.html`, `prediction-scorecard.html`. The pages need no server once loaded, and the `site` folder works offline if you serve it locally.
+Each tab has its own address, for linking from slides: `index.html` (Release Cadence), `benchmark-lifespans.html`, `progress-measures.html`, `who-measured-it.html`, `task-time-horizons.html`, `benchmarks-vs-reality.html`, `cost-value.html`, `jobs-education.html`, `prediction-scorecard.html`, `benchmark-guide.html`. The pages need no server once loaded, and the `site` folder works offline if you serve it locally.
 
 If `app.py` starts using a Streamlit call the builder does not know, the build stops and names the call; add it to `Container` in `build_site.py`.

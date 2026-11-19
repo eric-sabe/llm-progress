@@ -445,6 +445,23 @@ Conventions used: prices are the standard rate for the base context window with 
 
 Not traced: GPT-4o's May 2024 launch price, later Gemini 1.5 Pro cuts, and the date of the Grok 4.20 cut. Muse Wonder Full has no API price.
 
+### 2.12 Cyber capability and the gated releases
+
+Eight releases since April 2026 went to approved organizations or governments first, most on cybersecurity grounds (section 1.3). Two security benchmarks in Epoch's data file of 19 November 2026 show the capability behind that ([Epoch data](https://epoch.ai/data/benchmark_data.zip), primary copy of results that each row attributes to the benchmark's leaderboard or a lab's system card).
+
+| Benchmark | What it tests | Finding |
+|---|---|---|
+| CyBench | 40 professional capture-the-flag challenges, solved unaided | 7.5% for Gemini 1.5 Pro in February 2024, 82% for Claude Opus 4.5 in November 2025, 93% for Claude Opus 4.6 in February 2026. No later entry is in Epoch's file |
+| ExploitBench v0.1 | Building working exploits for 41 known V8 bugs, scored on a ladder up to arbitrary code execution. Rated Verified by Epoch | Claude Mythos Preview 73.8%, GPT-5.5 47.4%, Claude Opus 4.7 26.5%, Gemini 3.1 Pro 26.1%. Mythos Preview was gated on 7 April 2026; Opus 4.7 shipped openly nine days later |
+| ExploitGym | Turning known vulnerabilities into exploits across userspace programs, V8 and the Linux kernel | Mythos Preview 157 successes through the intended bug (226 flags), GPT-5.5 120 (210 flags) (section 2.10) |
+| CyberGym | Reproducing known vulnerabilities from a description and the code | GPT-5.5 81.8%, vendor-reported |
+
+The tests form a ladder: solving contest puzzles, reproducing known bugs, building exploits, then finding new vulnerabilities and breaking into live networks. The first two rungs are at or near their ceilings. The app charts the first and third. The last is measured mostly by government institutes and is not charted; the figures the survey quotes for the UK institute's cyber ranges were not verified.
+
+### 2.13 The benchmark catalog
+
+`working-data-tables/benchmark-catalog.csv` lists 171 benchmarks in 14 categories for the Benchmark Guide tab: what each asks a model to do, who runs it, when it launched, its status, Epoch's review verdict where one exists, and who typically runs the published scores. It carries no scores. The `Basis` column records how well-founded each row is: project verified (43), primary page read (69), Epoch metadata (16, mostly older language benchmarks described from general knowledge) and survey only (43, shown on the page as not independently checked). Three benchmarks that could not be described were left out: DeepRSI, GMMLU and the Artificial Analysis Progress Index. Outside the benchmarks this project charts, status is a conservative judgment that defaults to Active.
+
 ## 3. METR time horizons
 
 ### 3.1 The series
@@ -859,6 +876,8 @@ Not researched at all: xAI and Meta vendor benchmark tables, an independent GPQA
 | `after-metr-instruments.csv` | Task Time Horizons, "After METR" panel | https://metr.org/blog/ and https://metr.org/notes/ for new METR instruments. https://epoch.ai/data/eci_scores.csv . https://epoch.ai/benchmarks/mirrorcode . Scale's board at https://labs.scale.com/leaderboard for the Remote Labor Index. https://www.swe-marathon.org/ | The FrontierSWE row still rests on a secondary source |
 | `successor-benchmarks.csv` | Progress Measures, "After SWE-bench" view | https://swe-rebench.com/ , https://swe-bench-live.github.io/ , https://www.vals.ai/benchmarks/programbench and https://programbench.com/ , https://github.com/scaleapi/swe-atlas and https://labs.scale.com/leaderboard , https://www.swe-marathon.org/ , https://arxiv.org/abs/2608.00267 (LoopsBench), https://arxiv.org/abs/2611.14364 (ARE-bench), https://epoch.ai/benchmarks/mirrorcode | One bar per benchmark: the best score on the owner's page, with who ran it in `Executed_by` and the main qualification in `Caveat`. Do not compare bars as model rankings. Check whether SWE-rebench has added a window and whether LoopsBench has a leaderboard |
 | `model-prices.csv` | Cost & Value | Provider pricing pages: https://developers.openai.com/api/docs/pricing , https://platform.claude.com/docs/en/about-claude/pricing , https://aistudio.google.com/docs/pricing , https://docs.x.ai/docs/models , https://dev.meta.ai/products/meta-model-api , https://api-docs.deepseek.com/quick_start/pricing , https://platform.moonshot.ai/docs/pricing/chat , https://docs.z.ai/guides/overview/pricing , https://www.alibabacloud.com/help/en/model-studio/model-pricing , and the Azure Retail Prices API for MAI models | Maintained by hand. Set `Current` to yes only for models a lab sells today, and give each row its `Epoch_Name`. Then run `python scripts/update_price_eci.py <eci_scores.csv>` to refresh the index scores. Check for scheduled changes: Gemini 4 Carbon and Argon double on 1 December 2026 and GPT-5.6 Sol's promotional price ends 30 November |
+| `cyber-capability.csv` | Release Cadence, cyber panel | `cybench_external.csv` and `exploitbench_external.csv` inside https://epoch.ai/data/benchmark_data.zip . ExploitGym counts: https://www.cybergym.io/exploitgym/ | Best listed run per model. Check whether CyBench has entries after Opus 4.6 and whether newer gated models appear on ExploitBench |
+| `benchmark-catalog.csv` | Benchmark Guide | `benchmark_metadata.csv` in the Epoch zip for names and release dates. Epoch's review registry for verdicts. Each benchmark's own page for the description | Add new benchmarks as they appear and re-check `Status` for the active ones. Replace "survey only" rows with a description read from the benchmark's own page |
 | `arc-cost-per-task.csv` | Cost & Value | https://arcprize.org/media/data/leaderboard/evaluations.json and https://arcprize.org/media/data/models.json | Generated: `python scripts/build_arc_cost.py <evaluations.json> <models.json> <date>` |
 | `aa-cost-to-run.csv` | Cost & Value | https://artificialanalysis.ai/models (the figures are in JSON embedded in the page) | Top ten models by index score. Record the index version; never mix versions |
 | `expenditure-horizon.csv` | Task Time Horizons, "After METR" panel | https://metr.org/blog/2026-07-21-expenditure-horizon/ and https://metr.org/notes/2026-07-24-metrics-of-model-ability/ | One task, two models. Add rows only if METR publishes more models or tasks |
