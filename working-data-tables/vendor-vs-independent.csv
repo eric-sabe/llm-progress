@@ -1,0 +1,17 @@
+Group,Benchmark,Model,Label_A,Value_A,Label_B,Value_B,Note
+Vendor vs independent,SWE-bench Pro,Claude Opus 4.6,Vendor (Anthropic),53.4,Independent (Scale),51.9,Inside Scale's +/-3.6 interval
+Vendor vs independent,SWE-bench Pro,GPT-5.4,Vendor (OpenAI),57.7,Independent (Scale),59.1,Independent is higher
+Vendor vs independent,SWE-bench Pro,Gemini 3.1 Pro,Vendor (Google),54.2,Independent (Scale),46.1,8 points apart
+Vendor vs independent,SWE-bench Pro,GPT-5.2-Codex,Vendor (OpenAI),56.4,Independent (Scale),41.0,15 points apart; different harnesses
+Vendor vs independent,SWE-bench Pro,Best score on each board (Nov 2026),Vendor (Anthropic: Fable 5.2),93.0,Independent (Scale: Muse Spark 1.1),61.5,Different models: Scale has run no Anthropic or OpenAI model released after April
+Vendor vs independent,ARC-AGI-2,Claude Sonnet 4.6,Vendor (Anthropic),58.3,Independent (ARC Prize),60.4,
+Vendor vs independent,ARC-AGI-2,GPT-5.4,Vendor (OpenAI),73.3,Independent (ARC Prize),74.0,
+Vendor vs independent,Terminal-Bench-Science,GPT-6.2 Astra,Vendor (OpenAI chart),77.0,Independent (Vals),71.4,Vendor value read from a chart
+Lab vs lab,Terminal-Bench 4.0,Claude Opus 5.5,Anthropic's table,66.4,Google's table,59.6,Same model in two labs' launch tables
+Lab vs lab,Terminal-Bench-Science,Claude Fable 5.1,Anthropic's table,52.6,Google's table,43.3,
+Lab vs lab,Terminal-Bench-Science,GPT-6 Astra,Anthropic's table,68.1,Google's table,63.3,
+Lab vs lab,Terminal-Bench 4.0,Claude Fable 5.1,Anthropic's table,55.8,Google's table,52.0,
+Same model different setup,ARC-AGI-3,GPT-6 Astra,Provider-adapter harness,99.9,Standard harness,62.7,Harness choice alone
+Same model different setup,ARC-AGI-3,Claude Sonnet 5.5,Provider-adapter harness,72.4,Standard harness,24.3,Harness choice alone
+Same model different setup,ARC-AGI-3,Claude Fable 5.2,High effort,79.3,Max effort,65.7,More effort scored lower
+Same model different setup,OSWorld 2.1,Claude Fable 5.2,Partial credit,89.3,Strict pass,54.6,Scoring rule alone

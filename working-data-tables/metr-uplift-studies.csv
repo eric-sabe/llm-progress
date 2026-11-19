@@ -1,0 +1,4 @@
+Study,Period,Sample,Time_change_pct,CI_lo,CI_hi,Note,Source
+METR trial 1: experienced maintainers,Feb-Jun 2025,16 developers,19,2,39,Developers believed they were about 20% faster,https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/
+METR follow-up: returning developers,Aug 2025 onward,10 developers,-18,-38,9,METR calls this unreliable: 30-50% withheld tasks they would not do without AI,https://metr.org/blog/2026-02-24-uplift-update/
+METR follow-up: new developers,Aug 2025 onward,47 developers,-4,-15,9,Same caveat; design abandoned,https://metr.org/blog/2026-02-24-uplift-update/

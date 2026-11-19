@@ -1,0 +1,9 @@
+Date,Series,Value,Kind,Definition,Source
+2024-10-29,Google: share of new code AI-generated,25,Executive claim,More than a quarter of new code (Pichai),https://blog.google/inside-google/message-ceo/alphabet-earnings-q3-2024/
+2025-10-15,Google: share of new code AI-generated,50,Executive claim,Stated in April 2026 as the level in fall 2025 (Pichai),https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/
+2026-04-22,Google: share of new code AI-generated,75,Executive claim,AI-generated and approved by engineers (Pichai),https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/
+2025-04-29,Microsoft: share of repo code written by AI,25,Executive claim,Nadella: maybe 20 to 30%; no later figure found,https://tech.yahoo.com/articles/microsoft-says-30-code-now-114621008.html
+2025-02-01,Anthropic: share of merged production code,3,Executive claim,Low single digits before Feb 2025,https://thenextweb.com/news/anthropic-claude-recursive-self-improvement-code
+2026-05-15,Anthropic: share of merged production code,80,Executive claim,More than 80% of merged production code,https://thenextweb.com/news/anthropic-claude-recursive-self-improvement-code
+2026-03-15,GitHub: pull requests started by agents,17,Measured,Share of all pull requests with a detectable agent (a floor),https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/
+2026-09-15,GitHub: pull requests started by agents,40,Measured,More than 40%; about 110M pull requests that month,https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/

@@ -1,0 +1,16 @@
+Benchmark,Introduced,Ended,Status,How_Ended,Measures,Source_Quality,Source
+ARC-AGI-1,2019-11-01,2024-12-20,Saturated,Score ceiling: o3-preview 87.5%; nine models now tie at 98.5%,Abstract reasoning puzzles,background,https://arcprize.org/leaderboard
+MMLU,2020-09-01,2024-03-01,Saturated,Score ceiling near 90%; labs moved to multilingual variants,Broad academic knowledge,background,https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance
+MATH,2021-03-01,2024-12-01,Saturated,Score ceiling above 95%,Competition mathematics,background,https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance
+HumanEval,2021-07-01,2024-06-01,Saturated,Score ceiling above 90%,Short Python functions,background,https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance
+GPQA Diamond,2023-11-01,2025-11-18,Saturated,Score ceiling near 93%; Artificial Analysis dropped it Sep 2026,Graduate-level science questions,primary,https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-2
+OSWorld,2024-04-01,2026-03-05,Saturated,Human baseline passed (vendor-reported),Computer use on a desktop,primary,https://os-world.github.io/
+SWE-bench Verified,2024-08-13,2026-02-23,Discredited,OpenAI stopped reporting it: flawed tests and memorised fixes,Real GitHub bug fixes,primary,https://decrypt.co/359012/openai-benchmark-measure-ai-coding-supremacy-contaminated
+ARC-AGI-2,2025-03-24,2026-07-09,Saturated,First verified score above 90% (human-panel average passed in Feb 2026); 54% in Dec 2025 to 96% in Nov 2026,Harder abstract reasoning,primary,https://arcprize.org/leaderboard
+SWE-bench Pro,2025-09-01,2026-07-08,Discredited,About 30% of tasks found broken; Epoch rated it Flawed,Longer real-repo coding tasks,primary,https://epoch.ai/benchmarks/swe-bench-pro/review
+Terminal-Bench 2.0,2025-11-01,2026-07-30,Superseded,Maintainers called tasks saturated; version 3.0 shipped 30 Jul 2026 and 4.0 on 28 Aug,Command-line agent tasks,primary,https://www.tbench.ai/news/terminal-bench-3-0
+FrontierMath,2024-11-01,,Active,Tier 4 v2 near ceiling on Epoch's runs; open-problem set at 7 of 68,Research-level mathematics,primary,https://epoch.ai/benchmarks
+Humanity's Last Exam,2025-01-01,,Active,Top score 74% with tools (vendor),Expert questions across fields,secondary,https://lastexam.ai/
+Remote Labor Index,2025-10-01,,Active,2.5% at launch; 41% reported Nov 2026 (vendor),Paid freelance projects end to end,secondary,https://blog.pebblous.ai/report/remote-labor-index-denominator-2026-11/en/
+ARC-AGI-3,2026-03-25,,Active,Under 1% at launch; 81% on the standard harness by Nov 2026,Interactive games with no instructions,primary,https://arcprize.org/leaderboard
+Terminal-Bench 4.0,2026-08-28,,Active,Top scores 66-71% (vendor),Command-line agent tasks,primary,https://www.tbench.ai/
