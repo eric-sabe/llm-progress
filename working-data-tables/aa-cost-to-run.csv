@@ -1,0 +1,11 @@
+Model,Org,Effort,AA_Index,Cost_to_run_usd,Cost_per_task_usd,Input,Output,Index_Version,Read_Date,Source
+Claude Fable 5.2,Anthropic,max,64.6,22191.42,26.54,8,40,v5.0.1,2026-11-19,https://artificialanalysis.ai/models
+GPT-6.2 Astra,OpenAI,max,62.1,4530.46,4.00,8,40,v5.0.1,2026-11-19,https://artificialanalysis.ai/models
+Gemini 4 Neon,Google,xhigh,61.4,7787.91,6.44,3,15,v5.0.1,2026-11-19,https://artificialanalysis.ai/models
+Gemini 4 Carbon,Google,high,60.0,8239.69,7.76,4,20,v5.0.1,2026-11-19,https://artificialanalysis.ai/models
+Claude Opus 5.5,Anthropic,max,59.1,8909.67,10.04,4,20,v5.0.1,2026-11-19,https://artificialanalysis.ai/models
+GPT-6.2 Sol,OpenAI,max,57.3,1108.28,1.01,2,10,v5.0.1,2026-11-19,https://artificialanalysis.ai/models
+Claude Sonnet 5.5,Anthropic,max,54.5,7980.63,10.02,2,10,v5.0.1,2026-11-19,https://artificialanalysis.ai/models
+Gemini 4 Hydrogen,Google,xhigh,53.9,4085.72,3.16,1.5,7.5,v5.0.1,2026-11-19,https://artificialanalysis.ai/models
+GPT-6.1 Terra,OpenAI,max,51.3,972.34,0.96,1,5,v5.0.1,2026-11-19,https://artificialanalysis.ai/models
+Kimi K3.1 Pro,Moonshot,default,46.5,3152.80,3.68,2,10,v5.0.1,2026-11-19,https://artificialanalysis.ai/models

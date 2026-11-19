@@ -1,0 +1,77 @@
+Org,Model,Release_Date,Launch_Input,Launch_Output,Input,Output,Cached_Input,Line,Line_Rank,Current,Verdict,Source,Note,Epoch_Name,ECI
+OpenAI,GPT-4,2023-03-14,30.0,60.0,30.0,60.0,,OpenAI main line,1.0,no,Provider page,https://developers.openai.com/api/docs/pricing,8K context; price from the current model page,GPT-4 (Mar 2023),121.58
+OpenAI,GPT-4 Turbo,2023-11-06,10.0,30.0,10.0,30.0,,OpenAI main line,1.0,no,Provider page,https://developers.openai.com/api/docs/pricing,,GPT-4 Turbo (Nov 2023),124.75
+OpenAI,GPT-4o,2024-05-13,,,2.5,10.0,1.25,,,no,Provider page,https://developers.openai.com/api/docs/pricing,Current price; the higher May 2024 launch price was not traced,GPT-4o (May 2024),128.13
+OpenAI,o1,2024-12-17,15.0,60.0,15.0,60.0,7.5,OpenAI main line,1.0,no,Provider page,https://developers.openai.com/api/docs/pricing,,o1,141.18
+OpenAI,o3,2025-04-16,10.0,40.0,2.0,8.0,0.5,OpenAI main line,1.0,no,Provider page and archive,https://developers.openai.com/api/docs/pricing,Launched at $10 / $40; cut to $2 / $8 on 10 Jun 2025,o3,147.05
+OpenAI,GPT-5,2025-08-07,1.25,10.0,1.25,10.0,0.125,OpenAI main line,1.0,no,Provider page,https://developers.openai.com/api/docs/pricing,,GPT-5,150.0
+OpenAI,GPT-5.2,2025-12-11,1.75,14.0,1.75,14.0,0.175,OpenAI main line,1.0,no,Provider page,https://developers.openai.com/api/docs/pricing,,GPT-5.2,154.52
+OpenAI,GPT-5.4,2026-03-05,2.5,15.0,2.5,15.0,0.25,OpenAI main line,1.0,no,Provider page,https://developers.openai.com/api/docs/pricing,Prompts over 272K tokens cost more,GPT-5.4,157.87
+OpenAI,GPT-5.5,2026-04-24,5.0,30.0,5.0,30.0,0.5,OpenAI main line,1.0,no,Provider page,https://developers.openai.com/api/docs/pricing,,GPT-5.5,160.19
+OpenAI,GPT-5.6 Sol,2026-07-09,5.0,30.0,4.0,20.0,0.4,OpenAI main line,1.0,no,Provider page and archive,https://developers.openai.com/api/docs/pricing,Launched at $5 / $30; promotional $4 / $20 from 21 Aug to 30 Nov 2026,GPT-5.6 Sol,163.05
+OpenAI,GPT-5.6 Terra,2026-07-09,2.5,15.0,2.0,12.0,0.2,,,no,Provider page and archive,https://developers.openai.com/api/docs/pricing,Launched at $2.50 / $15; cut 20% on 30 Jul 2026,GPT-5.6 Terra,160.78
+OpenAI,GPT-5.6 Luna,2026-07-09,1.0,6.0,0.2,1.2,0.02,,,no,Provider page and archive,https://developers.openai.com/api/docs/pricing,Launched at $1 / $6; cut 80% on 30 Jul 2026,GPT-5.6 Luna,156.7
+OpenAI,GPT-6 Astra,2026-09-03,10.0,50.0,10.0,50.0,1.0,OpenAI Astra tier,2.0,no,Provider page,https://developers.openai.com/api/docs/pricing,,GPT-6 Astra,169.2
+OpenAI,GPT-6 Sol,2026-09-22,2.0,10.0,2.0,10.0,0.2,OpenAI main line,1.0,no,Provider page,https://developers.openai.com/api/docs/pricing,,GPT-6 Sol,163.82
+OpenAI,GPT-6 Luna,2026-09-22,0.1,0.5,0.1,0.5,0.01,,,yes,Provider page,https://developers.openai.com/api/docs/pricing,,GPT-6 Luna,156.39
+OpenAI,GPT-6.1 Sol,2026-09-29,2.0,10.0,2.0,10.0,0.1,OpenAI main line,1.0,no,Provider page,https://developers.openai.com/api/docs/pricing,,GPT-6.1 Sol,168.63
+OpenAI,GPT-6.1 Terra,2026-10-26,1.0,5.0,1.0,5.0,0.05,,,yes,Provider page,https://developers.openai.com/api/docs/pricing,,GPT-6.1 Terra,167.72
+OpenAI,GPT-6.2 Astra,2026-11-17,8.0,40.0,8.0,40.0,0.4,OpenAI Astra tier,2.0,yes,Provider page,https://developers.openai.com/api/docs/pricing,,GPT-6.2 Astra,174.17
+OpenAI,GPT-6.2 Sol,2026-11-17,2.0,10.0,2.0,10.0,0.1,OpenAI main line,1.0,yes,Provider page,https://developers.openai.com/api/docs/pricing,,,
+Anthropic,Claude 3 Opus,2024-03-04,15.0,75.0,15.0,75.0,1.5,Anthropic Opus,1.0,no,Archived provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude 3 Opus,125.58
+Anthropic,Claude 3.5 Sonnet,2024-06-20,3.0,15.0,3.0,15.0,0.3,Anthropic Sonnet,2.0,no,Archived provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude 3.5 Sonnet,130.0
+Anthropic,Claude 3.7 Sonnet,2025-02-24,3.0,15.0,3.0,15.0,0.3,Anthropic Sonnet,2.0,no,Archived provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude 3.7 Sonnet,141.05
+Anthropic,Claude Opus 4,2025-05-22,15.0,75.0,15.0,75.0,1.5,Anthropic Opus,1.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Opus 4,142.88
+Anthropic,Claude Opus 4.1,2025-08-05,15.0,75.0,15.0,75.0,1.5,Anthropic Opus,1.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Opus 4.1,144.77
+Anthropic,Claude Sonnet 4.5,2025-09-29,3.0,15.0,3.0,15.0,0.3,Anthropic Sonnet,2.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Sonnet 4.5,147.59
+Anthropic,Claude Opus 4.5,2025-11-24,5.0,25.0,5.0,25.0,0.5,Anthropic Opus,1.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,A two-thirds cut from Opus 4.1,Claude Opus 4.5,151.88
+Anthropic,Claude Opus 4.6,2026-02-05,5.0,25.0,5.0,25.0,0.5,Anthropic Opus,1.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Opus 4.6,156.35
+Anthropic,Claude Sonnet 4.6,2026-02-17,3.0,15.0,3.0,15.0,0.3,Anthropic Sonnet,2.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Sonnet 4.6,152.86
+Anthropic,Claude Opus 4.7,2026-04-16,5.0,25.0,5.0,25.0,0.5,Anthropic Opus,1.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,Models from 4.7 on use a tokenizer that produces about 30% more tokens for the same text,Claude Opus 4.7,157.5
+Anthropic,Claude Opus 4.8,2026-05-28,5.0,25.0,5.0,25.0,0.5,Anthropic Opus,1.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Opus 4.8,159.91
+Anthropic,Claude Fable 5,2026-06-09,10.0,50.0,10.0,50.0,1.0,Anthropic Fable tier,2.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Fable 5,164.21
+Anthropic,Claude Sonnet 5,2026-06-30,2.0,10.0,2.0,10.0,0.2,Anthropic Sonnet,2.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,Introductory price made permanent on 10 Aug 2026,Claude Sonnet 5,156.9
+Anthropic,Claude Opus 5,2026-07-24,5.0,25.0,5.0,25.0,0.5,Anthropic Opus,1.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Opus 5,164.74
+Anthropic,Claude Fable 5.1,2026-09-01,10.0,50.0,10.0,50.0,0.25,Anthropic Fable tier,2.0,no,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Fable 5.1,167.09
+Anthropic,Claude Opus 5.5,2026-09-22,4.0,20.0,4.0,20.0,0.2,Anthropic Opus,1.0,yes,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Opus 5.5,168.7
+Anthropic,Claude Sonnet 5.5,2026-09-28,2.0,10.0,2.0,10.0,0.1,Anthropic Sonnet,2.0,yes,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Sonnet 5.5,166.59
+Anthropic,Claude Haiku 5.5,2026-10-07,0.1,0.5,0.1,0.5,0.01,,,yes,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,Prompts over 100K tokens cost more,Claude Haiku 5.5,160.29
+Anthropic,Claude Fable 5.2,2026-11-09,8.0,40.0,8.0,40.0,0.2,Anthropic Fable tier,2.0,yes,Provider page,https://platform.claude.com/docs/en/about-claude/pricing,,Claude Fable 5.2,173.5
+Google,Gemini 1.5 Pro,2024-05-14,3.5,10.5,3.5,10.5,0.875,Google Pro and Gemini 4,1.0,no,Archived provider page,https://aistudio.google.com/docs/pricing,Price as of July 2024; later cuts not traced,Gemini 1.5 Pro (May 2024),125.37
+Google,Gemini 2.5 Pro,2025-06-17,1.25,10.0,1.25,10.0,0.125,Google Pro and Gemini 4,1.0,no,Provider page,https://aistudio.google.com/docs/pricing,,Gemini 2.5 Pro (Jun 2025),144.91
+Google,Gemini 3 Pro,2025-11-18,2.0,12.0,2.0,12.0,0.2,Google Pro and Gemini 4,1.0,no,Archived provider page,https://aistudio.google.com/docs/pricing,,Gemini 3 Pro,153.04
+Google,Gemini 3.1 Pro,2026-02-19,2.0,12.0,2.0,12.0,0.2,Google Pro and Gemini 4,1.0,no,Provider page,https://aistudio.google.com/docs/pricing,,Gemini 3.1 Pro,156.25
+Google,Gemini 3.5 Flash,2026-05-19,1.5,9.0,1.5,9.0,0.15,Google Flash,2.0,no,Archived provider page,https://aistudio.google.com/docs/pricing,,Gemini 3.5 Flash,155.35
+Google,Gemini 3.6 Flash,2026-07-21,0.75,3.75,0.75,3.75,0.075,Google Flash,2.0,no,Provider page,https://aistudio.google.com/docs/pricing,Scheduled to double on 1 Jan 2027,Gemini 3.6 Flash,155.24
+Google,Gemini 3.8 Flash,2026-09-02,0.75,3.75,0.75,3.75,0.075,Google Flash,2.0,yes,Provider page,https://aistudio.google.com/docs/pricing,Scheduled to double on 1 Jan 2027,Gemini 3.8 Flash,158.83
+Google,Gemini 4 Argon,2026-10-13,2.0,10.0,2.0,10.0,0.1,Google Pro and Gemini 4,1.0,yes,Provider page,https://aistudio.google.com/docs/pricing,Introductory price; $4 / $20 from 1 Dec 2026,Gemini 4 Argon,166.57
+Google,Gemini 4 Carbon,2026-11-10,2.0,10.0,2.0,10.0,0.1,Google Pro and Gemini 4,1.0,yes,Provider page,https://aistudio.google.com/docs/pricing,Introductory price; $4 / $20 from 1 Dec 2026,Gemini 4 Carbon,169.78
+Google,Gemini 4 Hydrogen,2026-11-12,1.5,7.5,1.5,7.5,0.075,,,yes,Provider page,https://aistudio.google.com/docs/pricing,,,
+Google,Gemini 4 Neon,2026-11-18,3.0,15.0,3.0,15.0,0.15,,,yes,Provider page,https://aistudio.google.com/docs/pricing,,,
+xAI,Grok 3,2025-02-19,3.0,15.0,3.0,15.0,0.75,xAI Grok,1.0,no,Archived provider page,https://docs.x.ai/docs/models,,Grok 3,137.59
+xAI,Grok 4,2025-07-09,3.0,15.0,3.0,15.0,0.75,xAI Grok,1.0,no,Archived provider page,https://docs.x.ai/docs/models,,Grok 4,146.96
+xAI,Grok 4.20,2026-03-10,2.0,6.0,1.25,2.5,0.2,xAI Grok,1.0,no,Provider page and archive,https://docs.x.ai/docs/models,"Launched at $2 / $6; later cut, date not found",Grok 4.20,152.3
+xAI,Grok 4.5,2026-07-08,2.0,6.0,2.0,6.0,0.3,xAI Grok,1.0,no,Provider page,https://docs.x.ai/docs/models,,Grok 4.5,154.97
+xAI,Grok 4.6,2026-08-12,2.0,6.0,2.0,6.0,0.5,xAI Grok,1.0,no,Provider page,https://docs.x.ai/docs/models,,Grok 4.6,157.82
+xAI,Grok 4.7,2026-09-21,2.0,6.0,2.0,6.0,0.5,xAI Grok,1.0,yes,Provider page,https://docs.x.ai/docs/models,,Grok 4.7,156.43
+Meta,Muse Spark 1.3,2026-09-02,1.25,4.25,1.25,4.25,0.15,,,yes,Provider page,https://dev.meta.ai/products/meta-model-api,Same price listed for Spark 1.1 to 1.3,Muse Spark 1.3,158.25
+Meta,Muse Wonder,2026-10-12,4.0,20.0,4.0,20.0,0.2,,,yes,Provider page,https://dev.meta.ai/products/meta-model-api,Muse Wonder Full has no API price,Muse Wonder,161.74
+DeepSeek,DeepSeek V3,2024-12-26,0.27,1.1,0.27,1.1,0.07,DeepSeek Flash line,1.0,no,Archived provider page,https://web.archive.org/web/20261118170941/https://api-docs.deepseek.com/quick_start/pricing/,After a launch promotion ended in Feb 2025,DeepSeek-V3,131.71
+DeepSeek,DeepSeek R1,2025-01-20,0.55,2.19,0.55,2.19,0.14,,,no,Archived provider page,https://web.archive.org/web/20261118170941/https://api-docs.deepseek.com/quick_start/pricing/,,DeepSeek-R1,138.63
+DeepSeek,DeepSeek V4 Flash,2026-04-24,0.14,0.28,0.44,1.32,0.014,DeepSeek Flash line,1.0,no,Archived provider page,https://web.archive.org/web/20261118170941/https://api-docs.deepseek.com/quick_start/pricing/,Preview price $0.14 / $0.28; raised to $0.44 / $1.32 at peak on 16 Aug 2026,DeepSeek V4 Flash 0731,154.43
+DeepSeek,DeepSeek V4 Pro,2026-08-13,1.32,3.96,1.32,3.96,0.044,,,yes,Archived provider page,https://web.archive.org/web/20261118170941/https://api-docs.deepseek.com/quick_start/pricing/,Peak price; off-peak is half,DeepSeek V4 Pro 0813,155.96
+DeepSeek,DeepSeek V4.1 Flash,2026-09-10,0.3,1.2,0.3,1.2,0.006,DeepSeek Flash line,1.0,yes,Archived provider page,https://web.archive.org/web/20261118170941/https://api-docs.deepseek.com/quick_start/pricing/,Peak price; off-peak is half and covers most of the week,DeepSeek V4.1 Flash,157.0
+Moonshot,Kimi K2,2025-07-11,0.6,2.5,0.6,2.5,0.15,Moonshot Kimi,1.0,no,Archived provider page,https://platform.moonshot.ai/docs/pricing/chat,,Kimi K2 (Jul 2025),141.25
+Moonshot,Kimi K2.5,2026-01-27,0.6,3.0,0.6,3.0,0.1,Moonshot Kimi,1.0,no,Archived provider page,https://platform.moonshot.ai/docs/pricing/chat,,Kimi K2.5,148.8
+Moonshot,Kimi K2.6,2026-04-20,0.95,4.0,0.95,4.0,0.16,Moonshot Kimi,1.0,no,Provider page,https://platform.moonshot.ai/docs/pricing/chat,,Kimi K2.6,151.62
+Moonshot,Kimi K3,2026-07-16,3.0,15.0,3.0,15.0,0.3,Moonshot Kimi,1.0,no,Provider page,https://platform.moonshot.ai/docs/pricing/chat,,Kimi K3,158.6
+Moonshot,Kimi K3.1 Pro,2026-10-23,2.0,10.0,2.0,10.0,0.2,Moonshot Kimi,1.0,yes,Provider page,https://platform.moonshot.ai/docs/pricing/chat,,Kimi K3.1 Pro,161.36
+Z.ai,GLM-5,2026-02-12,1.0,3.2,1.0,3.2,0.2,Z.ai GLM,1.0,no,Provider page,https://docs.z.ai/guides/overview/pricing,,GLM-5,146.54
+Z.ai,GLM-5.1,2026-04-07,1.4,4.4,1.4,4.4,0.26,Z.ai GLM,1.0,no,Provider page,https://docs.z.ai/guides/overview/pricing,,GLM-5.1,150.73
+Z.ai,GLM-5.2,2026-06-16,1.4,4.4,1.4,4.4,0.26,Z.ai GLM,1.0,no,Provider page,https://docs.z.ai/guides/overview/pricing,,GLM-5.2,153.04
+Z.ai,GLM-5.3,2026-08-18,1.4,4.4,1.4,4.4,0.26,Z.ai GLM,1.0,yes,Provider page,https://docs.z.ai/guides/overview/pricing,,GLM-5.3,157.1
+Alibaba,Qwen3.6-Max,2026-04-20,1.3,7.8,1.3,7.8,,Alibaba Qwen Max,1.0,no,Archived provider page,https://www.alibabacloud.com/help/en/model-studio/model-pricing,Preview; international price,Qwen 3.6 Max (Preview),149.88
+Alibaba,Qwen3.8-Max,2026-08-03,2.0,6.0,2.0,6.0,,Alibaba Qwen Max,1.0,no,Provider page,https://www.alibabacloud.com/help/en/model-studio/model-pricing,International price,Qwen 3.8 Max,157.59
+Alibaba,Qwen4-Max,2026-11-16,1.5,4.5,1.5,4.5,,Alibaba Qwen Max,1.0,yes,Provider page,https://www.alibabacloud.com/help/en/model-studio/model-pricing,International price,,
+Microsoft,MAI-Thinking-1,2026-06-02,2.0,8.0,2.0,8.0,0.2,,,yes,Azure price API,https://prices.azure.com/api/retail/prices,Private preview; no independent benchmark scores exist,,
+Microsoft,MAI-Code-2-Flash,2026-11-17,0.05,0.25,0.05,0.25,0.005,,,yes,Azure price API,https://prices.azure.com/api/retail/prices,No independent benchmark scores exist,,
