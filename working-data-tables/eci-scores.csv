@@ -1,29 +1,119 @@
-Date,Model,Org,Weights,ECI,CI_lo,CI_hi,Series,Vintage,Source
-2023-03-14,GPT-4,OpenAI,Closed,121.58,117.72,125.02,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2024-01-25,GPT-4 Turbo,OpenAI,Closed,124.75,121.47,127.68,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2024-02-29,Claude 3 Opus,Anthropic,Closed,125.58,122.65,128.17,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2024-04-09,GPT-4 Turbo,OpenAI,Closed,125.82,122.84,128.62,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2024-05-13,GPT-4o,OpenAI,Closed,128.13,125.37,130.68,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2024-06-20,Claude 3.5 Sonnet,Anthropic,Closed,130.0,,,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2024-09-12,o1-mini,OpenAI,Closed,135.28,133.1,137.29,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2024-12-17,o1,OpenAI,Closed,141.18,139.48,142.79,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2025-03-31,Gemini 2.5 Pro,Google,Closed,144.05,142.08,146.0,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2025-04-16,o3,OpenAI,Closed,147.05,145.6,148.55,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2025-06-10,o3-pro,OpenAI,Closed,147.46,145.58,149.37,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2025-08-07,GPT-5,OpenAI,Closed,150.0,,,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2025-10-07,GPT-5 Pro,OpenAI,Closed,151.27,149.32,153.32,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2025-11-18,Gemini 3 Pro,Google,Closed,153.04,151.45,154.78,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2025-12-11,GPT-5.2 Pro,OpenAI,Closed,157.31,155.11,159.77,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2026-03-05,GPT-5.4 Pro,OpenAI,Closed,160.32,157.87,163.03,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2026-04-23,GPT-5.5 Pro,OpenAI,Closed,162.77,160.14,165.77,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2026-06-09,Claude Fable 5,Anthropic,Closed,164.21,161.78,166.86,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2026-07-24,Claude Opus 5,Anthropic,Closed,164.74,162.3,167.66,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2026-09-01,Claude Fable 5.1,Anthropic,Closed,167.09,164.43,170.11,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2026-09-03,GPT-6 Astra,OpenAI,Closed,169.2,166.33,172.48,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2026-11-09,Claude Fable 5.2,Anthropic,Closed,173.5,170.09,177.36,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2026-11-17,GPT-6.2 Astra,OpenAI,Closed,174.17,170.29,178.58,Frontier,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
-2025-12-01,DeepSeek V3.2,DeepSeek,Open,146.46,,,Open-weight,Epoch table 2026-05-29,https://epoch.ai/data-insights/open-closed-eci-gap
-2026-01-27,Kimi K2.5,Moonshot,Open,148.22,,,Open-weight,Epoch table 2026-05-29,https://epoch.ai/data-insights/open-closed-eci-gap
-2026-02-12,GLM-5,Z.ai,Open,146.62,,,Open-weight,Epoch table 2026-05-29,https://epoch.ai/data-insights/open-closed-eci-gap
-2026-04-07,GLM-5.1,Z.ai,Open,149.94,,,Open-weight,Epoch table 2026-05-29,https://epoch.ai/data-insights/open-closed-eci-gap
-2026-04-20,Kimi K2.6,Moonshot,Open,151.6,,,Open-weight,Epoch table 2026-05-29,https://epoch.ai/data-insights/open-closed-eci-gap
+Date,Model,Org,Weights,Access_Detail,ECI,CI_lo,CI_hi,Is_Frontier,Vintage,Source
+2023-03-14,GPT-4 (Mar 2023),OpenAI,Closed,API access,121.58,117.72,125.02,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2023-07-11,Claude 2,Anthropic,Closed,API access,117.12,112.61,121.05,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2023-07-18,Llama 2-7B,Meta,Open,Open weights (restricted use),82.8,70.34,93.04,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2023-07-18,Llama 2-34B,Meta,Closed,Unreleased,93.69,83.73,102.35,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2023-07-18,Llama 2-13B,Meta,Open,Open weights (restricted use),96.28,87.19,104.31,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2023-07-18,Llama 2-70B,Meta,Open,Open weights (restricted use),105.64,99.62,110.86,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2023-09-11,Phi-1.5,Microsoft,Open,Open weights (unrestricted),68.17,49.93,83.48,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2023-09-24,Qwen-14B,Alibaba,Open,Open weights (restricted use),101.61,92.75,109.54,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2023-12-12,Phi-2,Microsoft,Open,Open weights (unrestricted),95.94,86.5,104.28,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-01-25,GPT-4 Turbo (Nov 2023),OpenAI,Closed,API access,124.75,121.47,127.68,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-02-21,Gemma 2B,Google,Open,Open weights (restricted use),75.36,60.81,87.85,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-02-21,Gemma 7B,Google,Open,Open weights (restricted use),102.87,94.96,109.59,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-02-29,Claude 3 Sonnet,Anthropic,Closed,API access,119.65,115.71,123.23,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-02-29,Claude 3 Opus,Anthropic,Closed,API access,125.58,122.65,128.17,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-04-09,GPT-4 Turbo (Apr 2024),OpenAI,Closed,API access,125.82,122.84,128.62,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-04-18,Llama 3-8B,Meta,Open,Open weights (restricted use),109.0,103.32,113.95,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-04-18,Llama 3-70B,Meta,Open,Open weights (restricted use),121.34,117.67,124.75,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-04-23,phi-3-mini 3.8B,Microsoft,Open,Open weights (unrestricted),110.4,104.13,116.07,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-04-23,phi-3-medium 14B,Microsoft,Open,Open weights (unrestricted),114.01,109.14,118.32,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-04-23,phi-3-small 7.4B,Microsoft,Open,Open weights (unrestricted),116.26,110.26,121.84,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-05-07,"DeepSeek-V2 (MoE-236B, May 2024)",DeepSeek,Open,Open weights (restricted use),120.76,113.88,127.62,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-05-13,GPT-4o (May 2024),OpenAI,Closed,API access,128.13,125.37,130.68,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-05-14,Gemini 1.5 Pro (May 2024),Google,Closed,API access,125.37,122.09,128.37,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-06-07,Qwen2-72B,Alibaba,Open,Open weights (unrestricted),122.33,118.73,125.52,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-06-20,Claude 3.5 Sonnet,Anthropic,Closed,API access,130.0,,,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-07-23,Llama 3.1-70B,Meta,Open,Open weights (restricted use),124.72,121.58,127.63,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-07-23,Llama 3.1-405B,Meta,Open,Open weights (restricted use),127.87,124.95,130.51,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-09-12,o1-preview,OpenAI,Closed,API access,133.54,130.97,135.94,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-09-12,o1-mini,OpenAI,Closed,API access,135.28,133.1,137.29,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-09-19,Qwen2.5-72B,Alibaba,Open,Open weights (unrestricted),127.21,124.47,129.8,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-09-24,Gemini 1.5 Flash (Sep 2024),Google,Closed,API access,126.96,123.87,129.8,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-09-24,Gemini 1.5 Pro (Sept 2024),Google,Closed,API access,130.45,127.81,132.84,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-10-22,Claude 3.5 Sonnet (October 2024),Anthropic,Closed,API access,133.34,131.04,135.54,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-12-12,Phi-4,Microsoft,Open,Open weights (unrestricted),129.24,126.27,131.95,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-12-12,Grok-2 (Dec 2024),xAI,Closed,API access,129.75,127.01,132.25,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-12-17,o1,OpenAI,Closed,API access,141.18,139.48,142.79,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2024-12-26,DeepSeek-V3,DeepSeek,Open,Open weights (restricted use),131.71,129.14,134.01,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-01-20,DeepSeek-R1,DeepSeek,Open,Open weights (unrestricted),138.63,136.7,140.4,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-01-21,Gemini 2.0 Flash Thinking (Jan 2025),Google,Closed,API access,133.61,130.54,136.4,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-01-25,Qwen2.5-Max,Alibaba,Closed,API access,131.17,128.42,133.62,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-02-05,Gemini 2.0 Flash (Feb 2025),Google,Closed,API access,134.02,131.74,136.18,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-02-05,Gemini 2.0 Pro,Google,Closed,Hosted access (no API),135.41,132.66,138.06,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-02-24,Claude 3.7 Sonnet,Anthropic,Closed,API access,141.05,139.41,142.58,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-03-05,QwQ-32B,Alibaba,Open,Open weights (unrestricted),136.48,133.72,139.15,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-03-31,Gemini 2.5 Pro (Mar 2025),Google,Closed,API access,144.05,142.08,146.0,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-04-06,Llama 4 Maverick,Meta,Open,Open weights (restricted use),132.24,130.0,134.26,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-04-09,Grok 3,xAI,Closed,API access,137.59,135.63,139.42,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-04-16,o4-mini,OpenAI,Closed,API access,145.22,143.68,146.7,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-04-16,o3,OpenAI,Closed,API access,147.05,145.6,148.55,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-04-28,Qwen3-235B-A22B,Alibaba,Open,Open weights (unrestricted),138.43,136.11,140.67,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-05-22,Claude Sonnet 4,Anthropic,Closed,API access,141.88,140.3,143.41,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-05-22,Claude Opus 4,Anthropic,Closed,API access,142.88,141.27,144.47,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-05-28,DeepSeek-R1 (May 2025),DeepSeek,Open,Open weights (unrestricted),140.75,138.93,142.45,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-06-05,Gemini 2.5 Pro (Jun 2025),Google,Closed,API access,144.91,143.5,146.3,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-06-10,o3-pro,OpenAI,Closed,API access,147.46,145.58,149.37,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-06-24,Grok-3 mini,xAI,Closed,API access,139.95,138.15,141.69,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-07-09,Grok 4,xAI,Closed,API access,146.96,145.48,148.46,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-07-12,Kimi K2 (Jul 2025),Moonshot,Open,Open weights (restricted use),141.25,138.25,143.95,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-07-25,Qwen3-235B-A22B-Thinking (Jul 2025),Alibaba,Open,Open weights (unrestricted),143.27,141.4,145.12,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-08-05,Claude Opus 4.1,Anthropic,Closed,API access,144.77,143.0,146.5,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-08-07,GPT-5,OpenAI,Closed,API access,150.0,,,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-08-21,DeepSeek-V3.1,DeepSeek,Open,Open weights (unrestricted),140.8,137.55,143.94,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-09-29,DeepSeek-V3.2-Exp,DeepSeek,Open,Open weights (unrestricted),144.39,142.07,146.73,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-09-29,Claude Sonnet 4.5,Anthropic,Closed,API access,147.59,146.14,149.04,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-10-07,GPT-5 Pro,OpenAI,Closed,API access,151.27,149.32,153.32,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-11-06,Kimi K2 Thinking,Moonshot,Open,Open weights (restricted use),145.48,143.69,147.27,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-11-18,Gemini 3 Pro,Google,Closed,API access,153.04,151.45,154.78,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-11-24,Claude Opus 4.5,Anthropic,Closed,API access,151.88,150.32,153.53,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-12-01,DeepSeek-V3.2,DeepSeek,Open,Open weights (unrestricted),146.26,144.75,147.75,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-12-11,GPT-5.2,OpenAI,Closed,API access,154.52,152.94,156.31,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-12-11,GPT-5.2 Pro,OpenAI,Closed,API access,157.31,155.11,159.77,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2025-12-22,GLM-4.7,Z.ai,Open,Open weights (unrestricted),143.36,141.4,145.27,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-01-27,Kimi K2.5,Moonshot,Open,Open weights (unrestricted),148.8,147.3,150.35,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-02-05,Claude Opus 4.6,Anthropic,Closed,API access,156.35,154.59,158.29,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-02-11,GLM-5,Z.ai,Open,Open weights (unrestricted),146.54,144.97,148.11,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-02-13,Qwen3.5 397B-A17B,Alibaba,Open,Open weights (unrestricted),147.95,145.8,150.07,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-02-17,Grok 4.20,xAI,Closed,API access,152.3,150.58,154.09,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-02-19,Gemini 3.1 Pro,Google,Closed,API access,156.25,154.49,158.15,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-03-05,GPT-5.4,OpenAI,Closed,API access,157.87,155.96,159.97,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-03-05,GPT-5.4 Pro,OpenAI,Closed,API access,160.32,157.87,163.03,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-03-31,Qwen 3.6 Plus,Alibaba,Closed,API access,148.91,146.96,150.92,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-04-07,GLM-5.1,Z.ai,Open,Open weights (unrestricted),150.73,148.77,152.77,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-04-08,Muse Spark,Meta,Closed,API access,153.16,150.94,155.46,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-04-16,Claude Opus 4.7,Anthropic,Closed,API access,157.5,155.63,159.46,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-04-20,Qwen 3.6 Max (Preview),Alibaba,Other,Unknown,149.88,147.87,152.07,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-04-20,Kimi K2.6,Moonshot,Open,Open weights (unrestricted),151.62,149.86,153.44,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-04-23,GPT-5.5 Pro,OpenAI,Closed,API access,162.77,160.14,165.77,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-04-24,DeepSeek-V4-Flash,DeepSeek,Open,Open weights (unrestricted),146.84,143.6,150.16,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-04-24,DeepSeek-V4-Pro,DeepSeek,Open,Open weights (unrestricted),150.21,148.47,152.04,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-05-19,Qwen3.7-Max,Alibaba,Closed,API access,154.58,152.57,156.67,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-05-28,Claude Opus 4.8,Anthropic,Closed,API access,159.91,157.82,162.21,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-06-09,Claude Fable 5,Anthropic,Closed,API access,164.21,161.78,166.86,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-06-16,GLM-5.2,Z.ai,Open,Open weights (unrestricted),153.04,151.35,154.86,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-07-08,Grok 4.5,xAI,Closed,API access,154.97,153.23,156.91,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-07-09,Muse Spark 1.1,Meta,Closed,API access,154.92,152.33,157.65,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-07-09,GPT-5.6 Sol,OpenAI,Closed,API access,163.05,160.76,165.59,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-07-16,Kimi K3,Moonshot,Open,Open weights (non-commercial),158.6,156.63,160.8,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-07-24,Claude Opus 5,Anthropic,Closed,API access,164.74,162.3,167.66,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-07-31,DeepSeek V4 Flash 0731,DeepSeek,Open,Open weights (unrestricted),154.43,152.55,156.42,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-08-02,Qwen 3.8 Max,Alibaba,Closed,API access,157.59,155.47,159.94,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-08-05,Muse Spark 1.2,Meta,Closed,API access,155.06,152.79,157.48,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-08-12,Grok 4.6,xAI,Closed,API access,157.82,155.86,160.0,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-08-13,DeepSeek V4 Pro 0813,DeepSeek,Open,Open weights (unrestricted),155.96,154.1,157.99,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-08-13,Gemini 3.7 Flash,Google,Closed,API access,158.38,156.41,160.53,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-08-14,GLM-5.3,Z.ai,Open,Open weights (restricted use),157.1,155.04,159.33,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-09-01,Claude Fable 5.1,Anthropic,Closed,API access,167.09,164.43,170.11,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-09-02,Muse Spark 1.3,Meta,Closed,API access,158.25,156.26,160.41,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-09-02,Gemini 3.8 Flash,Google,Closed,API access,158.83,156.86,160.97,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-09-03,GPT-6 Astra,OpenAI,Closed,API access,169.2,166.33,172.48,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-09-09,DeepSeek V4.1 Flash,DeepSeek,Open,Open weights (unrestricted),157.0,155.08,159.03,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-09-22,Claude Opus 5.5,Anthropic,Closed,API access,168.7,165.87,171.89,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-10-12,Muse Wonder,Meta,Closed,API access,161.74,159.36,164.32,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-10-13,Gemini 4 Argon,Google,Closed,API access,166.57,163.94,169.51,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-10-17,DeepSeek V4.1 Flash 1017,DeepSeek,Open,Open weights (unrestricted),159.4,157.16,161.93,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-10-23,Kimi K3.1 Pro,Moonshot,Open,Open weights (restricted use),161.36,158.97,163.9,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-11-09,Claude Fable 5.2,Anthropic,Closed,API access,173.5,170.09,177.36,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-11-10,Gemini 4 Carbon,Google,Closed,API access,169.78,166.59,173.31,no,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
+2026-11-17,GPT-6.2 Astra,OpenAI,Closed,API access,174.17,170.29,178.58,yes,Epoch download 2026-11-19,https://epoch.ai/data/eci_scores.csv
