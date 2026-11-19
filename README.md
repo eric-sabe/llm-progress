@@ -14,7 +14,7 @@ Capability kept climbing through 2026, but the instruments used to show it broke
 |---|---|
 | 📅 Release Cadence | Swim-lane timeline of model releases, Feb 2024 to Nov 2026, across ten labs (US labs plus DeepSeek, Moonshot, Z.ai, Alibaba). Diamonds mark access-gated releases. A stacked bar counts releases per quarter. |
 | ⏳ Benchmark Lifespans | One bar per benchmark from introduction to saturation, discrediting or replacement. Average life fell from about 46 months (2019 to 2021 cohort) to 22 (2023 to 2024) to 12 (2025). Benchmarks still in use carry Epoch's review verdict. |
-| 📊 Progress Measures | Epoch Capabilities Index (each new frontier model and the best open-weight models, with least-squares trend lines before and after reasoning models), the ARC-AGI-2 and ARC-AGI-3 climb, the portfolio of benchmarks proposed in place of SWE-bench, and the four retired series (GPQA Diamond, SWE-bench Verified, MATH/AIME, MMLU) with end markers. |
+| 📊 Progress Measures | Epoch Capabilities Index (each lab's best model over time for ten labs, open-weight models marked, with least-squares trend lines before and after reasoning models), the ARC-AGI-2 and ARC-AGI-3 climb, the portfolio of benchmarks proposed in place of SWE-bench, and the four retired series (GPQA Diamond, SWE-bench Verified, MATH/AIME, MMLU) with end markers. |
 | 🔍 Who Measured It? | Paired dots for the same model on the same benchmark: vendor vs independent, one lab's table vs another's, and one model under different harnesses or scoring rules. |
 | ⏱ Task Time Horizons | METR Time Horizon 1.1 at 50% or 80% success, with confidence intervals, the 16-hour reliability limit, the three readings of GPT-5.6 Sol, and the date the series was frozen. Below it, an "After METR" panel lists the instruments now used instead and charts METR's expenditure horizon. |
 | 🏗 Benchmarks vs Reality | Share of code from AI (GitHub measurement and company statements), firm-level productivity studies split into activity, delivered work and friction, and METR's controlled trials. |
@@ -52,6 +52,14 @@ The research behind the November 2026 revision, including a table of open confli
 - Time horizons: 12 of 14 rows had a wrong value or date (for example o1-preview was listed at 90 minutes; METR's figure is about 20, and Claude Opus 4.6 was listed at about 7 hours; it is about 12).
 - Scores: Claude Sonnet 4.6 GPQA corrected from 74.1 to 89.9 and GPT-5.3-Codex GPQA from 73.8 to 92.6, both against the labs' own tables; HumanEval and MATH cells from September 2025 onward, which had no traceable source, blanked.
 - Timeline: GPT-5.3-Codex moved from 2026-01-14 to 2026-02-05; Claude 3.7 Sonnet moved to 2025-02-24.
+
+### Rebuilding the index table
+
+`eci-scores.csv` is generated, not hand-edited. Download Epoch's file and run:
+
+```bash
+python scripts/build_eci_scores.py path/to/eci_scores.csv 2026-11-19
+```
 
 ## Running Locally
 

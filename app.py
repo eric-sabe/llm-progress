@@ -468,10 +468,9 @@ with tab_bench:
         view = st.selectbox("Select measure", VIEWS, label_visibility="collapsed")
 
     if view == VIEWS[0]:
-        eci = D["eci"].sort_values("Date")
-        fr = eci[eci["Series"] == "Frontier"]
-        op = eci[eci["Series"] == "Open-weight"]
-        split = pd.Timestamp("2024-09-12")  # first reasoning model on the frontier (o1-mini)
+        eci = D["eci"].sort_values(["Date", "ECI"])
+        fr = eci[eci["Is_Frontier"] == "yes"]
+        split = pd.Timestamp("2024-09-12")  # first reasoning model on the frontier
 
         def _fit(df):
             x = (df["Date"] - split).dt.days / 365.25
@@ -483,60 +482,101 @@ with tab_bench:
         (s_pre, b_pre), (s_post, b_post) = _fit(pre), _fit(post)
         fig2 = go.Figure()
         for (sl, b, d0, d1, nm, colr) in [
-            (s_pre, b_pre, pre["Date"].min(), split, f"Before reasoning models: about {s_pre:.0f} pts/yr", "#777"),
-            (s_post, b_post, split, AS_OF, f"Since reasoning models: about {s_post:.0f} pts/yr", "#bbb"),
+            (s_pre, b_pre, pre["Date"].min(), split, f"Frontier trend before reasoning models: about {s_pre:.0f} pts/yr", "#777"),
+            (s_post, b_post, split, AS_OF, f"Frontier trend since: about {s_post:.0f} pts/yr", "#bbb"),
         ]:
             fig2.add_trace(go.Scatter(
                 x=[d0, d1], y=[b + sl * (d - split).days / 365.25 for d in (d0, d1)], mode="lines",
-                name=nm, line=dict(color=colr, width=2, dash="dash")))
-        for _, r in fr.dropna(subset=["CI_lo"]).iterrows():
+                name=nm, line=dict(color=colr, width=1.5, dash="dash"), hoverinfo="skip"))
+
+        LAB_ORDER = ["OpenAI", "Anthropic", "Google", "Meta", "Moonshot", "DeepSeek", "xAI",
+                     "Alibaba", "Z.ai", "Microsoft"]
+        ends = []
+        for org in LAB_ORDER:
+            g = eci[eci["Org"] == org]
+            if g.empty:
+                continue
+            colr = ORG_COLORS.get(org, "#888")
+            last = g.iloc[-1]
+            stale = (AS_OF - last["Date"]).days > 365
+            xs = list(g["Date"]) + ([] if stale else [AS_OF])
+            ys = list(g["ECI"]) + ([] if stale else [last["ECI"]])
             fig2.add_trace(go.Scatter(
-                x=[r["Date"]] * 2, y=[r["CI_lo"], r["CI_hi"]], mode="lines", showlegend=False,
-                hoverinfo="skip", line=dict(color=hex_to_rgba(ORG_COLORS.get(r["Org"], "#888"), 0.35), width=3)))
-        keep = {"GPT-4", "Claude 3.5 Sonnet", "o1-mini", "o3", "GPT-5", "Gemini 3 Pro", "GPT-5.2 Pro",
-                "GPT-5.5 Pro", "Claude Fable 5", "GPT-6 Astra", "GPT-6.2 Astra"}
-        fig2.add_trace(go.Scatter(
-            x=fr["Date"], y=fr["ECI"], mode="markers+text", name="Frontier model at release",
-            marker=dict(size=11, color=[ORG_COLORS.get(o, "#888") for o in fr["Org"]],
-                        line=dict(width=1.5, color=PLOT_BG)),
-            text=[m.replace("Claude ", "") if m in keep else "" for m in fr["Model"]],
-            textposition="top left", textfont=dict(size=9.5, color="#aaa"),
-            customdata=list(zip(fr["Model"], fr["Org"])),
-            hovertemplate="<b>%{customdata[0]}</b> (%{customdata[1]})<br>%{x|%b %d, %Y}"
-                          "<br>ECI %{y:.1f}<extra></extra>"))
-        fig2.add_trace(go.Scatter(
-            x=op["Date"], y=op["ECI"], mode="markers+text", name="Best open-weight models (May 2026 table)",
-            marker=dict(size=11, symbol="circle-open", color=[ORG_COLORS.get(o, "#888") for o in op["Org"]],
-                        line=dict(width=2)),
-            text=op["Model"], textposition="bottom center", textfont=dict(size=9, color="#888"),
-            customdata=list(zip(op["Model"], op["Org"])),
-            hovertemplate="<b>%{customdata[0]}</b> (%{customdata[1]}, open weights)"
-                          "<br>ECI %{y:.1f}<extra></extra>"))
+                x=xs, y=ys, mode="lines",
+                line=dict(color=hex_to_rgba(colr, 0.9 if org in LAB_ORDER[:3] else 0.5),
+                          width=2.6 if org in LAB_ORDER[:3] else 1.4, shape="hv"),
+                legendgroup=org, showlegend=False, hoverinfo="skip"))
+            is_open = g["Weights"] == "Open"
+            fig2.add_trace(go.Scatter(
+                x=g["Date"], y=g["ECI"], mode="markers", name=org, legendgroup=org,
+                marker=dict(size=[9 if f == "yes" else 6 for f in g["Is_Frontier"]],
+                            color=[PLOT_BG if o else colr for o in is_open],
+                            line=dict(color=colr, width=1.8)),
+                customdata=list(zip(g["Model"], g["Access_Detail"], g["CI_lo"], g["CI_hi"])),
+                hovertemplate="<b>%{customdata[0]}</b> (" + org + ")<br>%{x|%b %d, %Y}"
+                              "<br>ECI %{y:.1f} (%{customdata[2]:.1f} to %{customdata[3]:.1f})"
+                              "<br>%{customdata[1]}<extra></extra>"))
+            ends.append(dict(org=org, y=last["ECI"], x=last["Date"] if stale else AS_OF,
+                             stale=stale, model=last["Model"], colr=colr))
+
+        # end-of-line labels, nudged apart so they do not overlap
+        live = sorted([e for e in ends if not e["stale"]], key=lambda e: -e["y"])
+        ylab = None
+        for e in live:
+            ylab = e["y"] if ylab is None else min(e["y"], ylab - 2.0)
+            fig2.add_annotation(x=AS_OF, y=ylab, xanchor="left", xshift=10, showarrow=False,
+                                text=f"<b>{e['org']}</b> {e['y']:.0f}", font=dict(size=11.5, color=e["colr"]))
+        for e in [e for e in ends if e["stale"]]:
+            fig2.add_annotation(
+                x=e["x"], y=e["y"], xanchor="left", xshift=10, showarrow=False,
+                text=f"<b>{e['org']}</b> {e['y']:.0f} ({e['model']}, {e['x']:%Y}); no MAI model evaluated",
+                font=dict(size=10.5, color="#aaa"), align="left", yshift=-12)
         add_vline(fig2, split, "First reasoning model", color="#666", y_text=0.02)
         fig2.update_layout(
-            **BASE_LAYOUT, height=580, margin=dict(l=70, r=60, t=55, b=60),
-            title=dict(text="Epoch Capabilities Index: each new frontier model, 2023 to Nov 2026",
-                       font=dict(size=15), x=0.0),
-            xaxis=dict(gridcolor=GRID_COL, range=["2022-12-01", "2027-01-15"]),
-            yaxis=dict(title="ECI score", gridcolor=GRID_COL, range=[116, 182]),
-            legend=dict(**LEGEND_STYLE, x=0.01, y=0.99), hovermode="closest",
+            **BASE_LAYOUT, height=700, margin=dict(l=70, r=110, t=55, b=110),
+            title=dict(text="Epoch Capabilities Index: each lab's best model to date", font=dict(size=15), x=0.0),
+            xaxis=dict(gridcolor=GRID_COL, range=["2022-12-01", "2026-12-01"]),
+            yaxis=dict(title="ECI score", gridcolor=GRID_COL, range=[116, 180]),
+            legend=dict(**LEGEND_STYLE, orientation="h", y=-0.13), hovermode="closest",
         )
         st.plotly_chart(fig2, width="stretch")
+
+        lead = eci.loc[eci["ECI"].idxmax()]
+        op = eci[eci["Weights"] == "Open"]
+        best_open = op.loc[op["ECI"].idxmax()]
+        passed = fr[fr["ECI"] >= best_open["ECI"]]["Date"].min()
+        lag_mo = (best_open["Date"] - passed).days / 30.44
+        chinese = eci[eci["Org"].isin(["Moonshot", "DeepSeek", "Alibaba", "Z.ai"])]
+        best_cn_closed = chinese[chinese["Weights"] == "Closed"]
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("Leader", f"{lead['ECI']:.1f}", lead["Model"], delta_color="off")
+        c2.metric("Best open-weight model", f"{best_open['ECI']:.1f}",
+                  f"{best_open['Model']} · {lead['ECI'] - best_open['ECI']:.0f} pts behind", delta_color="off")
+        c3.metric("Open-weight lag", f"about {lag_mo:.0f} months",
+                  f"frontier passed that score in {passed:%b %Y}", delta_color="off")
+        c4.metric("Labs within 5 points of the lead",
+                  str(sum(1 for e in live if lead["ECI"] - e["y"] <= 5)),
+                  "OpenAI, Anthropic, Google", delta_color="off")
+
         st.info(
             "**One number that survives benchmark turnover.** Epoch's index statistically links "
             "scores across many benchmarks, so it keeps working as individual tests saturate. "
             f"The frontier climbed about **{s_pre:.0f} points a year before reasoning models and "
-            f"about {s_post:.0f} a year since** (Epoch's own estimates: 8.0 and 16.6). 2026 models "
-            "sit on or slightly above the faster line: no slowdown, and no confirmed second "
-            "speed-up. GPT-6.2 Astra (174.2) and Claude Fable 5.2 (173.5) are level within their "
-            "error bars. Open-weight models (hollow) trailed the closed frontier by about "
-            "**4 months** in Epoch's May 2026 estimate."
+            f"about {s_post:.0f} a year since** (Epoch's own estimates: 8.0 and 16.6), with no "
+            "slowdown in 2026. Three labs trade the lead; everyone else sits 12 to 17 points back, "
+            "which is roughly where the frontier was seven to eleven months earlier. The best "
+            "open-weight models (hollow markers) now come from Moonshot and DeepSeek and match "
+            "Meta's closed flagship. Alibaba's strongest Qwen models are closed and API-only; its "
+            "best open-weight model scores about 153."
         )
         st.caption(
-            "Frontier points and intervals are from Epoch's data file as downloaded 19 November "
-            "2026. The dashed lines are least-squares fits to those points, computed here. "
-            "Open-weight points come from Epoch's May 2026 table, an earlier data vintage that "
-            "can differ by 1 to 2 points, and none is available for later open-weight models."
+            "Each point is a model that raised its own lab's best score; larger points also set "
+            "a new overall record. All values are from one copy of Epoch's data file, downloaded "
+            "19 November 2026. The dashed lines are least-squares fits to the record-setting "
+            "points, computed here. The open-weight lag is our reading of this file (Epoch's own "
+            "estimate in May 2026 was about 4 months). A lab appears only if Epoch has evaluated "
+            "its models: Microsoft's MAI models are absent because none is in the file, and "
+            "models released in the last few days (Qwen4-Max, Gemini 4 Neon) are not yet scored."
         )
 
     elif view == VIEWS[1]:

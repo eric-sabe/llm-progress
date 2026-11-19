@@ -317,7 +317,7 @@ The Opus 4.6 row carries an entry date of 2025-12-17 in ARC's file, which predat
 
 ### 2.7 Epoch Capabilities Index
 
-ECI is the better multi-year series because one evaluator links many benchmarks statistically. `eci-scores.csv` holds the frontier (running maximum) from Epoch's file as downloaded 19 November 2026, which uses the Bayesian method Epoch published on 4 November 2026 ([Epoch data](https://epoch.ai/data/eci_scores.csv), [methodology post](https://epoch.ai/publications/eci-bayesian-methodology), primary, independent).
+ECI is the better multi-year series because one evaluator links many benchmarks statistically. `eci-scores.csv` holds every model that raised its own lab's best score, for ten labs, with the overall frontier (running maximum) flagged in `Is_Frontier`, all from Epoch's file as downloaded 19 November 2026, which uses the Bayesian method Epoch published on 4 November 2026 ([Epoch data](https://epoch.ai/data/eci_scores.csv), [methodology post](https://epoch.ai/publications/eci-bayesian-methodology), primary, independent).
 
 | Release date | Frontier model | ECI |
 |---|---|---|
@@ -336,7 +336,7 @@ ECI is the better multi-year series because one evaluator links many benchmarks 
 | 2026-11-09 | Claude Fable 5.2 | 173.50 |
 | 2026-11-17 | GPT-6.2 Astra | 174.17 |
 
-Gemini 4 Carbon is at 169.78. The full 23-row frontier is in the CSV.
+The table lists the main frontier steps. The CSV has all 27, including same-day pairs such as GPT-5.2 and GPT-5.2 Pro.
 
 Slopes, all primary from Epoch:
 
@@ -349,7 +349,24 @@ Sources: [ECI frontier trend](https://epoch.ai/data-insights/eci-frontier-trend)
 
 ECI values change with every vintage. GPT-5.5 Pro is 161.71 in the 1 September Data Insight table and 162.77 in the 19 November download, and 2023 models differ by up to about 4 points between those two vintages. GPT-5 is pinned at 150 and Claude 3.5 Sonnet at 130 in every vintage. A plotted line must come from one download.
 
-The CSV's five open-weight rows (DeepSeek V3.2 146.46, Kimi K2.5 148.22, GLM-5 146.62, GLM-5.1 149.94, Kimi K2.6 151.60) come from Epoch's open-closed gap table of 29 May 2026, an older vintage, and are labelled as such in the `Vintage` column ([Epoch](https://epoch.ai/data-insights/open-closed-eci-gap), primary).
+Each lab's best model in the 19 November download ([Epoch data](https://epoch.ai/data/eci_scores.csv), primary, independent):
+
+| Lab | Best model | Released | ECI | Weights |
+|---|---|---|---|---|
+| OpenAI | GPT-6.2 Astra | 2026-11-17 | 174.17 | Closed |
+| Anthropic | Claude Fable 5.2 | 2026-11-09 | 173.50 | Closed |
+| Google | Gemini 4 Carbon | 2026-11-10 | 169.78 | Closed |
+| Meta | Muse Wonder | 2026-10-12 | 161.74 | Closed |
+| Moonshot | Kimi K3.1 Pro | 2026-10-23 | 161.36 | Open (restricted use) |
+| DeepSeek | DeepSeek V4.1 Flash 1017 | 2026-10-17 | 159.40 | Open (unrestricted) |
+| xAI | Grok 4.6 | 2026-08-12 | 157.82 | Closed |
+| Alibaba | Qwen 3.8 Max | 2026-08-02 | 157.59 | Closed |
+| Z.ai | GLM-5.3 | 2026-08-14 | 157.10 | Open (restricted use) |
+| Microsoft | Phi-4 | 2024-12-12 | 129.24 | Open |
+
+Three labs sit within 5 points of the lead. The rest are 12 to 17 points back, about where the frontier was seven to eleven months earlier. The best open-weight model, Kimi K3.1 Pro, trails the leader by 12.8 points; the frontier first passed its score on 23 April 2026, a lag of about six months. That lag is computed from this file and is not an Epoch estimate (Epoch's own figure in May 2026 was about 4 months, section 1.5). Alibaba's strongest Qwen models are closed and API-only; its best open-weight model is Qwen 3.8 27B at 152.65. Epoch's file holds 34 Alibaba models.
+
+Two absences are worth stating. No Microsoft MAI model is in Epoch's file: MAI-Thinking-1 is in private preview, and the only MAI score found anywhere is Microsoft's own 51% on SWE-bench Pro for MAI-Code-1-Flash. Models released in the days before the download (Qwen4-Max, Gemini 4 Neon) are not yet scored. Grok 4.7 scores 156.43, below Grok 4.6, so it does not appear as xAI's best.
 
 The Artificial Analysis index was re-based three times in 2026 (v4.1, v4.2, v4.3, then v5) and its values are comparable only within a version.
 
@@ -815,7 +832,7 @@ Not researched at all: xAI and Meta vendor benchmark tables, an independent GPQA
 |---|---|---|---|
 | `model-release-timeline.csv` | Release Cadence | Anthropic: https://platform.claude.com/docs/en/release-notes/overview . OpenAI: https://developers.openai.com/api/docs/changelog . Google: https://ai.google.dev/gemini-api/docs/changelog and https://ai.google.dev/gemini-api/docs/models . xAI: https://docs.x.ai/docs/release-notes . Z.ai: https://docs.z.ai/release-notes/new-released . Alibaba: https://www.alibabacloud.com/help/en/model-studio/newly-released-models . Mistral: https://docs.mistral.ai/getting-started/changelog . Meta: https://about.fb.com/news/ and https://research.meta.ai/blog/ . Microsoft: https://microsoft.ai/news/ . Weights: https://huggingface.co/deepseek-ai , https://huggingface.co/api/models?author=deepseek-ai&search=V4 (change author and search for other labs), https://huggingface.co/moonshotai , https://huggingface.co/zai-org | Epoch's `model_metadata.csv` inside https://epoch.ai/data/benchmark_data.zip is a good cross-check for dates and weight status. DeepSeek's own changelog refused connections |
 | `benchmark-lifespans.csv` | Benchmark Lifespans | Introductions: arXiv first-submission dates and `benchmark_metadata.csv` in https://epoch.ai/data/benchmark_data.zip . Endings: https://www.tbench.ai/news , https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-2 and later changelogs, https://epoch.ai/benchmarks/swe-bench-pro/review and sibling review pages, Anthropic system cards, archived OpenAI posts | Per-benchmark score histories for threshold rules are in the Epoch zip (`mmlu_external.csv`, `math_level_5.csv`, `frontiermath_tier_4_v2.csv`, `osworld_2_external.csv`)  The `Epoch_Review` column holds Epoch's verdict and date from https://epoch.ai/data/benchmark-reviews-documentation/included-benchmarks ; refresh every row from that registry |
-| `eci-scores.csv` | Progress Measures | https://epoch.ai/data/eci_scores.csv (take the running maximum by release date). Slopes: https://epoch.ai/data-insights/eci-frontier-trend and https://epoch.ai/publications/eci-bayesian-methodology . Open-weight gap: https://epoch.ai/data-insights/open-closed-eci-gap | Replace all frontier rows at once. Rebuild the open-weight rows from the same download so the file holds one vintage |
+| `eci-scores.csv` | Progress Measures | Download https://epoch.ai/data/eci_scores.csv (also inside https://epoch.ai/data/benchmark_data.zip), then run `python scripts/build_eci_scores.py <file> <download date>`. Slopes: https://epoch.ai/data-insights/eci-frontier-trend and https://epoch.ai/publications/eci-bayesian-methodology . Open-weight gap: https://epoch.ai/data-insights/open-closed-eci-gap | The script rewrites the whole table from the one file, so vintages cannot mix. To add a lab, add it to `LABS` in the script and to `LAB_ORDER` and `ORG_COLORS` in `app.py` |
 | `arc-agi-scores.csv` | Progress Measures | https://arcprize.org/media/data/evaluations.json and https://arcprize.org/media/data/models.json | The leaderboard page renders client-side, so fetch the JSON. Use the Verified board only (semi-private sets). Keep the best configuration per model, and Standard and Provider Adapter in separate columns |
 | `model-benchmark-scores.csv` | Progress Measures (retired series) | Anthropic system cards index: https://www.anthropic.com/system-cards (download the PDFs and search the text). OpenAI launch posts through the Internet Archive. Google model cards: https://deepmind.google/models/model-cards/ . Independent SWE-bench Verified: `swe_bench_verified.csv` in the Epoch zip | The legacy columns are closed. Add a row only if a new launch reports one of them. Anthropic launch-post tables are images, so use the system card |
 | `vendor-vs-independent.csv` | Who Measured It? | Scale: https://labs.scale.com/leaderboard/swe_bench_pro_public . ARC Prize JSON. Lab system cards and model cards for each side of a lab-against-lab pair. Vals for Terminal-Bench-Science | Add a pair only when both values are for the same model and benchmark version. Note Scale's capped-cost rows |
@@ -846,11 +863,7 @@ Jobs & Education metric cards (hard-coded): NACE at https://naceweb.org/ , CRA T
 
 ### 8.5 Known gaps between the CSVs and verified values
 
-The data tables were brought into line with the verified values on 19 November 2026. One gap remains.
-
-| CSV and row | CSV value | What to do |
-|---|---|---|
-| `eci-scores.csv`, open-weight rows | Epoch table of 2026-05-29 | A different vintage from the frontier rows in the same file (download of 2026-11-19). Rebuild the open-weight rows from the same `eci_scores.csv` download as the frontier rows |
+None as of 19 November 2026. The data tables match the verified values, and `eci-scores.csv` is built from a single Epoch download.
 
 ### 8.6 Aggregators and secondary sites that gave wrong numbers
 
