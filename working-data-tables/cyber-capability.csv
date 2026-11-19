@@ -1,0 +1,31 @@
+Benchmark,Date,Model,Org,Score,Reported_in,Source
+CyBench,2024-02-15,Gemini 1.5 Pro,Google,7.5,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2024-02-29,Claude 3 Opus,Anthropic,10.0,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2024-04-17,Mixtral 8x22B,Mistral,7.5,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2024-04-18,Llama 3 70B,Meta,5.0,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2024-06-20,Claude 3.5 Sonnet,Anthropic,17.5,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2024-07-23,Llama 3.1 405B,Meta,7.5,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2024-09-12,o1-preview,OpenAI,10.0,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2024-09-12,o1-mini,OpenAI,10.0,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2024-11-20,GPT-4o,OpenAI,12.5,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2025-01-31,o3-mini,OpenAI,22.5,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2025-02-24,Claude 3.7 Sonnet,Anthropic,20.0,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2025-02-27,GPT-4.5,OpenAI,17.5,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2025-05-22,Claude Opus 4,Anthropic,38.0,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2025-05-22,Claude Sonnet 4,Anthropic,35.0,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2025-07-09,Grok 4,xAI,43.0,Grok 4 Model Card,https://epoch.ai/data/benchmark_data.zip
+CyBench,2025-08-05,Claude Opus 4.1,Anthropic,42.0,Cybench leaderboard,https://epoch.ai/data/benchmark_data.zip
+CyBench,2025-09-19,Grok 4 Fast,xAI,30.0,Grok 4 Fast Model Card,https://epoch.ai/data/benchmark_data.zip
+CyBench,2025-09-29,Claude Sonnet 4.5,Anthropic,60.0,Opus 4.5 System Card,https://epoch.ai/data/benchmark_data.zip
+CyBench,2025-11-17,Grok 4.1,xAI,39.0,Grok 4.1 Model Card,https://epoch.ai/data/benchmark_data.zip
+CyBench,2025-11-24,Claude Opus 4.5,Anthropic,82.0,Opus 4.5 System Card,https://epoch.ai/data/benchmark_data.zip
+CyBench,2026-02-05,Claude Opus 4.6,Anthropic,93.0,Opus 4.6 System Card,https://epoch.ai/data/benchmark_data.zip
+ExploitBench,2025-10-15,Claude Haiku 4.5,Anthropic,13.7,ExploitBench leaderboard,https://epoch.ai/data/benchmark_data.zip
+ExploitBench,2026-02-17,Claude Sonnet 4.6,Anthropic,23.6,ExploitBench leaderboard,https://epoch.ai/data/benchmark_data.zip
+ExploitBench,2026-02-19,Gemini 3.1 Pro,Google,26.1,ExploitBench leaderboard,https://epoch.ai/data/benchmark_data.zip
+ExploitBench,2026-03-18,MiniMax M2.7,MiniMax,13.3,ExploitBench leaderboard,https://epoch.ai/data/benchmark_data.zip
+ExploitBench,2026-04-07,Claude Mythos Preview,Anthropic,73.8,ExploitBench leaderboard,https://epoch.ai/data/benchmark_data.zip
+ExploitBench,2026-04-07,GLM-5.1,Z.ai,18.1,ExploitBench leaderboard,https://epoch.ai/data/benchmark_data.zip
+ExploitBench,2026-04-16,Claude Opus 4.7,Anthropic,26.5,ExploitBench leaderboard,https://epoch.ai/data/benchmark_data.zip
+ExploitBench,2026-04-20,Kimi K2.6,Moonshot,18.4,ExploitBench leaderboard,https://epoch.ai/data/benchmark_data.zip
+ExploitBench,2026-04-23,GPT-5.5,OpenAI,47.4,ExploitBench leaderboard,https://epoch.ai/data/benchmark_data.zip

@@ -1,2 +1,2 @@
 
-- `pricing.md`: API list prices by provider and Artificial Analysis cost-to-run figures, read 19 November 2026.
+- `benchmark_catalog_draft.csv`: the compiled draft behind `working-data-tables/benchmark-catalog.csv`, including three rows that could not be described.
