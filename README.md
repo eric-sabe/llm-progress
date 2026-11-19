@@ -1,18 +1,18 @@
-# Guest Lecture Visualizations
+# The Pace of Change in Agentic Coding
 
-Interactive Streamlit visualizations exploring the pace of change in agentic coding and AI progress.
-
-Prepared for NCSU CSC510. Data revised 19 November 2026.
+Interactive charts on how fast AI coding capability is moving, how it is measured, what it costs and what has changed in practice. Prepared as a guest lecture for NCSU CSC510. Data revised 19 November 2026.
 
 **Live site:** https://eric-sabe.github.io/llm-progress/
+
+The same content runs two ways from one source file: as a static site on GitHub Pages (ten pages, one per tab) and as a Streamlit app for local use.
 
 ## The story in one paragraph
 
 Capability kept climbing through 2026, but the instruments used to show it broke. Every benchmark the earlier version of this deck charted has been retired, METR's time-horizon series ended above its own reliability limit, and vendor and independent scores have drifted apart. Meanwhile real-world evidence arrived: agents now start more than 40% of GitHub pull requests, delivered work has moved much less than activity, and entry-level hiring in AI-exposed jobs has narrowed.
 
-## Tabs
+## Pages
 
-| Tab | What it shows |
+| Page | What it shows |
 |---|---|
 | 📅 Release Cadence | Swim-lane timeline of model releases, Feb 2024 to Nov 2026, across ten labs (US labs plus DeepSeek, Moonshot, Z.ai, Alibaba). Diamonds mark access-gated releases. A stacked bar counts releases per quarter. A cyber-capability panel (CyBench and ExploitBench) shows what lay behind the gating. |
 | ⏳ Benchmark Lifespans | One bar per benchmark from introduction to saturation, discrediting or replacement. Average life fell from about 46 months (2019 to 2021 cohort) to 22 (2023 to 2024) to 12 (2025). Benchmarks still in use carry Epoch's review verdict. |
@@ -23,11 +23,11 @@ Capability kept climbing through 2026, but the instruments used to show it broke
 | 🏗 Benchmarks vs Reality | Share of code from AI (GitHub measurement and company statements), firm-level productivity studies split into activity, delivered work and friction, and METR's controlled trials. |
 | 🎓 Jobs & Education | Indeed software postings index, Stanford's entry-level employment gap, CS salary, enrollment and BLS projection figures. |
 | 🎯 Prediction Scorecard | Dated predictions from industry figures with a verdict and what happened. |
-| 📚 Benchmark Guide | A reference list of 171 benchmarks in 14 categories: what each asks a model to do, who runs it, its status and Epoch's review verdict, with a category filter. |
+| 📚 Benchmark Guide | A reference list of about 170 benchmarks in 14 categories: what each asks a model to do, who runs it, its status and Epoch's review verdict, with a category filter. |
 
 ## Data
 
-All chart data lives in `working-data-tables/`, one CSV per chart, each row with a source link or a source-quality label.
+All chart data lives in `working-data-tables/` as CSV files. Each row carries a source link, a source-quality label, or both. A file can feed more than one chart on its page.
 
 | File | Used by |
 |---|---|
@@ -41,15 +41,15 @@ All chart data lives in `working-data-tables/`, one CSV per chart, each row with
 | `labor-series.csv` | Jobs & Education |
 | `prediction-scorecard.csv` | Prediction Scorecard |
 | `benchmark-catalog.csv` | Benchmark Guide |
-| `publications-agentic.csv` | Not charted; the earlier reading list |
+| `publications-agentic.csv`, `publications-agentic.xlsx` | Not charted; the reading list from the first version |
 
-The research behind the November 2026 revision, including a table of open conflicts and figures that still need checking against primary sources, is in `reports/LLM progress update late 2026.md`. Working notes are in `research_notes/`; `verification.md` there records the later check of flagged figures against primary sources and supersedes the report where they differ.
+The research behind the November 2026 revision is in `reports/LLM progress update late 2026.md`. It is the single authoritative write-up: every figure with its source and source quality, a table of claims that are still unverified, and a runbook for the next refresh that says where each data file comes from. Raw working notes are kept in `research_notes/` for provenance only; they contain superseded figures.
 
 ### Conventions and caveats
 
-- **Release dates** are first public availability, from lab changelogs where one exists. The `Source_Quality` column says when a date rests on press coverage or when the lab publishes only a month.
+- **Release dates** are first public availability, from lab changelogs where one exists. The `Source_Quality` column is `primary` (lab's own page), `secondary` (press coverage) or `legacy` (carried over from the first version and not re-checked).
 - **METR values** are copied from METR's published Time Horizon 1.1 data file. Models measured only on the older TH 1.0 suite are kept in a separate series and hidden by default.
-- **Vendor figures** are the lab's own numbers and were mostly read through secondary sources. `Confidence` in the score table is `confirmed`, `reported` or `unverified`; unverified points are drawn hollow.
+- **Vendor figures** are the lab's own numbers. `Confidence` in the score table is `confirmed` (read on the lab's page or system card), `reported` (read through a secondary source) or `estimated`. On the retired-benchmark charts, hollow markers are MMMLU, a different test from MMLU.
 - **Benchmark end dates** and the cohort averages are judgment calls computed from the lifespans table, not a published statistic.
 - **Company code-share figures** are executive statements with differing definitions.
 - **Prices** are each provider's standard list rate for the base context window, with no batch, cache or volume discount. "Blended" means three parts input to one part output.
@@ -62,7 +62,7 @@ The research behind the November 2026 revision, including a table of open confli
 
 ### Generated tables
 
-Three tables are built by scripts from files you download; the rest are edited by hand.
+Two tables and one column are built by scripts from files you download. Everything else is edited by hand.
 
 ```bash
 python scripts/build_eci_scores.py path/to/eci_scores.csv 2026-11-19               # eci-scores.csv
@@ -72,10 +72,14 @@ python scripts/build_arc_cost.py evaluations.json models.json 2026-11-19        
 
 ## Running Locally
 
+Tested with Python 3.12, which is also what the GitHub Actions build uses.
+
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+The app caches the data files, so restart it after editing a CSV.
 
 ## Published site
 
@@ -88,6 +92,19 @@ python -m http.server -d site   # preview at http://localhost:8000
 
 Every push and pull request builds the site in GitHub Actions (`.github/workflows/pages.yml`), so a broken data file or chart fails the check. Pushes to `main` publish it.
 
-Each tab has its own address, for linking from slides: `index.html` (Release Cadence), `benchmark-lifespans.html`, `progress-measures.html`, `who-measured-it.html`, `task-time-horizons.html`, `benchmarks-vs-reality.html`, `cost-value.html`, `jobs-education.html`, `prediction-scorecard.html`, `benchmark-guide.html`. The pages need no server once loaded, and the `site` folder works offline if you serve it locally.
+Each page has its own address, for linking from slides: `index.html` (Release Cadence), `benchmark-lifespans.html`, `progress-measures.html`, `who-measured-it.html`, `task-time-horizons.html`, `cost-value.html`, `benchmarks-vs-reality.html`, `jobs-education.html`, `prediction-scorecard.html`, `benchmark-guide.html`. The pages need no server once loaded, and the `site` folder works offline if you serve it locally.
 
 If `app.py` starts using a Streamlit call the builder does not know, the build stops and names the call; add it to `Container` in `build_site.py`.
+
+## Repository layout
+
+| Path | What it is |
+|---|---|
+| `app.py` | Every chart and every sentence. The single source for both the Streamlit app and the site |
+| `build_site.py` | Turns `app.py` into the static site in `site/` (not committed) |
+| `working-data-tables/` | The data behind the charts |
+| `scripts/` | Builders for the generated tables |
+| `reports/` | The consolidated research report and refresh runbook |
+| `research_notes/` | Raw working notes, kept for provenance |
+| `initial-data-tables/` | The score table from the first version, kept for reference and not used |
+| `.github/workflows/pages.yml` | Builds the site on every push and pull request; publishes from `main` |
